@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="499.0" prefWidth="870.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.RegisterAdmins">
+    <children>
+        <Pane prefHeight="499.0" prefWidth="870.0" stylesheets="@css/styles.css">
+            <children>
+                <Pane layoutX="48.0" layoutY="16.0" prefHeight="437.0" prefWidth="310.0" style="-fx-border-width: 1px; -fx-border-color: lightgray; -fx-background-color: #f3f3f6;">
+                    <children>
+                        <MFXButton buttonType="RAISED" layoutX="133.0" layoutY="380.0" prefHeight="33.0" prefWidth="81.0" style="-fx-border-radius: 2px; -fx-border-color: lightgray; -fx-background-color: white;" stylesheets="@css/MFXButton.css" text="Submit">
+                            <font>
+                                <Font name="Roboto Light" size="12.0" />
+                            </font></MFXButton>
+                        <MFXButton buttonType="RAISED" layoutX="41.0" layoutY="380.0" prefHeight="33.0" prefWidth="81.0" style="-fx-border-radius: 2px; -fx-border-color: lightgray; -fx-background-color: white;" stylesheets="@css/MFXButton.css" text="Cancel">
+                            <font>
+                                <Font name="Roboto Light" size="12.0" />
+                            </font>
+                        </MFXButton>
+                        <MFXTextField floatingText="Last Name " graphicTextGap="3.0" layoutX="41.0" layoutY="221.0" prefHeight="41.0" prefWidth="226.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5; -fx-text-fill: #2a313a;" stylesheets="@css/MFXTextField.css">
+                            <font>
+                                <Font size="10.0" />
+                            </font>
+                        </MFXTextField>
+                        <MFXTextField floatingText="First Name" graphicTextGap="3.0" layoutX="41.0" layoutY="168.0" prefHeight="41.0" prefWidth="226.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5; -fx-text-fill: #2a313a;" stylesheets="@css/MFXTextField.css">
+                            <font>
+                                <Font size="10.0" />
+                            </font>
+                        </MFXTextField>
+                        <ImageView fitHeight="122.0" fitWidth="130.0" layoutX="157.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@img/afro.png" />
+                            </image>
+                        </ImageView>
+                  <MFXTextField floatingText="Position" graphicTextGap="3.0" layoutX="41.0" layoutY="325.0" prefHeight="41.0" prefWidth="110.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5; -fx-text-fill: #2a313a;" stylesheets="@css/MFXTextField.css">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </MFXTextField>
+                  <MFXTextField floatingText="ID Number" graphicTextGap="3.0" layoutX="41.0" layoutY="273.0" prefHeight="41.0" prefWidth="226.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5; -fx-text-fill: #2a313a;" stylesheets="@css/MFXTextField.css">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </MFXTextField>
+                  <MFXTextField floatingText="Sex" graphicTextGap="3.0" layoutX="157.0" layoutY="325.0" prefHeight="41.0" prefWidth="110.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5; -fx-text-fill: #2a313a;" stylesheets="@css/MFXTextField.css">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </MFXTextField>
+                  <MFXButton layoutX="41.0" layoutY="118.0" prefHeight="27.0" prefWidth="75.0" style="-fx-border-radius: 4px; -fx-border-color: gray; -fx-background-color: white;" stylesheets="@css/MFXButton.css" text="Import">
+                     <font>
+                        <Font name="Roboto Light" size="12.0" />
+                     </font>
+                  </MFXButton>
+                    </children>
+                </Pane>
+                <ImageView fitHeight="437.0" fitWidth="435.0" layoutX="402.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/bird1x1.jpg" />
+                    </image>
+                    <effect>
+                        <GaussianBlur radius="4.07" />
+                    </effect>
+                </ImageView>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

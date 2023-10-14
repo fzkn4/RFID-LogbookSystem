@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXDatePicker?>
+<?import io.github.palexdev.materialfx.controls.MFXToggleButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="431.0" prefWidth="831.0" style="-fx-background-color: #f3f3f6;" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.LabLogs">
+    <children>
+          <StackPane prefHeight="150.0" prefWidth="200.0">
+              <children>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                      <children>
+                          <Pane layoutX="290.0" layoutY="14.0" prefHeight="52.0" prefWidth="540.0" style="-fx-background-color: white; -fx-border-color: lightgray;">
+                              <children>
+                                  <MFXToggleButton fx:id="toGraph" layoutX="14.0" layoutY="7.0" length="20.0" onMouseClicked="#showGraph" radius="7.0" stylesheets="@css/MFXToggleButton.css" text="Graph" />
+                                  <MFXDatePicker alignment="CENTER" layoutX="358.0" layoutY="6.0" prefHeight="38.0" prefWidth="174.0" promptText="Choose Date..." style="-fx-border-radius: 0px; -fx-background-radius: 0px; -fx-text-fill: #444444;" stylesheets="@css/MFXDatePicker.css">
+                                      <font>
+                                          <Font size="10.0" />
+                                      </font>
+                                  </MFXDatePicker>
+                              </children>
+                          </Pane>
+                          <TableView layoutY="14.0" prefHeight="415.0" prefWidth="272.0" stylesheets="@css/tableStyle.css">
+                              <columns>
+                                  <TableColumn prefWidth="131.0" style="-fx-background-color: #f3f3f6;" text="Lab Name" />
+                                  <TableColumn prefWidth="139.0" style="-fx-background-color: #f3f3f6;" text="Lab ID" />
+                              </columns>
+                          </TableView>
+                      </children>
+                  </Pane>
+              </children>
+          </StackPane>
+      <Pane layoutX="289.0" layoutY="75.0" prefHeight="352.0" prefWidth="540.0">
+         <children>
+                      <StackPane fx:id="labSummaryStack" prefHeight="350.0" prefWidth="540.0">
+               <children>
+                   <TableView prefHeight="350.0" prefWidth="359.0" stylesheets="@css/tableStyle.css">
+                       <columns>
+                           <TableColumn prefWidth="107.0" style="-fx-background-color: #f3f3f6;" text="Last Name" />
+                        <TableColumn prefWidth="115.0" style="-fx-background-color: #f3f3f6;" text="First Name" />
+                        <TableColumn style="-fx-background-color: #f3f3f6;" text="ID" />
+                        <TableColumn prefWidth="62.0" style="-fx-background-color: #f3f3f6;" text="Dept." />
+                        <TableColumn prefWidth="87.0" style="-fx-background-color: #f3f3f6;" text="Time In" />
+                        <TableColumn prefWidth="87.0" style="-fx-background-color: #f3f3f6;" text="Time Out" />
+                       </columns>
+                   </TableView>
+               </children></StackPane>
+         </children>
+      </Pane>
+    </children>
+</AnchorPane>

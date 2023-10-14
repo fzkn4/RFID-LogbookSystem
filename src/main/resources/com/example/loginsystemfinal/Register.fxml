@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXComboBox?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="555.0" prefWidth="848.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.Register">
+    <children>
+        <BorderPane prefHeight="555.0" prefWidth="865.0" stylesheets="@css/styles.css">
+            <center>
+            <StackPane fx:id="registerStackpane" prefHeight="499.0" prefWidth="857.0" BorderPane.alignment="CENTER">
+               <children>
+                      <Pane prefHeight="499.0" prefWidth="858.0" stylesheets="@css/styles.css">
+                          <children>
+                              <ImageView fitHeight="484.0" fitWidth="315.0" layoutX="533.0" layoutY="3.0" opacity="0.66" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                      <Image url="@img/bird.jpg" />
+                                  </image>
+                                  <effect>
+                                      <GaussianBlur radius="4.07" />
+                                  </effect>
+                              </ImageView>
+                              <Pane layoutX="38.0" layoutY="2.0" prefHeight="475.0" prefWidth="467.0" style="-fx-border-width: 1px; -fx-border-color: lightgray; -fx-background-color: #f3f3f6;">
+                                  <children>
+                                      <MFXButton buttonType="RAISED" layoutX="365.0" layoutY="428.0" prefHeight="33.0" prefWidth="81.0" style="-fx-border-radius: 2px; -fx-border-color: lightgray; -fx-background-color: white;" stylesheets="@css/MFXButton.css" text="Submit">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font>
+                              </MFXButton>
+                                    <MFXButton buttonType="RAISED" depthLevel="LEVEL1" layoutX="386.0" layoutY="181.0" prefHeight="28.0" prefWidth="60.0" style="-fx-border-radius: 2px; -fx-border-color: lightgray; -fx-background-color: white;" stylesheets="@css/MFXButton.css" text="import">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font>
+                              </MFXButton>
+                                    <ImageView fx:id="profileImage" fitHeight="136.0" fitWidth="278.0" layoutX="300.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" styleClass="image-border">
+                                        <image>
+                                            <Image url="@img/afro.png" />
+                                        </image>
+                                    </ImageView>
+                                    <MFXTextField floatingText="First Name" graphicTextGap="3.0" layoutX="38.0" layoutY="37.0" prefHeight="41.0" prefWidth="226.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5; -fx-text-fill: #2a313a;" stylesheets="@css/MFXTextField.css">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </MFXTextField>
+                                    <MFXTextField floatingText="Last Name" graphicTextGap="3.0" layoutX="37.0" layoutY="93.0" prefHeight="32.0" prefWidth="227.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5;" stylesheets="@css/MFXTextField.css">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </MFXTextField>
+                                    <MFXTextField floatingText="Course " graphicTextGap="3.0" layoutX="37.0" layoutY="155.0" prefHeight="38.0" prefWidth="106.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5;" stylesheets="@css/MFXTextField.css">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </MFXTextField>
+                                    <MFXTextField floatingText="Year" graphicTextGap="3.0" layoutX="159.0" layoutY="155.0" prefHeight="38.0" prefWidth="106.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5;" stylesheets="@css/MFXTextField.css">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </MFXTextField>
+                                    <MFXTextField floatingText="ID Number" graphicTextGap="3.0" layoutX="40.0" layoutY="222.0" prefHeight="38.0" prefWidth="224.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5;" stylesheets="@css/MFXTextField.css">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </MFXTextField>
+                                    <MFXTextField floatingText="Phone Number" graphicTextGap="3.0" layoutX="38.0" layoutY="291.0" prefHeight="41.0" prefWidth="227.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5;" stylesheets="@css/MFXTextField.css">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </MFXTextField>
+                                    <MFXTextField floatingText="Sex" graphicTextGap="3.0" layoutX="38.0" layoutY="358.0" prefHeight="38.0" prefWidth="106.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5;" stylesheets="@css/MFXTextField.css">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </MFXTextField>
+                                    <MFXTextField floatingText="Department" graphicTextGap="3.0" layoutX="158.0" layoutY="358.0" prefHeight="38.0" prefWidth="106.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5;" stylesheets="@css/MFXTextField.css">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </MFXTextField>
+                              <MFXButton buttonType="RAISED" layoutX="273.0" layoutY="428.0" prefHeight="33.0" prefWidth="81.0" style="-fx-border-radius: 2px; -fx-border-color: lightgray; -fx-background-color: white;" stylesheets="@css/MFXButton.css" text="Cancel">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font>
+                              </MFXButton>
+                                  </children>
+                              </Pane>
+                          </children>
+                      </Pane>
+               </children>
+            </StackPane>
+            </center>
+         <top>
+            <Pane prefHeight="61.0" prefWidth="870.0" BorderPane.alignment="CENTER">
+               <children>
+                      <Text layoutX="380.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Registration Form">
+                          <font>
+                              <Font name="Roboto Light" size="14.0" />
+                          </font>
+                      </Text>
+                  <MFXComboBox fx:id="options" alignment="CENTER" floatMode="DISABLED" layoutX="37.0" layoutY="18.0" onAction="#selectedOption" stylesheets="@css/MFXComboBox.css" text="Student" />
+               </children>
+            </Pane>
+         </top>
+        </BorderPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="500.0" style="-fx-background-color: #222831;" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.loginPageController">
+    <children>
+        <MFXButton fx:id="login" buttonType="RAISED" depthLevel="LEVEL4" layoutX="43.0" layoutY="185.0" onMouseClicked="#gotoValidate" prefHeight="38.0" prefWidth="80.0" rippleColor="#313945" style="-fx-background-color: #545d6d; -fx-text-fill: white; -fx-font-family: Open Sans Regular;" stylesheets="@css/MFXButton.css" text="Login" />
+        <MFXButton fx:id="operate" buttonType="RAISED" depthLevel="LEVEL4" layoutX="135.0" layoutY="185.0" onMouseClicked="#gotoOperate" prefHeight="38.0" prefWidth="80.0" rippleColor="#313945" style="-fx-background-color: #545d6d; -fx-text-fill: white; -fx-font-family: Open Sans Regular;" stylesheets="@css/MFXButton.css" text="Operate" />
+        <Pane layoutX="250.0" prefHeight="370.0" prefWidth="250.0" style="-fx-background-color: white;">
+            <children>
+                <MFXButton fx:id="close" buttonType="RAISED" layoutX="214.0" layoutY="14.0" onAction="#closeWindow" style="-fx-background-color: #e74343; -fx-text-fill: white;" text="x" />
+                <ImageView fitHeight="200.0" fitWidth="250.0" layoutX="35.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/afro.png" />
+                    </image>
+                </ImageView>
+                <Text layoutX="60.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Logbook System" textAlignment="CENTER" wrappingWidth="130.0">
+                    <font>
+                        <Font name="Roboto Light" size="17.0" />
+                    </font>
+                </Text>
+            </children>
+        </Pane>
+        <Text fill="WHITE" layoutX="52.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Company Name" textAlignment="CENTER" wrappingWidth="153.0">
+            <font>
+                <Font name="Roboto Light" size="18.0" />
+            </font>
+        </Text>
+    </children>
+</AnchorPane>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="350.0" prefWidth="359.0" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.StudentLogsTable">
+   <children>
+       <TableView prefHeight="350.0" prefWidth="359.0" stylesheets="@css/tableStyle.css">
+           <columns>
+               <TableColumn prefWidth="121.0" style="-fx-background-color: #f3f3f6;" text="Lab Name" />
+               <TableColumn prefWidth="71.0" style="-fx-background-color: #f3f3f6;" text="Lab ID" />
+               <TableColumn prefWidth="74.0" style="-fx-background-color: #f3f3f6;" text="Time In" />
+               <TableColumn prefWidth="100.0" style="-fx-background-color: #f3f3f6;" text="Time Out" />
+           </columns>
+       </TableView>
+   </children>
+</AnchorPane>

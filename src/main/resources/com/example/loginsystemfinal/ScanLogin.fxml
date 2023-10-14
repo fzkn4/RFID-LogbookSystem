@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="127.0" prefWidth="243.0" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.ScanLogin">
+   <children>
+      <Text layoutX="37.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-header" text="Please Scan your ID" textAlignment="CENTER" wrappingWidth="168.458984375">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <MFXButton buttonType="RAISED" layoutX="74.0" layoutY="64.0" prefHeight="35.0" prefWidth="95.0" style="-fx-background-color: #2a313a; -fx-background-radius: 0px; -fx-border-radius: 0px; -fx-font-family: Open Sans Regular; -fx-text-fill: white;" text="Cancel" />
+   </children>
+</AnchorPane>

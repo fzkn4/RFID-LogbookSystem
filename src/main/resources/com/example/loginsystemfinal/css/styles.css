@@ -1,0 +1,15 @@
+@import "Fonts.css";
+
+.text{
+    -fx-font-family: "Roboto Light";
+}
+.text-header{
+    -fx-font-family: "Roboto Light";
+    -fx-font-size: 15px;
+}
+.text-bold{
+    -fx-font-family: "Roboto Bold";
+}
+.pane{
+    -fx-focus-color:  lightgray;
+}
