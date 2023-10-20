@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1002.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.MainPage">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#keyPressed" prefHeight="600.0" prefWidth="1002.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.MainPage">
     <children>
         <Pane prefHeight="600.0" prefWidth="138.0" style="-fx-background-color: #2a313a;">
             <children>
@@ -92,6 +92,6 @@
             </children>
         </StackPane>
         <MFXButton fx:id="close" buttonType="RAISED" depthLevel="LEVEL1" layoutX="965.0" layoutY="8.0" onAction="#quit" style="-fx-background-color: #e74343; -fx-text-fill: white; -fx-text-alignment: center;" text="x" textAlignment="JUSTIFY" textFill="RED" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="8.0" />
-        <MFXButton fx:id="logoutbtn" buttonType="RAISED" depthLevel="LEVEL1" layoutX="886.0" layoutY="8.0" onAction="#confirmation" onKeyPressed="#onKeyPressed_logout" prefHeight="25.0" prefWidth="68.0" style="-fx-background-color: white; -fx-text-fill: black; -fx-text-alignment: center; -fx-border-width: 0;" text="Logout" textAlignment="JUSTIFY" textFill="RED" />
+        <MFXButton fx:id="logoutbtn" buttonType="RAISED" depthLevel="LEVEL1" layoutX="886.0" layoutY="8.0" onAction="#confirmation" prefHeight="25.0" prefWidth="68.0" style="-fx-background-color: white; -fx-text-fill: black; -fx-text-alignment: center; -fx-border-width: 0;" text="Logout" textAlignment="JUSTIFY" textFill="RED" />
     </children>
 </AnchorPane>

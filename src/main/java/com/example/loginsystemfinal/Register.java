@@ -9,13 +9,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 
 public class Register implements Initializable {
 
@@ -34,20 +34,33 @@ public class Register implements Initializable {
 
             //adding to stack pane
             registerStackpane.getChildren().add(root);
+            //calling remove stack
+            Functions.remove(registerStackpane);
+
         }else if(options.getValue().equals("Labs")){
             Parent root = FXMLLoader.load(getClass().getResource("RegisterLabs.fxml"));
             Scene scene = options.getScene();
 
             //adding to stack pane
             registerStackpane.getChildren().add(root);
+            //calling remove stack
+            Functions.remove(registerStackpane);
+
+
         }else if(options.getValue().equals("Admins")){
             Parent root = FXMLLoader.load(getClass().getResource("RegisterAdmins.fxml"));
             Scene scene = options.getScene();
 
             //adding to stack pane
             registerStackpane.getChildren().add(root);
+            //calling remove stack
+            Functions.remove(registerStackpane);
+
         }
     }
+
+    //removing scenes on stackpane
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -58,6 +71,5 @@ public class Register implements Initializable {
                         "Admins"
                 );
         options.getItems().addAll(option);
-
     }
 }

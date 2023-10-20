@@ -5,8 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="127.0" prefWidth="243.0" style="-fx-background-color: #f3f3f6; -fx-border-color: lightgray;" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.LabInput">
+<AnchorPane onKeyPressed="#keyPressed" prefHeight="127.0" prefWidth="243.0" style="-fx-background-color: #f3f3f6; -fx-border-color: lightgray;" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.LabInput">
    <children>
       <Text layoutX="70.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-header" text="Enter Lab Name" />
       <MFXTextField fx:id="input" alignment="CENTER" floatMode="DISABLED" layoutX="60.0" layoutY="39.0" prefHeight="30.0" prefWidth="124.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px;" stylesheets="@css/MFXTextField.css" />

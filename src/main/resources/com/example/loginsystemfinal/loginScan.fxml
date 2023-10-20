@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane onKeyPressed="#gotoValidationFailed" prefHeight="127.0" prefWidth="243.0" style="-fx-background-color: white; -fx-border-color: lightgray;" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.LoginScan">
+    <children>
+        <Text layoutX="66.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-header" text="Please Scan your ID">
+            <font>
+                <Font name="Roboto Light" size="22.0" />
+            </font>
+        </Text>
+        <MFXButton fx:id="Cancel" buttonType="RAISED" layoutX="82.0" layoutY="62.0" onAction="#gotoValidation" onKeyPressed="#gotoMain_key" onMouseClicked="#gotoMain" prefHeight="30.0" prefWidth="79.0" rippleColor="#a2a7ae" style="-fx-background-color: #2a313a; -fx-text-fill: white; -fx-background-radius: 0px; -fx-border-radius: 0px; -fx-font-family: Open Sans Regular;" text="Cancel" textFill="WHITE" />
+    </children>
+</AnchorPane>
