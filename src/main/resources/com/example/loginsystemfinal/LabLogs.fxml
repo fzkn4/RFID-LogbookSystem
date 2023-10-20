@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="431.0" prefWidth="831.0" style="-fx-background-color: #f3f3f6;" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.LabLogs">
     <children>
-          <StackPane prefHeight="150.0" prefWidth="200.0">
+          <StackPane prefHeight="431.0" prefWidth="273.0">
               <children>
                   <Pane prefHeight="200.0" prefWidth="200.0">
                       <children>

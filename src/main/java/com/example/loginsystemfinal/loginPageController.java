@@ -32,7 +32,7 @@ public class loginPageController {
     @FXML
     void gotoValidate(MouseEvent event) throws IOException {
         Mainstage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("Validation.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("loginScan.fxml"));
         Scene scene = new Scene(root);
         Mainstage.setScene(scene);
         Mainstage.initStyle(StageStyle.UNDECORATED);

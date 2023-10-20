@@ -25,11 +25,17 @@ public class StudentLogs {
             Scene scene = toGraph.getScene();
             //adding to stack pane
             studentLogsStackpane.getChildren().add(root);
+            //calling remove stack
+            Functions.remove(studentLogsStackpane);
+
         }else{
             Parent root = FXMLLoader.load(getClass().getResource("StudentLogsTable.fxml"));
             Scene scene = toGraph.getScene();
             //adding to stack pane
             studentLogsStackpane.getChildren().add(root);
+            //calling remove stack
+            Functions.remove(studentLogsStackpane);
+
         }
     }
 

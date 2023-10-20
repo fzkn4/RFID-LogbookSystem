@@ -70,6 +70,8 @@ public class MainPage {
         Scene scene = recordbtn.getScene();
         //adding to stack pane
         parentContainer.getChildren().add(root);
+        //calling remove stack
+        remove(parentContainer);
 
     }
     @FXML
@@ -80,6 +82,8 @@ public class MainPage {
 
         //adding to stack pane
         parentContainer.getChildren().add(root);
+        //calling remove stack
+        remove(parentContainer);
     }
     @FXML
     void gotoRecords(ActionEvent event) throws IOException {
@@ -89,6 +93,8 @@ public class MainPage {
 
         //adding to stack pane
         parentContainer.getChildren().add(root);
+        //calling remove stack
+        remove(parentContainer);
     }
 
     private void selected(Button button1, Button button2, Button selected)
@@ -98,18 +104,9 @@ public class MainPage {
         button2.setStyle("-fx-background-color: #2a313a; -fx-text-fill: white");
     }
 
-
-
     @FXML
     void confirmation(ActionEvent event) throws IOException {
         goConfirmation();
-    }
-
-    @FXML
-    void onKeyPressed_logout(KeyEvent event) throws IOException {
-        if (event.getCode() == KeyCode.ESCAPE){
-            System.out.println("printing");
-        }
     }
 
     private void goConfirmation() throws IOException {
@@ -121,6 +118,18 @@ public class MainPage {
         stage.initModality(Modality.WINDOW_MODAL);
         stage.showAndWait();
 
+    }
+
+    @FXML
+    void keyPressed(KeyEvent event) throws IOException {
+        if (event.getCode() == KeyCode.ESCAPE) goConfirmation();
+    }
+
+    //removing scenes on stackpane
+    private void remove(StackPane Stack){
+        if (Stack.getChildren().size() > 1) {
+            Stack.getChildren().remove(0);
+        }
     }
 }
 
