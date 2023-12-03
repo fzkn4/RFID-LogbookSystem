@@ -14,9 +14,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#keyPressed" prefHeight="600.0" prefWidth="1002.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.MainPage">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#keyPressed" prefHeight="600.0" prefWidth="1099.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.MainPage">
     <children>
         <Pane prefHeight="600.0" prefWidth="138.0" style="-fx-background-color: #2a313a;">
             <children>
@@ -51,13 +52,13 @@
                 <Text fill="WHITE" layoutX="35.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin name" />
             </children>
         </Pane>
-        <StackPane fx:id="parentContainer" layoutX="140.0" layoutY="42.0" prefHeight="559.0" prefWidth="861.0">
+        <StackPane fx:id="parentContainer" layoutX="140.0" layoutY="42.0" prefHeight="557.0" prefWidth="957.0">
             <children>
-                <MFXScrollPane prefHeight="559.0" prefWidth="871.0" styleClass="pane" stylesheets="@css/styles.css" thumbColor="#2a313a" thumbHoverColor="#2a313a" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+                <MFXScrollPane prefHeight="559.0" prefWidth="932.0" styleClass="pane" thumbColor="#2a313a" thumbHoverColor="#2a313a" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
                     <content>
-                        <BorderPane fx:id="borderPane" prefHeight="559.0" prefWidth="847.0">
+                        <BorderPane fx:id="borderPane" prefHeight="559.0" prefWidth="949.0">
                             <center>
-                                <TableView prefHeight="493.0" prefWidth="838.0" BorderPane.alignment="CENTER">
+                                <TableView prefHeight="493.0" prefWidth="900.0" BorderPane.alignment="CENTER">
                                     <columns>
                                         <TableColumn prefWidth="153.0" style="-fx-background-color: lightgray; -fx-font-size: 11px;" text="First Name" />
                                         <TableColumn minWidth="0.0" prefWidth="153.0" style="-fx-background-color: lightgray; -fx-font-size: 11px;" text="Last Name" />
@@ -67,6 +68,7 @@
                                         <TableColumn minWidth="1.0" prefWidth="113.0" style="-fx-background-color: lightgray; -fx-font-size: 11px;" text="RFID No." />
                                         <TableColumn prefWidth="136.0" style="-fx-background-color: lightgray; -fx-font-size: 11px;" text="Phone No." />
                                         <TableColumn prefWidth="52.0" resizable="false" style="-fx-background-color: lightgray; -fx-font-size: 11px;" text="Sex" />
+                              <TableColumn prefWidth="102.0" resizable="false" style="-fx-background-color: lightgray; -fx-font-size: 11px;" text="Date Registered" />
                                     </columns>
                                     <BorderPane.margin>
                                         <Insets bottom="10.0" left="5.0" right="5.0" />
@@ -80,18 +82,27 @@
                             <top>
                                 <Pane prefHeight="56.0" prefWidth="848.0" BorderPane.alignment="CENTER">
                                     <children>
-                                        <MFXButton layoutX="767.0" layoutY="14.0" prefHeight="28.0" prefWidth="68.0" rippleColor="#7c7878" style="-fx-background-color: lightgray; -fx-background-radius: 0px; -fx-border-radius: 0px;" stylesheets="@css/MFXButton.css" text="Search" />
-                                        <MFXTextField floatMode="DISABLED" layoutX="582.0" layoutY="14.0" prefHeight="25.0" prefWidth="177.0" style="-fx-border-radius: 0px; -fx-background-radius: 0px;" stylesheets="@css/MFXTextField.css" />
+                                        <MFXButton layoutX="867.0" layoutY="14.0" prefHeight="28.0" prefWidth="68.0" rippleColor="#7c7878" style="-fx-background-color: lightgray; -fx-background-radius: 0px; -fx-border-radius: 0px;" stylesheets="@css/MFXButton.css" text="Search" />
+                                        <MFXTextField floatMode="DISABLED" layoutX="682.0" layoutY="14.0" prefHeight="25.0" prefWidth="177.0" style="-fx-border-radius: 0px; -fx-background-radius: 0px;" stylesheets="@css/MFXTextField.css" />
                                         <Text layoutX="357.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-header" text="Registered Students" />
                                     </children>
                                 </Pane>
                             </top>
                         </BorderPane>
                     </content>
+               <stylesheets>
+                  <URL value="@css/styles.css" />
+                  <URL value="@css/MFXScrollPane.css" />
+               </stylesheets>
                 </MFXScrollPane>
             </children>
         </StackPane>
         <MFXButton fx:id="close" buttonType="RAISED" depthLevel="LEVEL1" layoutX="965.0" layoutY="8.0" onAction="#quit" style="-fx-background-color: #e74343; -fx-text-fill: white; -fx-text-alignment: center;" text="x" textAlignment="JUSTIFY" textFill="RED" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="8.0" />
-        <MFXButton fx:id="logoutbtn" buttonType="RAISED" depthLevel="LEVEL1" layoutX="886.0" layoutY="8.0" onAction="#confirmation" prefHeight="25.0" prefWidth="68.0" style="-fx-background-color: white; -fx-text-fill: black; -fx-text-alignment: center; -fx-border-width: 0;" text="Logout" textAlignment="JUSTIFY" textFill="RED" />
+        <MFXButton fx:id="logoutbtn" buttonType="RAISED" depthLevel="LEVEL1" layoutX="989.0" layoutY="8.0" onAction="#confirmation" prefHeight="25.0" prefWidth="68.0" style="-fx-background-color: white; -fx-text-fill: black; -fx-text-alignment: center; -fx-border-width: 0;" text="Logout" textAlignment="JUSTIFY" textFill="RED" />
+      <Text fx:id="time" layoutX="152.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-header">
+         <font>
+            <Font name="Roboto Light Italic" size="12.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>

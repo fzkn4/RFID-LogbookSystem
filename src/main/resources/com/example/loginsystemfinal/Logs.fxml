@@ -14,18 +14,18 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="560.0" prefWidth="870.0" style="-fx-background-color: #f3f3f6;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.Logs">
+<AnchorPane prefHeight="560.0" prefWidth="961.0" style="-fx-background-color: #f3f3f6;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.Logs">
     <children>
-        <BorderPane layoutX="15.0" layoutY="5.0" prefHeight="542.0" prefWidth="831.0" stylesheets="@css/styles.css">
+        <BorderPane layoutX="15.0" layoutY="5.0" prefHeight="542.0" prefWidth="928.0" stylesheets="@css/styles.css">
             <center>
-                <StackPane fx:id="LogsStackpane" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                <StackPane fx:id="LogsStackpane" prefHeight="431.0" prefWidth="832.0" BorderPane.alignment="CENTER">
                     <children>
                         <Pane prefHeight="200.0" prefWidth="200.0">
                             <children>
-                                <Pane layoutX="472.0" layoutY="12.0" prefHeight="56.0" prefWidth="359.0" style="-fx-background-color: white; -fx-border-color: lightgray;">
+                                <Pane layoutX="472.0" layoutY="12.0" prefHeight="56.0" prefWidth="456.0" style="-fx-background-color: white; -fx-border-color: lightgray;">
                                     <children>
-                                        <MFXToggleButton fx:id="toGraph" layoutX="14.0" layoutY="7.0" length="20.0" onMouseClicked="#showGraph" radius="7.0" stylesheets="@css/MFXToggleButton.css" text="Graph" />
-                                        <MFXDatePicker alignment="CENTER" layoutX="174.0" layoutY="7.0" prefHeight="38.0" prefWidth="174.0" promptText="Choose Date..." style="-fx-border-radius: 0px; -fx-background-radius: 0px; -fx-text-fill: #444444;" stylesheets="@css/MFXDatePicker.css">
+                                        <MFXToggleButton fx:id="toGraph" layoutX="14.0" layoutY="10.0" length="20.0" onMouseClicked="#showGraph" radius="7.0" stylesheets="@css/MFXToggleButton.css" text="Graph" />
+                                        <MFXDatePicker alignment="CENTER" layoutX="268.0" layoutY="10.0" prefHeight="38.0" prefWidth="174.0" promptText="Choose Date..." style="-fx-border-radius: 0px; -fx-background-radius: 0px; -fx-text-fill: #444444;" stylesheets="@css/MFXDatePicker.css">
                                             <font>
                                                 <Font size="10.0" />
                                             </font>
@@ -42,14 +42,14 @@
                                     </columns>
                                 </TableView>
                         <Pane />
-                                  <StackPane fx:id="LogsStudentStackpane" layoutX="472.0" layoutY="75.0" prefHeight="350.0" prefWidth="359.0">
+                                  <StackPane fx:id="LogsStudentStackpane" layoutX="472.0" layoutY="75.0" prefHeight="350.0" prefWidth="457.0">
                                       <children>
                                           <TableView prefHeight="350.0" prefWidth="359.0" stylesheets="@css/tableStyle.css">
                                               <columns>
                                                   <TableColumn prefWidth="121.0" style="-fx-background-color: #f3f3f6;" text="Lab Name" />
-                                                  <TableColumn prefWidth="71.0" style="-fx-background-color: #f3f3f6;" text="Lab ID" />
-                                                  <TableColumn prefWidth="74.0" style="-fx-background-color: #f3f3f6;" text="Time In" />
-                                                  <TableColumn prefWidth="100.0" style="-fx-background-color: #f3f3f6;" text="Time Out" />
+                                                  <TableColumn prefWidth="93.0" style="-fx-background-color: #f3f3f6;" text="Lab ID" />
+                                                  <TableColumn prefWidth="125.0" style="-fx-background-color: #f3f3f6;" text="Time In" />
+                                                  <TableColumn prefWidth="116.0" style="-fx-background-color: #f3f3f6;" text="Time Out" />
                                               </columns>
                                           </TableView>
                                       </children>
@@ -82,8 +82,8 @@
                                 <MFXButton fx:id="ShowLabLogs" layoutY="45.0" onAction="#showLabLogs" prefHeight="26.0" prefWidth="184.0" style="-fx-background-color: lightgray; -fx-background-radius: 0px;" text="Labs" textAlignment="CENTER" />
                             </children>
                         </Pane>
-                        <MFXButton layoutX="745.0" layoutY="14.0" prefHeight="28.0" prefWidth="68.0" style="-fx-background-color: lightgray; -fx-background-radius: 0px;" text="Search" />
-                        <MFXTextField borderGap="5.0" floatMode="DISABLED" graphicTextGap="5.0" layoutX="553.0" layoutY="14.0" prefHeight="28.0" prefWidth="182.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px;" stylesheets="@css/MFXTextField.css" />
+                        <MFXButton layoutX="837.0" layoutY="14.0" prefHeight="28.0" prefWidth="68.0" style="-fx-background-color: lightgray; -fx-background-radius: 0px;" text="Search" />
+                        <MFXTextField borderGap="5.0" floatMode="DISABLED" graphicTextGap="5.0" layoutX="645.0" layoutY="14.0" prefHeight="28.0" prefWidth="182.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px;" stylesheets="@css/MFXTextField.css" />
                     </children>
                     <BorderPane.margin>
                         <Insets />

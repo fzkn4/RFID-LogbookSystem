@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -31,6 +32,9 @@
             <font>
                 <Font name="Roboto Light" size="18.0" />
             </font>
+         <effect>
+            <Glow level="0.62" />
+         </effect>
         </Text>
     </children>
 </AnchorPane>

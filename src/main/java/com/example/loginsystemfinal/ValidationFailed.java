@@ -17,5 +17,4 @@ public class ValidationFailed {
     void close(ActionEvent event) {
         LoginScan.validationFailed.close();
     }
-
 }

@@ -34,6 +34,9 @@ public class Logs {
         Scene scene = ShowLabLogs.getScene();
         //adding to stack pane
         LogsStackpane.getChildren().add(root);
+
+        //removing previous scene
+        Functions.remove(LogsStackpane);
     }
 
     @FXML
@@ -42,6 +45,9 @@ public class Logs {
         Scene scene = ShowStudentLogs.getScene();
         //adding to stack pane
         LogsStackpane.getChildren().add(root);
+
+        //removing previous scene
+        Functions.remove(LogsStackpane);
     }
 
 
@@ -53,11 +59,17 @@ public class Logs {
             Scene scene = toGraph.getScene();
             //adding to stack pane
             LogsStudentStackpane.getChildren().add(root);
+
+            //removing previous scene
+            Functions.remove(LogsStudentStackpane);
         }else{
             Parent root = FXMLLoader.load(getClass().getResource("StudentLogsTable.fxml"));
             Scene scene = toGraph.getScene();
             //adding to stack pane
             LogsStudentStackpane.getChildren().add(root);
+
+            //removing previous scene
+            Functions.remove(LogsStudentStackpane);
         }
     }
 

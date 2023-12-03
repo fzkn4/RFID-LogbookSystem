@@ -18,15 +18,25 @@
             <Pane prefHeight="37.0" prefWidth="825.0" BorderPane.alignment="CENTER">
                <children>
                   <MFXButton fx:id="back" buttonType="RAISED" depthLevel="LEVEL1" layoutX="27.0" layoutY="12.0" onAction="#gotoLogin" prefHeight="31.0" prefWidth="81.0" stylesheets="@css/MFXButton.css" text="Back" />
+                  <Text fx:id="time" layoutX="701.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text">
+                     <font>
+                        <Font name="Roboto Light" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="labName" fill="#515151" layoutX="337.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-bold" textAlignment="CENTER" wrappingWidth="184.13671875">
+                     <font>
+                        <Font name="Roboto Bold" size="23.0" />
+                     </font>
+                  </Text>
                </children>
             </Pane>
          </top>
          <center>
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Pane layoutX="26.0" layoutY="14.0" prefHeight="517.0" prefWidth="389.0" style="-fx-border-color: lightgray;" stylesheets="@css/styles.css">
+                  <Pane layoutX="26.0" layoutY="23.0" prefHeight="508.0" prefWidth="389.0" style="-fx-border-color: lightgray;" stylesheets="@css/styles.css">
                      <children>
-                        <ImageView fitHeight="192.0" fitWidth="170.0" layoutX="190.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="192.0" fitWidth="170.0" layoutX="115.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@img/afro.png" />
                            </image>
@@ -43,7 +53,7 @@
                            </font>
                         </Text>
                         <Button layoutX="37.0" layoutY="325.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="326.0" style="-fx-background-radius: 0px; -fx-background-color: lightgray; -fx-border-width: 0px;" />
-                        <Text fx:id="text" layoutX="37.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="ID Number">
+                        <Text fx:id="text" layoutX="37.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="RFID Number">
                            <font>
                               <Font name="Roboto Light" size="11.0" />
                            </font>
@@ -63,7 +73,7 @@
                         <Button layoutX="211.0" layoutY="453.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="153.0" style="-fx-background-radius: 0px; -fx-background-color: lightgray; -fx-border-width: 0px;" />
                      </children>
                   </Pane>
-                  <ImageView fitHeight="519.0" fitWidth="349.0" layoutX="443.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="508.0" fitWidth="346.0" layoutX="443.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/bird.jpg" />
                      </image>

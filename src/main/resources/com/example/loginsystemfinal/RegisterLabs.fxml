@@ -15,11 +15,11 @@
             <children>
                 <Pane layoutX="48.0" layoutY="16.0" prefHeight="434.0" prefWidth="292.0" style="-fx-border-width: 1px; -fx-border-color: lightgray; -fx-background-color: #f3f3f6;">
                     <children>
-                        <MFXButton buttonType="RAISED" layoutX="151.0" layoutY="365.0" prefHeight="33.0" prefWidth="81.0" style="-fx-border-radius: 2px; -fx-border-color: lightgray; -fx-background-color: white;" stylesheets="@css/MFXButton.css" text="Submit">
+                        <MFXButton buttonType="RAISED" layoutX="151.0" layoutY="365.0" prefHeight="33.0" prefWidth="81.0" style="-fx-border-radius: 4px; -fx-border-color: #2a313a; -fx-background-color: white; -fx-border-width: 0.5px;" stylesheets="@css/MFXButton.css" text="Submit">
                             <font>
                                 <Font name="Roboto Light" size="12.0" />
                             </font></MFXButton>
-                        <MFXButton buttonType="RAISED" layoutX="59.0" layoutY="365.0" prefHeight="33.0" prefWidth="81.0" style="-fx-border-radius: 2px; -fx-border-color: lightgray; -fx-background-color: white;" stylesheets="@css/MFXButton.css" text="Cancel">
+                        <MFXButton buttonType="RAISED" layoutX="59.0" layoutY="365.0" prefHeight="33.0" prefWidth="81.0" style="-fx-border-radius: 4px; -fx-border-color: #2a313a; -fx-background-color: white; -fx-border-width: 0.5px;" stylesheets="@css/MFXButton.css" text="Cancel">
                             <font>
                                 <Font name="Roboto Light" size="12.0" />
                             </font>

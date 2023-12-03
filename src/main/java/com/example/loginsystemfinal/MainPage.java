@@ -1,7 +1,6 @@
 package com.example.loginsystemfinal;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
-import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,13 +12,13 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import java.io.IOException;
+
 
 public class MainPage {
     @FXML
@@ -42,6 +41,8 @@ public class MainPage {
     private StackPane parentContainer;
     @FXML
     private BorderPane borderPane;
+    @FXML
+    private Text time;
 
     @FXML
     void showLogs(MouseEvent event) {
@@ -64,14 +65,19 @@ public class MainPage {
     }
 
     @FXML
-    void gotoRegister(ActionEvent event) throws IOException {
-        selected(logsbtn, recordbtn, registerbtn);
-        Parent root = FXMLLoader.load(getClass().getResource("Register.fxml"));
-        Scene scene = recordbtn.getScene();
-        //adding to stack pane
-        parentContainer.getChildren().add(root);
-        //calling remove stack
-        remove(parentContainer);
+    void gotoRegister(ActionEvent event){
+        try{
+            selected(logsbtn, recordbtn, registerbtn);
+            Parent root = FXMLLoader.load(getClass().getResource("Register.fxml"));
+            Scene scene = recordbtn.getScene();
+            //adding to stack pane
+            parentContainer.getChildren().add(root);
+            //calling remove stack
+            Functions.remove(parentContainer);
+        }catch (Exception e) {
+
+        }
+
 
     }
     @FXML
@@ -83,7 +89,7 @@ public class MainPage {
         //adding to stack pane
         parentContainer.getChildren().add(root);
         //calling remove stack
-        remove(parentContainer);
+        Functions.remove(parentContainer);
     }
     @FXML
     void gotoRecords(ActionEvent event) throws IOException {
@@ -94,7 +100,7 @@ public class MainPage {
         //adding to stack pane
         parentContainer.getChildren().add(root);
         //calling remove stack
-        remove(parentContainer);
+        Functions.remove(parentContainer);
     }
 
     private void selected(Button button1, Button button2, Button selected)
@@ -125,11 +131,11 @@ public class MainPage {
         if (event.getCode() == KeyCode.ESCAPE) goConfirmation();
     }
 
-    //removing scenes on stackpane
-    private void remove(StackPane Stack){
-        if (Stack.getChildren().size() > 1) {
-            Stack.getChildren().remove(0);
-        }
+
+    @FXML
+    public void initialize() {
+        Functions.clock(time);
     }
+
 }
 

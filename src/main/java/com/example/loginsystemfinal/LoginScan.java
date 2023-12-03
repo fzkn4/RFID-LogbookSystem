@@ -15,6 +15,7 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 
 public class LoginScan {
+    public int counter = 0;
     public static Stage loginScanStage;
     public static Stage validationFailed;
 
@@ -53,5 +54,4 @@ public class LoginScan {
             validationFailed.show();
         }
     }
-
 }
