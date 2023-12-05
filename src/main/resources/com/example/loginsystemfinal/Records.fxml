@@ -9,43 +9,39 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<MFXScrollPane prefHeight="560.0" prefWidth="870.0" thumbColor="#2a313a" thumbHoverColor="#2a313a" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.Records">
+<MFXScrollPane prefHeight="560.0" prefWidth="870.0" stylesheets="@css/MFXScrollPane.css" thumbColor="#2a313a" thumbHoverColor="#2a313a" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.Records">
     <content>
-        <BorderPane prefHeight="559.0" prefWidth="856.0">
+        <BorderPane fx:id="borderPane" prefHeight="559.0" prefWidth="949.0">
             <center>
-                <TableView fx:id="tableRecords" prefHeight="493.0" prefWidth="846.0" style="-fx-border-color: white;" BorderPane.alignment="CENTER">
+                <TableView prefHeight="493.0" prefWidth="900.0" BorderPane.alignment="CENTER">
                     <columns>
-                        <TableColumn fx:id="Fname" prefWidth="153.0" style="-fx-font-size: 11px; -fx-background-color: lightgray;" text="First Name" />
-                        <TableColumn fx:id="Lname" minWidth="0.0" prefWidth="153.0" style="-fx-font-size: 11px; -fx-background-color: lightgray;" text="Last Name" />
-                        <TableColumn fx:id="course" prefWidth="88.0" style="-fx-font-size: 11px; -fx-background-color: lightgray;" text="Course" />
-                        <TableColumn fx:id="year" prefWidth="43.0" style="-fx-font-size: 11px; -fx-background-color: lightgray;" text="Year" />
-                        <TableColumn fx:id="department" prefWidth="120.0" style="-fx-font-size: 11px; -fx-background-color: lightgray;" text="Department" />
-                        <TableColumn fx:id="rfid" minWidth="1.0" prefWidth="113.0" style="-fx-font-size: 11px; -fx-background-color: lightgray;" text="RFID No." />
-                        <TableColumn fx:id="phone" prefWidth="121.0" style="-fx-font-size: 11px; -fx-background-color: lightgray;" text="Phone No." />
-                        <TableColumn fx:id="sex" prefWidth="54.0" resizable="false" style="-fx-font-size: 11px; -fx-background-color: lightgray;" text="Sex" />
+                        <TableColumn prefWidth="153.0" style="-fx-background-color: lightgray; -fx-font-size: 11px;" text="First Name" />
+                        <TableColumn minWidth="0.0" prefWidth="153.0" style="-fx-background-color: lightgray; -fx-font-size: 11px;" text="Last Name" />
+                        <TableColumn prefWidth="88.0" style="-fx-background-color: lightgray; -fx-font-size: 11px;" text="Course" />
+                        <TableColumn prefWidth="43.0" style="-fx-background-color: lightgray; -fx-font-size: 11px;" text="Year" />
+                        <TableColumn prefWidth="97.0" style="-fx-background-color: lightgray; -fx-font-size: 11px;" text="Department" />
+                        <TableColumn minWidth="1.0" prefWidth="113.0" style="-fx-background-color: lightgray; -fx-font-size: 11px;" text="RFID No." />
+                        <TableColumn prefWidth="136.0" style="-fx-background-color: lightgray; -fx-font-size: 11px;" text="Phone No." />
+                        <TableColumn prefWidth="52.0" resizable="false" style="-fx-background-color: lightgray; -fx-font-size: 11px;" text="Sex" />
+                        <TableColumn prefWidth="102.0" resizable="false" style="-fx-background-color: lightgray; -fx-font-size: 11px;" text="Date Registered" />
                     </columns>
                     <BorderPane.margin>
                         <Insets bottom="10.0" left="5.0" right="5.0" />
                     </BorderPane.margin>
-               <stylesheets>
-                  <URL value="@css/styles.css" />
-                  <URL value="@css/tableStyle.css" />
-               </stylesheets>
+                    <stylesheets>
+                        <URL value="@css/styles.css" />
+                        <URL value="@css/tableStyle.css" />
+                    </stylesheets>
                 </TableView>
             </center>
             <top>
-                <Pane prefHeight="56.0" prefWidth="849.0" BorderPane.alignment="CENTER">
+                <Pane prefHeight="56.0" prefWidth="848.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Text layoutX="362.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Registered Students" textAlignment="CENTER">
-                            <font>
-                                <Font name="Roboto Light" size="15.0" />
-                            </font>
-                        </Text>
-                        <MFXButton layoutX="767.0" layoutY="14.0" prefHeight="28.0" prefWidth="68.0" rippleColor="#7c7878" style="-fx-background-color: lightgray; -fx-background-radius: 0px; -fx-border-radius: 0px;" text="Search" />
-                        <MFXTextField floatMode="DISABLED" layoutX="582.0" layoutY="14.0" prefHeight="25.0" prefWidth="177.0" style="-fx-border-radius: 0px;" stylesheets="@css/MFXTextField.css" />
+                        <MFXButton layoutX="867.0" layoutY="14.0" prefHeight="28.0" prefWidth="68.0" rippleColor="#7c7878" style="-fx-background-color: lightgray; -fx-background-radius: 0px; -fx-border-radius: 0px;" stylesheets="@css/MFXButton.css" text="Search" />
+                        <MFXTextField floatMode="DISABLED" layoutX="682.0" layoutY="14.0" prefHeight="25.0" prefWidth="177.0" style="-fx-border-radius: 0px; -fx-background-radius: 0px;" stylesheets="@css/MFXTextField.css" />
+                        <Text layoutX="357.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-header" text="Registered Students" />
                     </children>
                 </Pane>
             </top>

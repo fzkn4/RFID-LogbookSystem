@@ -4,17 +4,27 @@ import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
-public class Operate{
+public class Operate implements Initializable{
     @FXML
     private AnchorPane operatePane;
+
+    @FXML
+    private Text time;
+    @FXML
+    private Text labName;
+    public static String display;
 
 
     @FXML
@@ -32,4 +42,9 @@ public class Operate{
         operateStage.close();
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Functions.clock(time);
+        labName.setText(display.toUpperCase());
+    }
 }

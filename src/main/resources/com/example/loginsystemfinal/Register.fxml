@@ -13,15 +13,15 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="555.0" prefWidth="848.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.Register">
+<AnchorPane prefHeight="555.0" prefWidth="893.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.Register">
     <children>
-        <BorderPane prefHeight="555.0" prefWidth="865.0" stylesheets="@css/styles.css">
+        <BorderPane prefHeight="555.0" prefWidth="900.0" stylesheets="@css/styles.css">
             <center>
             <StackPane fx:id="registerStackpane" prefHeight="499.0" prefWidth="857.0" BorderPane.alignment="CENTER">
                <children>
                       <Pane prefHeight="499.0" prefWidth="858.0" stylesheets="@css/styles.css">
                           <children>
-                              <ImageView fitHeight="484.0" fitWidth="315.0" layoutX="533.0" layoutY="3.0" opacity="0.66" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="474.0" fitWidth="385.0" layoutX="569.0" layoutY="3.0" opacity="0.66" pickOnBounds="true" preserveRatio="true">
                                   <image>
                                       <Image url="@img/bird.jpg" />
                                   </image>
@@ -31,12 +31,12 @@
                               </ImageView>
                               <Pane layoutX="38.0" layoutY="2.0" prefHeight="475.0" prefWidth="467.0" style="-fx-border-width: 1px; -fx-border-color: lightgray; -fx-background-color: #f3f3f6;">
                                   <children>
-                                      <MFXButton buttonType="RAISED" layoutX="365.0" layoutY="428.0" prefHeight="33.0" prefWidth="81.0" style="-fx-border-radius: 2px; -fx-border-color: lightgray; -fx-background-color: white;" stylesheets="@css/MFXButton.css" text="Submit">
+                                      <MFXButton buttonType="RAISED" layoutX="365.0" layoutY="428.0" prefHeight="33.0" prefWidth="81.0" style="-fx-border-radius: 4px; -fx-border-color: #2a313a; -fx-background-color: white; -fx-border-width: 0.5px;" stylesheets="@css/MFXButton.css" text="Submit">
                                  <font>
                                     <Font name="Roboto Light" size="12.0" />
                                  </font>
                               </MFXButton>
-                                    <MFXButton buttonType="RAISED" depthLevel="LEVEL1" layoutX="386.0" layoutY="181.0" prefHeight="28.0" prefWidth="60.0" style="-fx-border-radius: 2px; -fx-border-color: lightgray; -fx-background-color: white;" stylesheets="@css/MFXButton.css" text="import">
+                                    <MFXButton buttonType="RAISED" depthLevel="LEVEL1" layoutX="361.0" layoutY="189.0" prefHeight="33.0" prefWidth="81.0" style="-fx-border-radius: 4px; -fx-border-color: #2a313a; -fx-background-color: white; -fx-border-width: 0.5px;" stylesheets="@css/MFXButton.css" text="import">
                                  <font>
                                     <Font name="Roboto Light" size="12.0" />
                                  </font>
@@ -86,7 +86,7 @@
                                     <Font size="10.0" />
                                  </font>
                               </MFXTextField>
-                              <MFXButton buttonType="RAISED" layoutX="273.0" layoutY="428.0" prefHeight="33.0" prefWidth="81.0" style="-fx-border-radius: 2px; -fx-border-color: lightgray; -fx-background-color: white;" stylesheets="@css/MFXButton.css" text="Cancel">
+                              <MFXButton buttonType="RAISED" layoutX="273.0" layoutY="428.0" prefHeight="33.0" prefWidth="81.0" style="-fx-border-radius: 4px; -fx-border-color: #2a313a; -fx-background-color: white; -fx-border-width: 0.5px;" stylesheets="@css/MFXButton.css" text="Cancel">
                                  <font>
                                     <Font name="Roboto Light" size="12.0" />
                                  </font>
@@ -101,7 +101,7 @@
          <top>
             <Pane prefHeight="61.0" prefWidth="870.0" BorderPane.alignment="CENTER">
                <children>
-                      <Text layoutX="380.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Registration Form">
+                      <Text layoutX="395.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Registration Form">
                           <font>
                               <Font name="Roboto Light" size="14.0" />
                           </font>

@@ -5,10 +5,9 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="350.0" prefWidth="359.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.StudentLogsGraph">
+<AnchorPane prefHeight="350.0" prefWidth="457.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.StudentLogsGraph">
    <children>
-      <BarChart fx:id="summaryGraph" prefHeight="350.0" prefWidth="359.0" style="-fx-background-color: white;" title="Summary Graph">
+      <BarChart fx:id="summaryGraph" prefHeight="350.0" prefWidth="457.0" style="-fx-background-color: white; -fx-border-color: lightgray; -fx-border-width: 1px;" title="Summary Graph">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
