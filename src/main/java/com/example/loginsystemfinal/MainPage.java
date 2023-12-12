@@ -4,12 +4,11 @@ import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.input.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
@@ -18,9 +17,11 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
-public class MainPage {
+public class MainPage implements Initializable {
     @FXML
     private AnchorPane pane;
     @FXML
@@ -45,62 +46,24 @@ public class MainPage {
     private Text time;
 
     @FXML
-    void showLogs(MouseEvent event) {
-
-    }
-
-    @FXML
-    void showRecords(MouseEvent event) {
-
-    }
-
-    @FXML
-    void showRegister(MouseEvent event) {
-
-    }
-
-    @FXML
     void quit(ActionEvent event) {
+        Exit();
+    }
+    public static void Exit(){
         System.exit(0);
     }
 
     @FXML
-    void gotoRegister(ActionEvent event){
-        try{
-            selected(logsbtn, recordbtn, registerbtn);
-            Parent root = FXMLLoader.load(getClass().getResource("Register.fxml"));
-            Scene scene = recordbtn.getScene();
-            //adding to stack pane
-            parentContainer.getChildren().add(root);
-            //calling remove stack
-            Functions.remove(parentContainer);
-        }catch (Exception e) {
-
-        }
-
-
+    void gotoRegister(ActionEvent event) throws IOException {
+        registers();
     }
     @FXML
     void gotoLogs(ActionEvent event) throws IOException {
-        selected(registerbtn, recordbtn, logsbtn);
-        Parent root = FXMLLoader.load(getClass().getResource("Logs.fxml"));
-        Scene scene = recordbtn.getScene();
-
-        //adding to stack pane
-        parentContainer.getChildren().add(root);
-        //calling remove stack
-        Functions.remove(parentContainer);
+        logs();
     }
     @FXML
     void gotoRecords(ActionEvent event) throws IOException {
-        selected(registerbtn, logsbtn, recordbtn);
-        Parent root = FXMLLoader.load(getClass().getResource("Records.fxml"));
-        Scene scene = recordbtn.getScene();
-
-        //adding to stack pane
-        parentContainer.getChildren().add(root);
-        //calling remove stack
-        Functions.remove(parentContainer);
+        records();
     }
 
     private void selected(Button button1, Button button2, Button selected)
@@ -128,14 +91,55 @@ public class MainPage {
 
     @FXML
     void keyPressed(KeyEvent event) throws IOException {
-        if (event.getCode() == KeyCode.ESCAPE) goConfirmation();
+        if (event.getCode() == KeyCode.ESCAPE){
+            goConfirmation();
+        } else if (event.getCode() == KeyCode.F1) {
+            records();
+        }else if (event.getCode() == KeyCode.F2) {
+            registers();
+        }else if (event.getCode() == KeyCode.F3) {
+            logs();
+        }else if (event.getCode() == KeyCode.DELETE) {
+            Exit();
+        }
     }
 
+    private void records() throws IOException {
+        selected(registerbtn, logsbtn, recordbtn);
+        Parent root = FXMLLoader.load(getClass().getResource("Records.fxml"));
+        Scene scene = recordbtn.getScene();
 
-    @FXML
-    public void initialize() {
+        //adding to stack pane
+        parentContainer.getChildren().add(root);
+        //calling remove stack
+        Functions.remove(parentContainer);
+    }
+    private void registers() throws IOException {
+        selected(logsbtn, recordbtn, registerbtn);
+        Parent root = FXMLLoader.load(getClass().getResource("Register.fxml"));
+        Scene scene = recordbtn.getScene();
+        //adding to stack pane
+        parentContainer.getChildren().add(root);
+        //calling remove stack
+        Functions.remove(parentContainer);
+    }
+    private void logs() throws IOException {
+        selected(registerbtn, recordbtn, logsbtn);
+        Parent root = FXMLLoader.load(getClass().getResource("Logs.fxml"));
+        Scene scene = recordbtn.getScene();
+
+        //adding to stack pane
+        parentContainer.getChildren().add(root);
+        //calling remove stack
+        Functions.remove(parentContainer);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         Functions.clock(time);
+        while (Validation.stage.isShowing()){
+            loginPage.Mainstage.close();
+        }
     }
-
 }
 

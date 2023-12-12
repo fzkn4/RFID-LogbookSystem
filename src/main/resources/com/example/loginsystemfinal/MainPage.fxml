@@ -25,17 +25,17 @@
                     <children>
                         <Pane prefHeight="57.0" prefWidth="141.0">
                             <children>
-                                <MFXButton fx:id="recordbtn" layoutY="1.0" onAction="#gotoRecords" onMouseClicked="#showRecords" prefHeight="55.0" prefWidth="138.0" style="-fx-background-color: #3e4754; -fx-background-radius: 0; -fx-text-fill: white;" text="            Records" textAlignment="RIGHT" />
+                                <MFXButton fx:id="recordbtn" layoutY="1.0" onAction="#gotoRecords" prefHeight="55.0" prefWidth="138.0" style="-fx-background-color: #3e4754; -fx-background-radius: 0; -fx-text-fill: white;" text="            Records" textAlignment="RIGHT" />
                             </children>
                         </Pane>
                         <Pane prefHeight="57.0" prefWidth="141.0">
                             <children>
-                                <MFXButton fx:id="registerbtn" onAction="#gotoRegister" onMouseClicked="#showRegister" prefHeight="55.0" prefWidth="138.0" style="-fx-background-color: #2a313a; -fx-text-fill: white; -fx-background-radius: 0;" text="            Register" textAlignment="RIGHT" />
+                                <MFXButton fx:id="registerbtn" onAction="#gotoRegister" prefHeight="55.0" prefWidth="138.0" style="-fx-background-color: #2a313a; -fx-text-fill: white; -fx-background-radius: 0;" text="            Register" textAlignment="RIGHT" />
                             </children>
                         </Pane>
                         <Pane prefHeight="57.0" prefWidth="141.0">
                             <children>
-                                <MFXButton fx:id="logsbtn" contentDisplay="CENTER" layoutY="1.0" onAction="#gotoLogs" onMouseClicked="#showLogs" prefHeight="55.0" prefWidth="138.0" style="-fx-background-color: #2a313a; -fx-text-fill: white; -fx-background-radius: 0; -fx-text-alignment: center;" text="                  Logs" textAlignment="CENTER" />
+                                <MFXButton fx:id="logsbtn" contentDisplay="CENTER" layoutY="1.0" onAction="#gotoLogs" prefHeight="55.0" prefWidth="138.0" style="-fx-background-color: #2a313a; -fx-text-fill: white; -fx-background-radius: 0; -fx-text-alignment: center;" text="                  Logs" textAlignment="CENTER" />
                             </children>
                         </Pane>
                     </children>
@@ -84,7 +84,7 @@
                                     <children>
                                         <MFXButton layoutX="867.0" layoutY="14.0" prefHeight="28.0" prefWidth="68.0" rippleColor="#7c7878" style="-fx-background-color: lightgray; -fx-background-radius: 0px; -fx-border-radius: 0px;" stylesheets="@css/MFXButton.css" text="Search" />
                                         <MFXTextField floatMode="DISABLED" layoutX="682.0" layoutY="14.0" prefHeight="25.0" prefWidth="177.0" style="-fx-border-radius: 0px; -fx-background-radius: 0px;" stylesheets="@css/MFXTextField.css" />
-                                        <Text layoutX="357.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-header" text="Registered Students" />
+                                        <Text layoutX="408.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-header" text="Registered Students" />
                                     </children>
                                 </Pane>
                             </top>

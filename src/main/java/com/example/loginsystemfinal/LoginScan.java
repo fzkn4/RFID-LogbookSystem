@@ -15,22 +15,11 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 
 public class LoginScan {
-    public int counter = 0;
     public static Stage loginScanStage;
     public static Stage validationFailed;
 
     @FXML
     private MFXButton Cancel;
-
-    @FXML
-    void gotoMain(MouseEvent event) {
-
-    }
-
-    @FXML
-    void gotoMain_key(KeyEvent event) {
-
-    }
 
     @FXML
     void gotoValidation(ActionEvent event) throws IOException {
@@ -52,6 +41,7 @@ public class LoginScan {
             validationFailed.setScene(scene);
             validationFailed.initStyle(StageStyle.UNDECORATED);
             validationFailed.show();
+            loginPageController.Mainstage.close();
         }
     }
 }

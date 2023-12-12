@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -46,5 +48,17 @@ public class Operate implements Initializable{
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Functions.clock(time);
         labName.setText(display.toUpperCase());
+    }
+    @FXML
+    void keyPressed(KeyEvent event) throws IOException {
+        if (event.getCode() == KeyCode.ESCAPE) {
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(loginPage.class.getResource("loginPage.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.show();
+            LabInput.operate.close();
+        }
     }
 }

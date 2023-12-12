@@ -12,6 +12,6 @@
                 <Font name="Roboto Light" size="22.0" />
             </font>
         </Text>
-        <MFXButton fx:id="Cancel" buttonType="RAISED" layoutX="82.0" layoutY="62.0" onAction="#gotoValidation" onKeyPressed="#gotoMain_key" onMouseClicked="#gotoMain" prefHeight="30.0" prefWidth="79.0" rippleColor="#a2a7ae" style="-fx-background-color: #2a313a; -fx-text-fill: white; -fx-background-radius: 0px; -fx-border-radius: 0px; -fx-font-family: Open Sans Regular;" text="Cancel" textFill="WHITE" />
+        <MFXButton fx:id="Cancel" buttonType="RAISED" layoutX="82.0" layoutY="62.0" onAction="#gotoValidation" prefHeight="30.0" prefWidth="79.0" rippleColor="#a2a7ae" style="-fx-background-color: #2a313a; -fx-text-fill: white; -fx-background-radius: 0px; -fx-border-radius: 0px; -fx-font-family: Open Sans Regular;" text="Cancel" textFill="WHITE" />
     </children>
 </AnchorPane>

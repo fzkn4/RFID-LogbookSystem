@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.effect.GaussianBlur;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -31,12 +33,7 @@ public class loginPageController {
 
     @FXML
     void gotoValidate(MouseEvent event) throws IOException {
-        Mainstage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("loginScan.fxml"));
-        Scene scene = new Scene(root);
-        Mainstage.setScene(scene);
-        Mainstage.initStyle(StageStyle.UNDECORATED);
-        Mainstage.show();
+        validate();
     }
 
     @FXML
@@ -47,6 +44,33 @@ public class loginPageController {
 
     @FXML
     void gotoOperate(MouseEvent event) throws IOException {
+        operate();
+    }
+    private void close(){
+        Mainstage = (Stage) scenePane.getScene().getWindow();
+        Mainstage.close();
+    }
+
+
+    @FXML
+    void keyPressed(KeyEvent event) throws IOException {
+        if (event.getCode() == KeyCode.F1){
+            validate();
+        } else if (event.getCode() == KeyCode.F2) {
+            operate();
+        }
+
+    }
+    private void validate() throws IOException {
+        Mainstage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("loginScan.fxml"));
+        Scene scene = new Scene(root);
+        Mainstage.setScene(scene);
+        Mainstage.initStyle(StageStyle.UNDECORATED);
+        Mainstage.show();
+    }
+
+    private void operate() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(loginPage.class.getResource("LabInput.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -55,9 +79,5 @@ public class loginPageController {
         stage.show();
         close();
         labInputStage = stage;
-    }
-    private void close(){
-        Mainstage = (Stage) scenePane.getScene().getWindow();
-        Mainstage.close();
     }
 }

@@ -9,9 +9,10 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<MFXScrollPane prefHeight="560.0" prefWidth="870.0" stylesheets="@css/MFXScrollPane.css" thumbColor="#2a313a" thumbHoverColor="#2a313a" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.Records">
+<MFXScrollPane prefHeight="560.0" prefWidth="870.0" thumbColor="#2a313a" thumbHoverColor="#2a313a" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.Records">
     <content>
         <BorderPane fx:id="borderPane" prefHeight="559.0" prefWidth="949.0">
             <center>
@@ -41,10 +42,17 @@
                     <children>
                         <MFXButton layoutX="867.0" layoutY="14.0" prefHeight="28.0" prefWidth="68.0" rippleColor="#7c7878" style="-fx-background-color: lightgray; -fx-background-radius: 0px; -fx-border-radius: 0px;" stylesheets="@css/MFXButton.css" text="Search" />
                         <MFXTextField floatMode="DISABLED" layoutX="682.0" layoutY="14.0" prefHeight="25.0" prefWidth="177.0" style="-fx-border-radius: 0px; -fx-background-radius: 0px;" stylesheets="@css/MFXTextField.css" />
-                        <Text layoutX="357.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-header" text="Registered Students" />
+                        <Text layoutX="408.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-header" text="Registered Students">
+                     <font>
+                        <Font size="17.0" />
+                     </font></Text>
                     </children>
                 </Pane>
             </top>
         </BorderPane>
     </content>
+   <stylesheets>
+      <URL value="@css/MFXScrollPane.css" />
+      <URL value="@css/styles.css" />
+   </stylesheets>
 </MFXScrollPane>

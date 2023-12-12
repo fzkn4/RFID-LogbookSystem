@@ -20,6 +20,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LabInput implements Initializable {
+    public static Stage operate;
     @FXML
     private MFXComboBox<String> options;
     private String selected;
@@ -46,8 +47,6 @@ public class LabInput implements Initializable {
         if (event.getCode() == KeyCode.ESCAPE) close();
     }
     private void operate() throws IOException {
-
-
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(loginPage.class.getResource("Operate.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -55,6 +54,8 @@ public class LabInput implements Initializable {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
         loginPageController.labInputStage.close();
+        operate = stage;
+
     }
 
     //closing current window and back to Login page.

@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="validationFailedStage" prefHeight="127.0" prefWidth="243.0" style="-fx-background-color: white; -fx-border-color: lightgray;" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.ValidationFailed">
+<AnchorPane fx:id="validationScene" prefHeight="84.0" prefWidth="217.0" style="-fx-background-color: white; -fx-border-color: lightgray;" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.ValidationFailed">
     <children>
-        <Text layoutX="82.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-header" text="Login Failed">
+        <Text layoutX="58.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-header" text="Login Failed">
             <font>
-                <Font name="Roboto Light" size="22.0" />
+                <Font name="Roboto Light" size="25.0" />
             </font>
         </Text>
-        <MFXButton fx:id="Ok" buttonType="RAISED" layoutX="82.0" layoutY="62.0" onAction="#close" prefHeight="30.0" prefWidth="79.0" rippleColor="#a2a7ae" style="-fx-background-color: #2a313a; -fx-text-fill: white; -fx-background-radius: 0px; -fx-border-radius: 0px; -fx-font-family: Open Sans Regular;" text="Ok" textFill="WHITE" />
+        <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="142.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@img/remove.png" />
+            </image>
+        </ImageView>
     </children>
 </AnchorPane>

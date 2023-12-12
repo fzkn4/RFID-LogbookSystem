@@ -10,17 +10,16 @@ import java.io.IOException;
 public class loginPage extends Application {
     public static Stage Mainstage;
     @Override
-    public void start(Stage stage){
-        try{
+    public void start(Stage stage) throws IOException {
             FXMLLoader fxmlLoader = new FXMLLoader(loginPage.class.getResource("loginPage.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             stage.setScene(scene);
             stage.initStyle(StageStyle.UNDECORATED);
+
+            scene.getAccelerators().put(Functions.closeKey, Functions.Exit());
+
             stage.show();
             Mainstage = stage;
-        }catch(Exception e){
-
-        }
     }
 
     public static void main(String[] args) {
