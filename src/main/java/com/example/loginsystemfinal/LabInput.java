@@ -17,6 +17,10 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class LabInput implements Initializable {
@@ -29,6 +33,7 @@ public class LabInput implements Initializable {
     private MFXButton cancel;
     @FXML
     private MFXButton confirm;
+    ObservableList<Labs> labList = FXCollections.observableArrayList();
 
     @FXML
     void close(ActionEvent event) throws IOException {
@@ -69,14 +74,41 @@ public class LabInput implements Initializable {
         Operate.display = options.getValue();
         selected = options.getValue();
     }
+    private static ObservableList<String> getlab() {
+        ObservableList<String> labs = FXCollections.observableArrayList();
+
+        DBConnect connect = new DBConnect();
+        Connection connection = connect.getConnection();
+
+        if (connection != null) {
+            String query = "SELECT labName FROM labs";
+
+            try {
+                PreparedStatement statement = connection.prepareStatement(query);
+                ResultSet resultSet = statement.executeQuery();
+                while (resultSet.next()) {
+                    String labname = resultSet.getString("labName");
+                    labs.add(labname);
+                }
+                resultSet.close();
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        } else {
+            System.err.println("Failed to establish a database connection.");
+        }
+        return labs;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<String> list = (ObservableList<String>) FXCollections.observableArrayList(
-                "Lab A",
-                "Lab B",
-                "Lab C"
-        );
-        options.getItems().addAll(list);
+        options.getItems().addAll(getlab());
     }
 }

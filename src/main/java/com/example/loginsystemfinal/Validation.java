@@ -56,7 +56,7 @@ public class Validation implements Initializable {
 
         validationStage = (Stage) validationScene.getScene().getWindow();
         validationStage.close();
-        while (loginPage.Mainstage.isShowing())loginPage.Mainstage.close();
+        loginPage.Mainstage.getScene().getWindow().hide();
 
         mainPage = stage;
     }
@@ -73,7 +73,6 @@ public class Validation implements Initializable {
             });
             delay.play();
         }
-
     }
 
     @Override

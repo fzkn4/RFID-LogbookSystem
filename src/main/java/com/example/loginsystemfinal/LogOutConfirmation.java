@@ -31,19 +31,8 @@ public class LogOutConfirmation {
     }
 
     @FXML
-    void gotoLoginPage(ActionEvent event) throws IOException {
+    void gotoLoginPage(ActionEvent event) {
         backToLogin();
-    }
-    public void backToLogin() throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(loginPage.class.getResource("loginPage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setScene(scene);
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.show();
-        closeConfirmation();
-        Validation.stage.close();
-
     }
 
     private void closeConfirmation(){
@@ -51,13 +40,22 @@ public class LogOutConfirmation {
         stage.close();
     }
     @FXML
-    void keyPressed(KeyEvent event) throws IOException {
+    void cancelKey(KeyEvent event) {
         if (event.getCode() == KeyCode.ESCAPE) {
-            backToLogin();
-        }
-         if (event.getCode() == KeyCode.ENTER) {
             closeConfirmation();
         }
+    }
+
+    @FXML
+    void confirmKey(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            backToLogin();
+        }
+    }
+    private void backToLogin() {
+        loginPage.Mainstage.show();
+        closeConfirmation();
+        Validation.stage.getScene().getWindow().hide();
 
     }
 
