@@ -30,19 +30,6 @@ public class Validation implements Initializable {
     private AnchorPane validationScene;
     private boolean exec = true;
 
-    @FXML
-    void gotoMain(MouseEvent event) throws IOException {
-        exec = false;
-        goMain();
-    }
-    @FXML
-    void gotoMain_key(KeyEvent event) throws IOException {
-        if (event.getCode() == KeyCode.ENTER){
-            exec = false;
-            goMain();
-        }
-    }
-
     private void goMain() throws IOException {
         stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(loginPage.class.getResource("MainPage.fxml"));

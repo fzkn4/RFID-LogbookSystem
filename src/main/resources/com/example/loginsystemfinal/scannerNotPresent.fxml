@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="validationScene" prefHeight="107.0" prefWidth="256.0" style="-fx-background-color: white; -fx-border-color: lightgray;" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.ScannerNotPresent">
+    <children>
+        <Text layoutX="48.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-header" text="RFID Scanner not found.">
+            <font>
+                <Font name="Roboto Light" size="25.0" />
+            </font>
+        </Text>
+        <ImageView fitHeight="43.0" fitWidth="54.0" layoutX="106.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@img/warning.png" />
+            </image>
+        </ImageView>
+    </children>
+</AnchorPane>
