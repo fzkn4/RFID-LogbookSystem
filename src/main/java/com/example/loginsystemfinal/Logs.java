@@ -5,14 +5,23 @@ import io.github.palexdev.materialfx.controls.MFXToggleButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class Logs {
+public class Logs implements Initializable {
+    Labs lab = new Labs();
+    @FXML
+    private Text LabTotal;
+    @FXML
+    private Text StudentTotal;
 
     @FXML
     private StackPane LogsStackpane;
@@ -73,4 +82,8 @@ public class Logs {
         }
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        LabTotal.setText( String.valueOf(lab.getTotalLabs()));
+    }
 }

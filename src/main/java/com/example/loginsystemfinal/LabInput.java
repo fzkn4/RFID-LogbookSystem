@@ -33,7 +33,6 @@ public class LabInput implements Initializable {
     private MFXButton cancel;
     @FXML
     private MFXButton confirm;
-    ObservableList<Labs> labList = FXCollections.observableArrayList();
 
     @FXML
     void close(ActionEvent event) throws IOException {
@@ -43,7 +42,7 @@ public class LabInput implements Initializable {
 
     @FXML
     void gotoOperate(ActionEvent event) throws IOException {
-            operate();
+        operate();
     }
 
     @FXML
@@ -74,41 +73,21 @@ public class LabInput implements Initializable {
         Operate.display = options.getValue();
         selected = options.getValue();
     }
-    private static ObservableList<String> getlab() {
-        ObservableList<String> labs = FXCollections.observableArrayList();
 
-        DBConnect connect = new DBConnect();
-        Connection connection = connect.getConnection();
-
-        if (connection != null) {
-            String query = "SELECT labName FROM labs";
-
-            try {
-                PreparedStatement statement = connection.prepareStatement(query);
-                ResultSet resultSet = statement.executeQuery();
-                while (resultSet.next()) {
-                    String labname = resultSet.getString("labName");
-                    labs.add(labname);
-                }
-                resultSet.close();
-                statement.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        } else {
-            System.err.println("Failed to establish a database connection.");
+    //fetching labName through OOP
+    private static ObservableList<String> getLabList(){
+        Labs labs = new Labs();
+        ObservableList<String> labsList = FXCollections.observableArrayList();
+        for (int i = 0; i < labs.getlabInfo().size(); i++) {
+            String lab = labs.getlabInfo().get(i).getLab_name();
+            labsList.add(lab);
         }
-        return labs;
+        return labsList;
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        options.getItems().addAll(getlab());
+        options.getItems().addAll(getLabList());
+        options.getSelectionModel().selectFirst();
     }
 }

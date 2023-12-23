@@ -19,3 +19,9 @@
     -fx-border-width: 1px;
     -fx-border-radius: 4px;
 }
+.round-edge-pane{
+    -fx-border-radius: 10 10 10 10;
+    -fx-background-radius: 10 10 10 10;
+    -fx-border-color:  #d76262;
+    -fx-border-width: 0.5;
+}

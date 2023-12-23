@@ -24,8 +24,11 @@ public class Labs {
         this.lab_id = lab_id;
         this.lab_name = lab_name;
     }
+    public Labs(){
 
-    public static ObservableList<Labs> getlabInfo() {
+    }
+
+    public ObservableList<Labs> getlabInfo() {
         ObservableList<Labs> infoList = FXCollections.observableArrayList();
 
         DBConnect connect = new DBConnect();
@@ -57,5 +60,24 @@ public class Labs {
             System.err.println("Failed to establish a database connection.");
         }
         return infoList;
+    }
+
+    //returns total number of laboratories
+    public int getTotalLabs(){
+        int sum = 0;
+        DBConnect connect = new DBConnect();
+        Connection connection = connect.getConnection();
+        String query = "SELECT count(*) AS totalLabs FROM labs";
+        try {
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet maxIdResult = statement.executeQuery();
+            if (maxIdResult.next()) {
+                int maxId = maxIdResult.getInt("totalLabs");
+                sum = maxId;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return sum;
     }
 }

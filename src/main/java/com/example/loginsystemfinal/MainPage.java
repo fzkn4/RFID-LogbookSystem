@@ -23,6 +23,10 @@ import java.util.ResourceBundle;
 
 public class MainPage implements Initializable {
     @FXML
+    private Text admin_name;
+    @FXML
+    private Text date;
+    @FXML
     private AnchorPane pane;
     @FXML
     private MFXButton close;
@@ -136,10 +140,11 @@ public class MainPage implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Functions.clock(time);
+        Functions.clock(date, time);
         while (Validation.stage.isShowing()){
             loginPage.Mainstage.close();
         }
+        admin_name.setText(LoginScan.adminName);
     }
 }
 

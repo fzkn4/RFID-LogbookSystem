@@ -17,10 +17,14 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 import javax.smartcardio.*;
+import java.awt.*;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import static javafx.util.Duration.seconds;
@@ -40,12 +44,16 @@ public class Functions {
 
 
     //this function displays time.
-    public static void clock(Text display){
+    public static void clock(Text displaydate, Text displayTime){
         final DateFormat format = DateFormat.getInstance();
         final Timeline timeline = new Timeline(new KeyFrame(seconds(1),
                 event -> {
-                    final Calendar cal = Calendar.getInstance();
-                    display.setText(format.format(cal.getTime()));
+                    LocalDate localDate = LocalDate.now();
+                    String date = localDate.getMonth() + " " + localDate.getDayOfMonth() + ", " + localDate.getYear();
+                    DateFormat formatter = new SimpleDateFormat("hh:mm:ss a");
+                    String time = formatter.format(new Date());
+                    displaydate.setText(date);
+                    displayTime.setText(time);
                 }));
 
         timeline.setCycleCount(Animation.INDEFINITE);

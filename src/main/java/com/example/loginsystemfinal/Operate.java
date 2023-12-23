@@ -24,6 +24,9 @@ public class Operate implements Initializable{
 
     @FXML
     private Text time;
+
+    @FXML
+    private Text date;
     @FXML
     private Text labName;
     public static String display;
@@ -33,20 +36,15 @@ public class Operate implements Initializable{
     private MFXButton back;
     @FXML
     void gotoLogin(ActionEvent event) throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(loginPage.class.getResource("loginPage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setScene(scene);
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.show();
+        loginPage.Mainstage.show();
 
         Stage operateStage = (Stage) operatePane.getScene().getWindow();
-        operateStage.close();
+        operateStage.hide();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Functions.clock(time);
+        Functions.clock(date, time);
         labName.setText(display.toUpperCase());
     }
     @FXML

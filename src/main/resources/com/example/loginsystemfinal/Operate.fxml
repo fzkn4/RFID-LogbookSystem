@@ -17,15 +17,20 @@
          <top>
             <Pane prefHeight="37.0" prefWidth="825.0" BorderPane.alignment="CENTER">
                <children>
-                  <MFXButton fx:id="back" buttonType="RAISED" depthLevel="LEVEL1" layoutX="27.0" layoutY="12.0" onAction="#gotoLogin" prefHeight="31.0" prefWidth="81.0" stylesheets="@css/MFXButton.css" text="Back" />
-                  <Text fx:id="time" layoutX="701.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text">
-                     <font>
-                        <Font name="Roboto Light" size="12.0" />
-                     </font>
-                  </Text>
                   <Text fx:id="labName" fill="#515151" layoutX="337.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-bold" textAlignment="CENTER" wrappingWidth="184.13671875">
                      <font>
                         <Font name="Roboto Bold" size="23.0" />
+                     </font>
+                  </Text>
+                  <MFXButton fx:id="back" buttonType="RAISED" depthLevel="LEVEL1" layoutX="27.0" layoutY="12.0" onAction="#gotoLogin" prefHeight="31.0" prefWidth="81.0" stylesheets="@css/MFXButton.css" text="Back" />
+                  <Text fx:id="date" fill="#515151" layoutX="610.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" textAlignment="RIGHT" wrappingWidth="173.3072509765625">
+                     <font>
+                        <Font name="Roboto Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="time" layoutX="676.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" textAlignment="RIGHT" wrappingWidth="106.34375">
+                     <font>
+                        <Font name="Roboto Light" size="10.0" />
                      </font>
                   </Text>
                </children>

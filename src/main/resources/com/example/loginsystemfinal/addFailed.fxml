@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="176.0" prefWidth="184.0" styleClass="round-edge-pane" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.AddFailed">
+   <children>
+      <ImageView fitHeight="67.0" fitWidth="66.0" layoutX="60.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/failed.png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <Text fill="#d76262" layoutX="55.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Failed!">
+         <font>
+            <Font name="Roboto Bold" size="25.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.7894737124443054" green="0.7894737124443054" blue="0.7894737124443054" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Text>
+   </children>
+</Pane>
