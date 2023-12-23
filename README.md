@@ -15,4 +15,4 @@
       - link: https://github.com/palexdev/MaterialFX
   - NFC Tag Reader: ACR122
   - PC/SC Driver:
-        - link: https://www.acs.com.hk/en/products/575/acr1552u-usb-nfc-reader-iv/
+        - link: https://www.acs.com.hk/en/driver/3/acr122u-usb-nfc-reader/
