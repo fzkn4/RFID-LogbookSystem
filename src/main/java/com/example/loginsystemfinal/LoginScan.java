@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -24,23 +25,16 @@ import java.util.ResourceBundle;
 import java.util.function.Function;
 
 public class LoginScan implements Initializable {
+    @FXML
+    private MFXButton Cancel;
+
     public static String adminName;
     private String uid;
     public static Stage loginScanStage;
     public static Stage validationFailed;
     public static boolean exec = true;
-
     @FXML
-    private MFXButton Cancel;
-
-    @FXML
-    void gotoValidation(ActionEvent event) throws IOException {
-        validationFailed = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("validationFailed.fxml"));
-        Scene scene = new Scene(root);
-        validationFailed.setScene(scene);
-        validationFailed.initStyle(StageStyle.UNDECORATED);
-        validationFailed.show();
+    void cancel(ActionEvent event) {
         loginPageController.Mainstage.close();
     }
 
@@ -55,8 +49,13 @@ public class LoginScan implements Initializable {
             validationStage.setScene(scene);
             validationStage.initStyle(StageStyle.UNDECORATED);
             validationStage.show();
+            //centering window
+            Functions func = new Functions();
+            func.setWindowCenter(validationStage);
+
             loginPageController.Mainstage.close();
             System.out.println("You logged in as: " + adminName);
+
         }else if (exec){
             validationFailed = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("validationFailed.fxml"));
@@ -64,7 +63,11 @@ public class LoginScan implements Initializable {
             validationFailed.setScene(scene);
             validationFailed.initStyle(StageStyle.UNDECORATED);
             validationFailed.show();
+            //centering window
+            Functions func = new Functions();
+            func.setWindowCenter(validationFailed);
             loginPageController.Mainstage.close();
+
         }else{
             loginPageController.Mainstage.close();
         }

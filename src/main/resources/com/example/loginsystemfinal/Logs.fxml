@@ -74,7 +74,7 @@
                         </Pane>
                         <Pane layoutX="216.0" layoutY="20.0" prefHeight="71.0" prefWidth="184.0" style="-fx-background-color: white;">
                             <children>
-                                <Text fx:id="LabTotal" fill="#515151" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-bold" text="12" textAlignment="CENTER" wrappingWidth="184.13671875">
+                                <Text fx:id="LabTotal" fill="#515151" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-bold" textAlignment="CENTER" wrappingWidth="184.13671875">
                                     <font>
                                         <Font size="23.0" />
                                     </font>

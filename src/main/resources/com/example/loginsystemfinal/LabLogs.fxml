@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="431.0" prefWidth="935.0" style="-fx-background-color: #f3f3f6;" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.LabLogs">
     <children>
@@ -23,12 +24,17 @@
                                           <Font size="10.0" />
                                       </font>
                                   </MFXDatePicker>
+                        <Text fx:id="labnameDisplay" fill="#515151" layoutX="241.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No Lab Selected" textAlignment="CENTER" wrappingWidth="157.7109375">
+                           <font>
+                              <Font name="Roboto Bold" size="16.0" />
+                           </font>
+                        </Text>
                               </children>
                           </Pane>
-                          <TableView layoutY="14.0" prefHeight="415.0" prefWidth="272.0" stylesheets="@css/tableStyle.css">
+                          <TableView fx:id="lab_table" layoutY="14.0" prefHeight="415.0" prefWidth="272.0" stylesheets="@css/tableStyle.css">
                               <columns>
-                                  <TableColumn prefWidth="131.0" style="-fx-background-color: #f3f3f6;" text="Lab Name" />
-                                  <TableColumn prefWidth="139.0" style="-fx-background-color: #f3f3f6;" text="Lab ID" />
+                                  <TableColumn fx:id="lab_ID_col" prefWidth="131.0" text="Lab ID" />
+                                  <TableColumn fx:id="lab_name_col" prefWidth="139.0" text="Lab Name" />
                               </columns>
                           </TableView>
                       </children>
@@ -41,12 +47,12 @@
                <children>
                    <TableView prefHeight="350.0" prefWidth="643.0" stylesheets="@css/tableStyle.css">
                        <columns>
-                           <TableColumn prefWidth="107.0" style="-fx-background-color: #f3f3f6;" text="Last Name" />
-                        <TableColumn prefWidth="115.0" style="-fx-background-color: #f3f3f6;" text="First Name" />
-                        <TableColumn style="-fx-background-color: #f3f3f6;" text="ID" />
-                        <TableColumn prefWidth="62.0" style="-fx-background-color: #f3f3f6;" text="Dept." />
-                        <TableColumn prefWidth="142.0" style="-fx-background-color: #f3f3f6;" text="Time In" />
-                        <TableColumn prefWidth="129.0" style="-fx-background-color: #f3f3f6;" text="Time Out" />
+                           <TableColumn prefWidth="107.0" text="Last Name" />
+                        <TableColumn prefWidth="115.0" text="First Name" />
+                        <TableColumn text="ID" />
+                        <TableColumn prefWidth="62.0" text="Dept." />
+                        <TableColumn prefWidth="142.0" text="Time In" />
+                        <TableColumn prefWidth="129.0" text="Time Out" />
                        </columns>
                    </TableView>
                </children></StackPane>

@@ -50,13 +50,10 @@ public class Operate implements Initializable{
     @FXML
     void keyPressed(KeyEvent event) throws IOException {
         if (event.getCode() == KeyCode.ESCAPE) {
-            Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader(loginPage.class.getResource("loginPage.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            stage.setScene(scene);
-            stage.initStyle(StageStyle.UNDECORATED);
-            stage.show();
-            LabInput.operate.close();
+            loginPage.Mainstage.show();
+
+            Stage operateStage = (Stage) operatePane.getScene().getWindow();
+            operateStage.hide();
         }
     }
 }

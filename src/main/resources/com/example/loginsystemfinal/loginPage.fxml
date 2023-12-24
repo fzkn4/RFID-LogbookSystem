@@ -11,8 +11,8 @@
 
 <AnchorPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#keyPressed" prefHeight="370.0" prefWidth="500.0" style="-fx-background-color: #222831;" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.loginPageController">
     <children>
-        <MFXButton fx:id="login" buttonType="RAISED" depthLevel="LEVEL4" layoutX="43.0" layoutY="185.0" onMouseClicked="#gotoValidate" prefHeight="38.0" prefWidth="80.0" rippleColor="#313945" style="-fx-background-color: #545d6d; -fx-text-fill: white; -fx-font-family: Open Sans Regular;" stylesheets="@css/MFXButton.css" text="Login" />
-        <MFXButton fx:id="operate" buttonType="RAISED" depthLevel="LEVEL4" layoutX="135.0" layoutY="185.0" onMouseClicked="#gotoOperate" prefHeight="38.0" prefWidth="80.0" rippleColor="#313945" style="-fx-background-color: #545d6d; -fx-text-fill: white; -fx-font-family: Open Sans Regular;" stylesheets="@css/MFXButton.css" text="Operate" />
+        <MFXButton fx:id="login" buttonType="RAISED" depthLevel="LEVEL4" layoutX="33.0" layoutY="185.0" onMouseClicked="#gotoValidate" prefHeight="38.0" prefWidth="90.0" rippleColor="#313945" style="-fx-background-color: #545d6d; -fx-text-fill: white; -fx-font-family: Open Sans Regular;" stylesheets="@css/MFXButton.css" text="[F1] Login" />
+        <MFXButton fx:id="operate" buttonType="RAISED" depthLevel="LEVEL4" layoutX="135.0" layoutY="185.0" onMouseClicked="#gotoOperate" prefHeight="38.0" prefWidth="90.0" rippleColor="#313945" style="-fx-background-color: #545d6d; -fx-text-fill: white; -fx-font-family: Open Sans Regular;" stylesheets="@css/MFXButton.css" text="[F2] Operate" />
         <Pane layoutX="250.0" prefHeight="370.0" prefWidth="250.0" style="-fx-background-color: white;">
             <children>
                 <MFXButton fx:id="close" buttonType="RAISED" layoutX="214.0" layoutY="14.0" onAction="#closeWindow" style="-fx-background-color: #e74343; -fx-text-fill: white;" text="x" />

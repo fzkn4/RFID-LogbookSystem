@@ -5,14 +5,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="confirmationPane" prefHeight="142.0" prefWidth="268.0" style="-fx-background-color: white; -fx-border-color: lightgray;" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.LogOutConfirmation">
+<AnchorPane fx:id="confirmationPane" onKeyPressed="#keyPressed" prefHeight="142.0" prefWidth="268.0" style="-fx-background-color: white; -fx-border-color: lightgray;" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.LogOutConfirmation">
    <children>
       <Text layoutX="27.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-header" text="Are you sure you want to logout?">
          <font>
             <Font name="Roboto Light" size="22.0" />
          </font>
       </Text>
-      <MFXButton fx:id="cancel" buttonType="RAISED" layoutX="142.0" layoutY="71.0" onAction="#close" onKeyPressed="#cancelKey" prefHeight="37.0" prefWidth="79.0" rippleColor="#a2a7ae" style="-fx-background-color: #2a313a; -fx-text-fill: white; -fx-border-radius: 4px; -fx-border-image-width: 1px; -fx-font-family: Open Sans Regular;" text="Cancel" textFill="WHITE" />
-      <MFXButton fx:id="ok" buttonType="RAISED" layoutX="48.0" layoutY="71.0" onAction="#gotoLoginPage" onKeyPressed="#confirmKey" prefHeight="37.0" prefWidth="79.0" rippleColor="#a2a7ae" style="-fx-background-color: #2a313a; -fx-text-fill: white; -fx-border-radius: 4px; -fx-border-image-width: 1px; -fx-font-family: Open Sans Regular;" text="Confirm" textFill="WHITE" />
+      <MFXButton fx:id="ok" buttonType="RAISED" layoutX="48.0" layoutY="71.0" onAction="#gotoLoginPage" prefHeight="37.0" prefWidth="79.0" rippleColor="#a2a7ae" style="-fx-background-color: #2a313a; -fx-text-fill: white; -fx-border-radius: 4px; -fx-border-image-width: 1px; -fx-font-family: Open Sans Regular;" text="Confirm" textFill="WHITE" />
+      <MFXButton fx:id="cancel" buttonType="RAISED" layoutX="142.0" layoutY="71.0" onAction="#close" prefHeight="37.0" prefWidth="79.0" rippleColor="#a2a7ae" style="-fx-background-color: #2a313a; -fx-text-fill: white; -fx-border-radius: 4px; -fx-border-image-width: 1px; -fx-font-family: Open Sans Regular;" text="Cancel" textFill="WHITE" />
    </children>
 </AnchorPane>

@@ -53,6 +53,9 @@ public class RegisterLabs {
                 scene.setFill(Color.TRANSPARENT);
                 stage.show();
                 addSuccess = stage;
+                //centering window
+                Functions func = new Functions();
+                func.setWindowCenter(stage);
 
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -66,6 +69,9 @@ public class RegisterLabs {
                 scene.setFill(Color.TRANSPARENT);
                 stage.show();
                 addFailed = stage;
+                //centering window
+                Functions func = new Functions();
+                func.setWindowCenter(stage);
 
             } catch (IOException e) {
                 throw new RuntimeException(e);

@@ -15,13 +15,10 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 
 public class LogOutConfirmation {
-
     @FXML
     private MFXButton cancel;
-
     @FXML
     private AnchorPane confirmationPane;
-
     @FXML
     private MFXButton ok;
 
@@ -39,24 +36,17 @@ public class LogOutConfirmation {
         Stage stage = (Stage) confirmationPane.getScene().getWindow();
         stage.close();
     }
-    @FXML
-    void cancelKey(KeyEvent event) {
-        if (event.getCode() == KeyCode.ESCAPE) {
-            closeConfirmation();
-        }
-    }
-
-    @FXML
-    void confirmKey(KeyEvent event) {
-        if (event.getCode() == KeyCode.ENTER) {
-            backToLogin();
-        }
-    }
     private void backToLogin() {
         loginPage.Mainstage.show();
         closeConfirmation();
         Validation.stage.getScene().getWindow().hide();
-
     }
-
+    @FXML
+    void keyPressed(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            backToLogin();
+        } else if (event.getCode() == KeyCode.ESCAPE) {
+            closeConfirmation();
+        }
+    }
 }

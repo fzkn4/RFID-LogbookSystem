@@ -8,9 +8,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="176.0" prefWidth="184.0" style="-fx-border-color: #43c358;" styleClass="round-edge-pane" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.AddedSuccessfully">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="185.0" style="-fx-border-color: #43c358;" styleClass="round-edge-pane" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.AddedSuccessfully">
     <children>
-        <ImageView fitHeight="67.0" fitWidth="66.0" layoutX="59.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="49.0" fitWidth="53.0" layoutX="68.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@img/anotherCheck.png" />
             </image>
@@ -18,9 +18,9 @@
                 <DropShadow />
             </effect>
         </ImageView>
-        <Text fill="#43c358" layoutX="41.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Success!">
+        <Text fill="#43c358" layoutX="52.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Success!">
             <font>
-                <Font name="Roboto Bold" size="25.0" />
+                <Font name="Roboto Bold" size="20.0" />
             </font>
             <effect>
                 <DropShadow>

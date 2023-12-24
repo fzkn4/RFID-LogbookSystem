@@ -5,6 +5,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
@@ -12,18 +13,17 @@ import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 import javax.smartcardio.*;
-import java.awt.*;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -45,7 +45,6 @@ public class Functions {
 
     //this function displays time.
     public static void clock(Text displaydate, Text displayTime){
-        final DateFormat format = DateFormat.getInstance();
         final Timeline timeline = new Timeline(new KeyFrame(seconds(1),
                 event -> {
                     LocalDate localDate = LocalDate.now();
@@ -139,5 +138,13 @@ public class Functions {
         scannerNotPresentStage.close();
     });
     delay.play();
+    }
+
+
+    //function for centering window
+    public void setWindowCenter(Stage stage){
+        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
+        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
     }
 }

@@ -11,9 +11,11 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.awt.geom.Rectangle2D;
 import java.io.IOException;
 
 public class loginPageController {
@@ -48,7 +50,7 @@ public class loginPageController {
     }
     private void close(){
         Mainstage = (Stage) scenePane.getScene().getWindow();
-        Mainstage.close();
+        Mainstage.hide();
     }
 
 
@@ -68,6 +70,10 @@ public class loginPageController {
         Mainstage.setScene(scene);
         Mainstage.initStyle(StageStyle.UNDECORATED);
         Mainstage.show();
+
+        //centering window
+        Functions func = new Functions();
+        func.setWindowCenter(Mainstage);
     }
 
     private void operate() throws IOException {
@@ -79,5 +85,8 @@ public class loginPageController {
         stage.show();
         close();
         labInputStage = stage;
+        //centering window
+        Functions func = new Functions();
+        func.setWindowCenter(stage);
     }
 }

@@ -27,17 +27,17 @@
                     <children>
                         <Pane prefHeight="57.0" prefWidth="141.0">
                             <children>
-                                <MFXButton fx:id="recordbtn" layoutY="1.0" onAction="#gotoRecords" prefHeight="55.0" prefWidth="138.0" style="-fx-background-color: #3e4754; -fx-background-radius: 0; -fx-text-fill: white;" text="            Records" textAlignment="RIGHT" />
+                                <MFXButton fx:id="recordbtn" layoutY="1.0" onAction="#gotoRecords" prefHeight="55.0" prefWidth="138.0" style="-fx-background-color: #3e4754; -fx-background-radius: 0; -fx-text-fill: white;" text="           [F1] Records" textAlignment="RIGHT" />
                             </children>
                         </Pane>
                         <Pane prefHeight="57.0" prefWidth="141.0">
                             <children>
-                                <MFXButton fx:id="registerbtn" onAction="#gotoRegister" prefHeight="55.0" prefWidth="138.0" style="-fx-background-color: #2a313a; -fx-text-fill: white; -fx-background-radius: 0;" text="            Register" textAlignment="RIGHT" />
+                                <MFXButton fx:id="registerbtn" onAction="#gotoRegister" prefHeight="55.0" prefWidth="138.0" style="-fx-background-color: #2a313a; -fx-text-fill: white; -fx-background-radius: 0;" text="           [F2] Register" textAlignment="RIGHT" />
                             </children>
                         </Pane>
                         <Pane prefHeight="57.0" prefWidth="141.0">
                             <children>
-                                <MFXButton fx:id="logsbtn" contentDisplay="CENTER" layoutY="1.0" onAction="#gotoLogs" prefHeight="55.0" prefWidth="138.0" style="-fx-background-color: #2a313a; -fx-text-fill: white; -fx-background-radius: 0; -fx-text-alignment: center;" text="                  Logs" textAlignment="CENTER" />
+                                <MFXButton fx:id="logsbtn" contentDisplay="CENTER" layoutY="1.0" onAction="#gotoLogs" prefHeight="55.0" prefWidth="138.0" style="-fx-background-color: #2a313a; -fx-text-fill: white; -fx-background-radius: 0; -fx-text-alignment: center;" text="                 [F3] Logs" textAlignment="CENTER" />
                             </children>
                         </Pane>
                     </children>
@@ -118,7 +118,7 @@
             </children>
         </StackPane>
         <MFXButton fx:id="close" buttonType="RAISED" depthLevel="LEVEL1" layoutX="965.0" layoutY="8.0" onAction="#quit" style="-fx-background-color: #e74343; -fx-text-fill: white; -fx-text-alignment: center;" text="x" textAlignment="JUSTIFY" textFill="RED" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="8.0" />
-        <MFXButton fx:id="logoutbtn" buttonType="RAISED" depthLevel="LEVEL1" layoutX="989.0" layoutY="8.0" onAction="#confirmation" prefHeight="25.0" prefWidth="68.0" style="-fx-background-color: white; -fx-text-fill: black; -fx-text-alignment: center; -fx-border-width: 0;" text="Logout" textAlignment="JUSTIFY" textFill="RED" />
+        <MFXButton fx:id="logoutbtn" buttonType="RAISED" depthLevel="LEVEL1" layoutX="963.0" layoutY="8.0" onAction="#confirmation" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: white; -fx-text-fill: black; -fx-text-alignment: center; -fx-border-width: 0;" text="[ESC] Logout" textAlignment="JUSTIFY" textFill="RED" />
       <Text fx:id="date" fill="#2a313a" layoutX="147.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-header">
          <font>
             <Font name="Roboto Bold" size="15.0" />

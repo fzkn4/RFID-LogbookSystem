@@ -90,6 +90,9 @@ public class MainPage implements Initializable {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.showAndWait();
+        //centering window
+        Functions func = new Functions();
+        func.setWindowCenter(stage);
 
     }
 

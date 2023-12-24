@@ -59,6 +59,9 @@ public class LabInput implements Initializable {
         stage.show();
         loginPageController.labInputStage.close();
         operate = stage;
+        //centering window
+        Functions func = new Functions();
+        func.setWindowCenter(stage);
 
     }
 
