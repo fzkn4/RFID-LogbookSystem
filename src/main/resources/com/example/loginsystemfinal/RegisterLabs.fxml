@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="499.0" prefWidth="870.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.RegisterLabs">
     <children>
@@ -15,12 +16,12 @@
             <children>
                 <Pane layoutX="48.0" layoutY="16.0" prefHeight="434.0" prefWidth="292.0" style="-fx-border-width: 1px; -fx-border-color: lightgray; -fx-background-color: #f3f3f6;">
                     <children>
-                        <MFXTextField fx:id="labName" floatingText="Lab Name " graphicTextGap="3.0" layoutX="33.0" layoutY="217.0" prefHeight="41.0" prefWidth="226.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5; -fx-text-fill: #2a313a;" stylesheets="@css/MFXTextField.css">
+                        <MFXTextField fx:id="labName" alignment="CENTER" floatingText="Lab Name " graphicTextGap="3.0" layoutX="33.0" layoutY="217.0" prefHeight="41.0" prefWidth="226.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5; -fx-text-fill: #2a313a;" stylesheets="@css/MFXTextField.css">
                             <font>
                                 <Font size="10.0" />
                             </font>
                         </MFXTextField>
-                  <MFXTextField fx:id="labID" floatingText="Lab ID" graphicTextGap="3.0" layoutX="33.0" layoutY="291.0" prefHeight="41.0" prefWidth="226.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5; -fx-text-fill: #2a313a;" stylesheets="@css/MFXTextField.css">
+                  <MFXTextField fx:id="labID" alignment="CENTER" editable="false" floatingText="Lab ID" graphicTextGap="3.0" layoutX="33.0" layoutY="291.0" prefHeight="41.0" prefWidth="226.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5; -fx-text-fill: #2a313a;" stylesheets="@css/MFXTextField.css">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -39,6 +40,11 @@
                         <Image url="@img/afro.png" />
                      </image>
                   </ImageView>
+                  <Text fx:id="displayMess" fill="#ff1212" layoutX="48.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-style: italic;" textAlignment="CENTER" visible="false" wrappingWidth="195.13671875">
+                     <font>
+                        <Font name="Roboto Light Italic" size="11.0" />
+                     </font>
+                  </Text>
                     </children>
                 </Pane>
             <ImageView fitHeight="437.0" fitWidth="435.0" layoutX="402.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">

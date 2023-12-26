@@ -1,21 +1,29 @@
 package com.example.loginsystemfinal;
 
 import io.github.palexdev.materialfx.controls.MFXTextField;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class RegisterLabs {
+public class RegisterLabs implements Initializable {
+    private String display;
+    Labs lab = new Labs();
+    @FXML
+    private Text displayMess;
     public static Stage addSuccess;
     public static Stage addFailed;
     private final DBConnect connects = new DBConnect();
@@ -33,16 +41,18 @@ public class RegisterLabs {
     }
     public void add() throws IOException {
         String insertQuery = "INSERT INTO labs(labID, labName) VALUES(?, ?)";
-        if (labName.getText().length() == 0 || labID.getText().length() == 0 ) {
-            System.out.println("please complete all text field.");
+        if (labName.getText().length() == 0) {
+            display = "Please fill this up.";
+            displayMess.setText(display);
+            displayMess.setVisible(true);
         } else {
             try {
                 PreparedStatement ps = con.prepareStatement(insertQuery);
                 ps.setString(1, labID.getText());
                 ps.setString(2, labName.getText().toUpperCase());
-
                 ps.execute();
                 Clear();
+                setLabID();
 
                 //successful window shows
                 Stage stage = new Stage();
@@ -79,13 +89,38 @@ public class RegisterLabs {
         }
     }
 
+    private void setLabID(){
+        labID.setText(String.valueOf(lab.nextID()));
+    }
+
     @FXML
     void clear(ActionEvent event) {
         Clear();
     }
     private void Clear(){
-        labID.clear();
         labName.clear();
     }
 
+    private void Find(){
+        displayMess.setText(display);
+        FilteredList<Labs> filteredData = new FilteredList<>(lab.getlabInfo(), p -> true);
+        labName.textProperty().addListener( e -> {
+            filteredData.setPredicate(myObject -> {
+                if (labName.getText().toUpperCase().equals(myObject.lab_name)) {
+                    displayMess.setText("Lab name already exist.");
+                    displayMess.setVisible(true);
+                    return true;
+                } else {
+                    displayMess.setVisible(false);
+                }
+                return false;
+            });
+        });
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        setLabID();
+        Find();
+    }
 }

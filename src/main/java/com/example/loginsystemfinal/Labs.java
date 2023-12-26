@@ -2,7 +2,10 @@ package com.example.loginsystemfinal;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 
+import java.awt.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -79,5 +82,22 @@ public class Labs {
             e.printStackTrace();
         }
         return sum;
+    }
+    public int nextID(){
+        int len = 0;
+        DBConnect connect = new DBConnect();
+        Connection connection = connect.getConnection();
+        String query = "SELECT MAX(labID) AS maxID FROM labs";
+        try {
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet maxIdResult = statement.executeQuery();
+            if (maxIdResult.next()) {
+                int maxId = maxIdResult.getInt("maxID");
+                len = maxId + 1;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return len;
     }
 }
