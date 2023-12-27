@@ -57,6 +57,16 @@ public class MainPage implements Initializable {
         System.exit(0);
     }
 
+
+    //root and scenes
+    private Parent rootLogs;
+    private Parent rootRegister;
+    private Parent rootRecords;
+    private Scene logScene;
+    private Scene registerScene;
+    private Scene recordsScene;
+
+
     @FXML
     void gotoRegister(ActionEvent event) throws IOException {
         registers();
@@ -113,32 +123,36 @@ public class MainPage implements Initializable {
 
     private void records() throws IOException {
         selected(registerbtn, logsbtn, recordbtn);
-        Parent root = FXMLLoader.load(getClass().getResource("Records.fxml"));
-        Scene scene = recordbtn.getScene();
-
         //adding to stack pane
-        parentContainer.getChildren().add(root);
+        parentContainer.getChildren().add(rootRecords);
         //calling remove stack
         Functions.remove(parentContainer);
     }
     private void registers() throws IOException {
         selected(logsbtn, recordbtn, registerbtn);
-        Parent root = FXMLLoader.load(getClass().getResource("Register.fxml"));
-        Scene scene = recordbtn.getScene();
         //adding to stack pane
-        parentContainer.getChildren().add(root);
+        parentContainer.getChildren().add(rootRegister);
         //calling remove stack
         Functions.remove(parentContainer);
     }
     private void logs() throws IOException {
         selected(registerbtn, recordbtn, logsbtn);
-        Parent root = FXMLLoader.load(getClass().getResource("Logs.fxml"));
-        Scene scene = recordbtn.getScene();
-
         //adding to stack pane
-        parentContainer.getChildren().add(root);
+        parentContainer.getChildren().add(rootLogs);
         //calling remove stack
         Functions.remove(parentContainer);
+    }
+
+    private void load_resources() throws IOException {
+        //logs
+        rootLogs = FXMLLoader.load(getClass().getResource("Logs.fxml"));
+        logScene = recordbtn.getScene();
+        //register
+        rootRegister = FXMLLoader.load(getClass().getResource("Register.fxml"));
+        registerScene = recordbtn.getScene();
+        //records
+        rootRecords = FXMLLoader.load(getClass().getResource("Records.fxml"));
+        recordsScene = recordbtn.getScene();
     }
 
     @Override
@@ -148,6 +162,11 @@ public class MainPage implements Initializable {
             loginPage.Mainstage.close();
         }
         admin_name.setText(LoginScan.adminName);
+        try {
+            load_resources();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 

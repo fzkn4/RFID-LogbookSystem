@@ -82,6 +82,10 @@ public class Logs implements Initializable {
         }
     }
 
+    private void load_resources(){
+
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         LabTotal.setText( String.valueOf(lab.getTotalLabs()));
