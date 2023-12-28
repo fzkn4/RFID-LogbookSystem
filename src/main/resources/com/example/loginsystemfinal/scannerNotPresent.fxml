@@ -8,7 +8,7 @@
 
 <AnchorPane fx:id="validationScene" prefHeight="107.0" prefWidth="256.0" style="-fx-background-color: white; -fx-border-color: lightgray;" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.ScannerNotPresent">
     <children>
-        <Text layoutX="48.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-header" text="RFID Scanner not found.">
+        <Text layoutX="34.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-header" text="Please chceck your Scanner.">
             <font>
                 <Font name="Roboto Light" size="25.0" />
             </font>

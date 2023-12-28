@@ -8,9 +8,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="185.0" styleClass="round-edge-pane" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.AddFailed">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="173.0" prefWidth="185.0" styleClass="round-edge-pane" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.AddFailed">
    <children>
-      <ImageView fitHeight="49.0" fitWidth="53.0" layoutX="68.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="49.0" fitWidth="53.0" layoutX="68.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/failed.png" />
          </image>
@@ -18,7 +18,7 @@
             <DropShadow />
          </effect>
       </ImageView>
-      <Text fill="#d76262" layoutX="63.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Failed!">
+      <Text fill="#d76262" layoutX="63.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Failed!">
          <font>
             <Font name="Roboto Bold" size="20.0" />
          </font>
@@ -29,6 +29,11 @@
                </color>
             </DropShadow>
          </effect>
+      </Text>
+      <Text fx:id="displayF" layoutX="27.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="131.13671875">
+         <font>
+            <Font name="Roboto Light Italic" size="12.0" />
+         </font>
       </Text>
    </children>
 </Pane>

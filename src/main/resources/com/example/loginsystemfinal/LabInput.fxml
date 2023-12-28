@@ -9,8 +9,8 @@
 <AnchorPane id="window" onKeyPressed="#keyPressed" prefHeight="195.0" prefWidth="243.0" style="-fx-background-color: #f3f3f6;" styleClass="window" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.LabInput">
    <children>
       <Text layoutX="64.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-header" text="Select Laboratory" />
-      <MFXButton fx:id="confirm" buttonType="RAISED" depthLevel="LEVEL3" layoutX="30.0" layoutY="119.0" onAction="#gotoOperate" prefHeight="35.0" prefWidth="87.0" style="-fx-background-color: #2a313a; -fx-border-radius: 4px; -fx-border-color: #2a313a; -fx-text-fill: white;" stylesheets="@css/MFXButton.css" text="Confirm" />
-      <MFXButton fx:id="cancel" buttonType="RAISED" depthLevel="LEVEL3" layoutX="128.0" layoutY="119.0" onAction="#close" prefHeight="35.0" prefWidth="87.0" style="-fx-border-color: #2a313a; -fx-background-color: #2a313a; -fx-border-radius: 4px; -fx-text-fill: white;" stylesheets="@css/MFXButton.css" text="Cancel" />
+      <MFXButton fx:id="confirm" buttonType="RAISED" depthLevel="LEVEL3" layoutX="127.0" layoutY="119.0" onAction="#gotoOperate" prefHeight="35.0" prefWidth="87.0" style="-fx-background-color: #2a313a; -fx-border-radius: 4px; -fx-border-color: #2a313a; -fx-text-fill: white;" stylesheets="@css/MFXButton.css" text="Confirm" />
+      <MFXButton fx:id="cancel" buttonType="RAISED" depthLevel="LEVEL3" layoutX="31.0" layoutY="119.0" onAction="#close" prefHeight="35.0" prefWidth="87.0" style="-fx-border-color: #2a313a; -fx-background-color: #2a313a; -fx-border-radius: 4px; -fx-text-fill: white;" stylesheets="@css/MFXButton.css" text="Cancel" />
       <MFXComboBox fx:id="options" alignment="CENTER" caretVisible="false" floatMode="DISABLED" layoutX="59.0" layoutY="63.0" onAction="#selected" prefHeight="42.0" prefWidth="126.0" promptText="Laboratories" style="-fx-alignment: center;" stylesheets="@css/MFXComboBox.css">
          <font>
             <Font size="17.0" />

@@ -3,6 +3,7 @@ package com.example.loginsystemfinal;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXComboBox;
 import io.github.palexdev.materialfx.controls.MFXTextField;
+import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -24,6 +26,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class LabInput implements Initializable {
+    int i = 0;
     public static Stage operate;
     @FXML
     private MFXComboBox<String> options;
@@ -49,7 +52,9 @@ public class LabInput implements Initializable {
     void keyPressed(KeyEvent event) throws IOException {
         if (event.getCode() == KeyCode.ENTER) operate();
         if (event.getCode() == KeyCode.ESCAPE) close();
+        if (event.getCode() == KeyCode.F1) options.show();
     }
+
     private void operate() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(loginPage.class.getResource("Operate.fxml"));
@@ -88,9 +93,28 @@ public class LabInput implements Initializable {
         return labsList;
     }
 
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         options.getItems().addAll(getLabList());
         options.getSelectionModel().selectFirst();
+
+        /*
+        lambda function that expands combobox when mouseclicked or when it gains focus.
+        link to source : https://stackoverflow.com/questions/35869386/javafx-automatically-expand-choicebox-when-on-focus
+        */
+        final ChangeListener<? super Boolean> showHideBox = (__, ___, isFocused ) ->{
+            if (isFocused){
+                options.show();
+            }else{
+                options.hide();
+            }
+        };
+        options.focusedProperty().addListener( showHideBox );
+        options.addEventFilter( MouseEvent.MOUSE_RELEASED, release ->{
+            release.consume();
+            options.requestFocus();
+        } );
     }
 }

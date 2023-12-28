@@ -26,6 +26,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.function.Function;
 
 import static javafx.util.Duration.seconds;
 
@@ -125,6 +126,7 @@ public class Functions {
             scannerNotPresentStage.setScene(scene);
             scannerNotPresentStage.initStyle(StageStyle.UNDECORATED);
             scannerNotPresentStage.show();
+            Functions.setWindowCenter(scannerNotPresentStage);
         }
         return uid;
     }
@@ -133,7 +135,7 @@ public class Functions {
     }
     //closing scannerNotPresent stage on duration
     public static void closeOnDuration(){
-    PauseTransition delay = new PauseTransition(Duration.seconds(3));
+    PauseTransition delay = new PauseTransition(Duration.seconds(2.3));
     delay.setOnFinished( event -> {
         scannerNotPresentStage.close();
     });
@@ -142,7 +144,7 @@ public class Functions {
 
 
     //function for centering window
-    public void setWindowCenter(Stage stage){
+    public static void setWindowCenter(Stage stage){
         Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
         stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
         stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
