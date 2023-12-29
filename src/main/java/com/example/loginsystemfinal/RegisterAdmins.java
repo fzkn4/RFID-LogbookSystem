@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class RegisterAdmins implements Initializable {
+    Stage addFailedStage;
     String uid = "";
 
     private final DBConnect connects = new DBConnect();
@@ -54,10 +55,16 @@ public class RegisterAdmins implements Initializable {
         if (Fname.getText().length() == 0 || Lname.getText().length() == 0 || pos.getText().length() == 0 || Sex.getText().length() == 0) {
             System.out.println("fill this up.");
         } else {
-            scanWindow.show();
-            Functions.setWindowCenter(scanWindow);
+            MainPage.scanWindow.show();
+            Functions.setWindowCenter(MainPage.scanWindow);
             if (checkUID()){
                 AddFailed.displayFailed = "UID already exist. Please try another one.";
+                clear();
+                //add faild window shows
+                MainPage.addFailedStage.show();
+                //centering window
+                Functions func = new Functions();
+                func.setWindowCenter(MainPage.addFailedStage);
             }
             else{
                 try {
@@ -71,10 +78,10 @@ public class RegisterAdmins implements Initializable {
                     clear();
 
                     //successful window shows
-                    RegisterLabs.addSuccess.show();
+                    MainPage.addSuccess.show();
                     //centering window
                     Functions func = new Functions();
-                    func.setWindowCenter(RegisterLabs.addSuccess);
+                    func.setWindowCenter(MainPage.addSuccess);
 
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -82,10 +89,10 @@ public class RegisterAdmins implements Initializable {
 
                     AddFailed.displayFailed = "Something went wrong.";
                     //add faild window shows
-                    RegisterLabs.addFailed.show();
+                    MainPage.addFailedStage.show();
                     //centering window
                     Functions func = new Functions();
-                    func.setWindowCenter(RegisterLabs.addFailed);
+                    func.setWindowCenter(MainPage.addFailedStage);
             }
         }
     }
@@ -120,17 +127,17 @@ public class RegisterAdmins implements Initializable {
     }
     private boolean checkUID() throws IOException {
         Admins obj = new Admins();
-        FilteredList<Admins> filteredData = new FilteredList<>(obj.getAdminInfo()); 
-//            filteredData.setPredicate(myObject -> {
-//                try {
-//                    return getUID().equals(myObject.getAdmin_ID());
-//                } catch (IOException e) {
-//                    throw new RuntimeException(e);
-//                }
-//            });
-//            scanWindow.close();
-//            uid = getUID();
-        return (filteredData.size() == 1);
+        FilteredList<Admins> filteredData = new FilteredList<>(obj.getAdminInfo());
+            filteredData.setPredicate(myObject -> {
+                try {
+                    return getUID().equals(myObject.getAdmin_ID());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+            scanWindow.close();
+            uid = getUID();
+        return (filteredData.size() > 0);
     }
 
     private String getUID() throws IOException {
@@ -189,18 +196,5 @@ public class RegisterAdmins implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            scanWindow.initOwner(Validation.stage);
-            FXMLLoader fxmlLoader = new FXMLLoader(loginPage.class.getResource("scanToAssign.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            scanWindow.setScene(scene);
-            scanWindow.initStyle(StageStyle.TRANSPARENT);
-            scene.setFill(Color.TRANSPARENT);
-            scanWindow.initModality(Modality.WINDOW_MODAL);
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
     }
 }

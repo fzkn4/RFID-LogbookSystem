@@ -26,21 +26,20 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
-import java.util.function.Function;
 
 import static javafx.util.Duration.seconds;
 
 public class Functions {
     private static String uid;
+    public static boolean disconectReader = false;
     public static Stage scannerNotPresentStage;
 
 
 
     //this function removes previous scenes in a stackpane, thus, optimizing the use of memory
     public static void remove(StackPane Stack){
-        for(int i = 0; i < Stack.getChildren().size() - 1; i++){
-                Stack.getChildren().remove(i);
-        }
+        if (Stack.getChildren().size() > 0)
+                Stack.getChildren().remove(0);
     }
 
 
@@ -93,6 +92,13 @@ public class Functions {
             while (true) {
                 terminal.waitForCardPresent(10);
 
+                //disconnecting connection
+                if (disconectReader){
+                    terminal.waitForCardAbsent(1000);
+                    System.out.println("Disconnecting...");
+                    break;
+                }
+
                 if (terminal.isCardPresent()) {
                     // Card found, get details
                     Card card = terminal.connect("*");
@@ -130,9 +136,12 @@ public class Functions {
         }
         return uid;
     }
+
     static String bin2hex(byte[] data) {
         return String.format("%0" + (data.length * 2) + "X", new BigInteger(1, data));
     }
+
+
     //closing scannerNotPresent stage on duration
     public static void closeOnDuration(){
     PauseTransition delay = new PauseTransition(Duration.seconds(2.3));

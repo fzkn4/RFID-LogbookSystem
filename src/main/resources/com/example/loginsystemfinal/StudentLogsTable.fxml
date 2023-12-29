@@ -6,12 +6,12 @@
 
 <AnchorPane prefHeight="350.0" prefWidth="457.0" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.StudentLogsTable">
    <children>
-       <TableView prefHeight="350.0" prefWidth="457.0" style="-fx-border-color: lightgray; -fx-border-width: 1px;" stylesheets="@css/tableStyle.css">
+       <TableView prefHeight="350.0" prefWidth="457.0" style="-fx-border-color: lightgray; -fx-background-color: #f6f6f6; -fx-border-width: 1px;" stylesheets="@css/tableStyle.css">
            <columns>
-               <TableColumn prefWidth="121.0" style="-fx-background-color: #f3f3f6;" text="Lab Name" />
-               <TableColumn prefWidth="71.0" style="-fx-background-color: #f3f3f6;" text="Lab ID" />
-               <TableColumn prefWidth="126.0" style="-fx-background-color: #f3f3f6;" text="Time In" />
-               <TableColumn prefWidth="137.0" style="-fx-background-color: #f3f3f6;" text="Time Out" />
+               <TableColumn prefWidth="121.0" text="Lab Name" />
+               <TableColumn prefWidth="71.0" text="Lab ID" />
+               <TableColumn prefWidth="126.0" text="Time In" />
+               <TableColumn prefWidth="137.0" text="Time Out" />
            </columns>
        </TableView>
    </children>

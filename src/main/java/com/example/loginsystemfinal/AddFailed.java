@@ -18,6 +18,7 @@ public class AddFailed implements Initializable {
         PauseTransition delay = new PauseTransition(Duration.seconds(3));
         delay.setOnFinished( event -> {
             displayF.setText(displayFailed);
+            MainPage.addFailedStage.hide();
         });
         delay.play();
     }

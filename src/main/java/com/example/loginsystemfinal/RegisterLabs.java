@@ -1,16 +1,13 @@
 package com.example.loginsystemfinal;
 
+import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,13 +21,14 @@ public class RegisterLabs implements Initializable {
     Labs lab = new Labs();
     @FXML
     private Text displayMess;
-    public static Stage addSuccess;
-    public static Stage addFailed;
     private final DBConnect connects = new DBConnect();
     private final Connection con = connects.getConnection();
 
     @FXML
     private MFXTextField labID;
+    @FXML
+    private MFXButton add;
+
 
     @FXML
     private MFXTextField labName;
@@ -55,36 +53,21 @@ public class RegisterLabs implements Initializable {
                 setLabID();
 
                 //successful window shows
-                Stage stage = new Stage();
-                FXMLLoader fxmlLoader = new FXMLLoader(loginPage.class.getResource("addedSuccessfully.fxml"));
-                Scene scene = new Scene(fxmlLoader.load());
-                stage.setScene(scene);
-                stage.initStyle(StageStyle.TRANSPARENT);
-                scene.setFill(Color.TRANSPARENT);
-                stage.show();
-                addSuccess = stage;
+                MainPage.addSuccess.show();
                 //centering window
                 Functions func = new Functions();
-                func.setWindowCenter(stage);
+                func.setWindowCenter(MainPage.addSuccess);
 
             } catch (SQLException e) {
                 e.printStackTrace();
                 Clear();
 
+                AddFailed.displayFailed = "Something went wrong.";
                 //add failed window shows
-                Stage stage = new Stage(StageStyle.TRANSPARENT);
-                FXMLLoader fxmlLoader = new FXMLLoader(loginPage.class.getResource("addFailed.fxml"));
-                Scene scene = new Scene(fxmlLoader.load());
-                stage.setScene(scene);
-                scene.setFill(Color.TRANSPARENT);
-                stage.show();
-                addFailed = stage;
+                MainPage.addFailedStage.show();
                 //centering window
                 Functions func = new Functions();
-                func.setWindowCenter(stage);
-
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+                func.setWindowCenter(MainPage.addFailedStage);
             }
         }
     }
@@ -106,14 +89,16 @@ public class RegisterLabs implements Initializable {
         FilteredList<Labs> filteredData = new FilteredList<>(lab.getlabInfo(), p -> true);
         labName.textProperty().addListener( e -> {
             filteredData.setPredicate(myObject -> {
-                if (labName.getText().toUpperCase().equals(myObject.lab_name)) {
+                if (String.valueOf(myObject.getLab_name()).equals(labName.getText().toUpperCase())) {
                     displayMess.setText("Lab name already exist.");
                     displayMess.setVisible(true);
+                    add.setDisable(true);
                     return true;
                 } else {
                     displayMess.setVisible(false);
+                    add.setDisable(false);
+                    return false;
                 }
-                return false;
             });
         });
     }

@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="350.0" prefWidth="457.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.StudentLogsGraph">
    <children>
-      <BarChart fx:id="summaryGraph" prefHeight="350.0" prefWidth="457.0" style="-fx-background-color: white; -fx-border-color: lightgray; -fx-border-width: 1px;" title="Summary Graph">
+      <BarChart fx:id="summaryGraph" prefHeight="350.0" prefWidth="457.0" style="-fx-background-color: white; -fx-background-color: #f6f6f6; -fx-border-color: lightgray; -fx-border-width: 1px;" title="Summary Graph">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>

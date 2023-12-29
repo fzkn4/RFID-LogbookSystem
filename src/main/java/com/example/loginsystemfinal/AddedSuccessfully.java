@@ -11,7 +11,7 @@ public class AddedSuccessfully implements Initializable {
     private void closeOnDuration(){
         PauseTransition delay = new PauseTransition(Duration.seconds(3));
         delay.setOnFinished( event -> {
-                RegisterLabs.addSuccess.hide();
+                MainPage.addSuccess.hide();
         });
         delay.play();
     }

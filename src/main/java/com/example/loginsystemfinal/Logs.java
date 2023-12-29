@@ -2,12 +2,16 @@ package com.example.loginsystemfinal;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXToggleButton;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
@@ -17,6 +21,26 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Logs implements Initializable {
+    private ObservableList<Student> studentData;
+
+    Student student = new Student();
+    @FXML
+    private TableColumn<?, ?> student_ID;
+
+    @FXML
+    private TableColumn<?, ?> student_course;
+
+    @FXML
+    private TableColumn<?, ?> student_dept;
+
+    @FXML
+    private TableColumn<?, ?> student_fname;
+
+    @FXML
+    private TableColumn<?, ?> student_lname;
+
+    @FXML
+    private TableView<Student> student_table;
     Labs lab = new Labs();
     @FXML
     private Text LabTotal;
@@ -85,9 +109,21 @@ public class Logs implements Initializable {
     private void load_resources(){
 
     }
+    private void updateTableStudent(){
+        student_fname.setCellValueFactory(new PropertyValueFactory<>("fname"));
+        student_lname.setCellValueFactory(new PropertyValueFactory<>("lname"));
+        student_ID.setCellValueFactory(new PropertyValueFactory<>("rfid"));
+        student_dept.setCellValueFactory(new PropertyValueFactory<>("dept"));
+        student_course.setCellValueFactory(new PropertyValueFactory<>("course"));
+
+        studentData = student.getStudentInfo();
+        student_table.setItems(studentData);
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         LabTotal.setText( String.valueOf(lab.getTotalLabs()));
+        StudentTotal.setText(String.valueOf(student.getTotalStudents()));
+        updateTableStudent();
     }
 }

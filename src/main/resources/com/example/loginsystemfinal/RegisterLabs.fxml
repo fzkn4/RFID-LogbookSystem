@@ -26,7 +26,7 @@
                         <Font size="10.0" />
                      </font>
                   </MFXTextField>
-                        <MFXButton buttonType="RAISED" layoutX="151.0" layoutY="365.0" onAction="#addLab" prefHeight="33.0" prefWidth="81.0" style="-fx-border-radius: 4px; -fx-border-color: #2a313a; -fx-background-color: white; -fx-border-width: 0.5px;" stylesheets="@css/MFXButton.css" text="Submit">
+                        <MFXButton fx:id="add" buttonType="RAISED" layoutX="151.0" layoutY="365.0" onAction="#addLab" prefHeight="33.0" prefWidth="81.0" style="-fx-border-radius: 4px; -fx-border-color: #2a313a; -fx-background-color: white; -fx-border-width: 0.5px;" stylesheets="@css/MFXButton.css" text="Submit">
                             <font>
                                 <Font name="Roboto Light" size="12.0" />
                             </font></MFXButton>

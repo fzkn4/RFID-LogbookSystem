@@ -7,6 +7,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
@@ -14,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="560.0" prefWidth="961.0" style="-fx-background-color: #f3f3f6;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.Logs">
+<AnchorPane prefHeight="560.0" prefWidth="961.0" style="-fx-background-color: #e1e1e1;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.Logs">
     <children>
         <BorderPane layoutX="15.0" layoutY="5.0" prefHeight="542.0" prefWidth="928.0" stylesheets="@css/styles.css">
             <center>
@@ -22,68 +23,74 @@
                     <children>
                         <Pane prefHeight="200.0" prefWidth="200.0">
                             <children>
-                                <Pane layoutX="472.0" layoutY="12.0" prefHeight="56.0" prefWidth="456.0" style="-fx-background-color: white; -fx-border-color: lightgray;">
+                                <Pane layoutX="472.0" layoutY="12.0" prefHeight="56.0" prefWidth="456.0" style="-fx-background-color: #f6f6f6; -fx-border-color: lightgray;">
                                     <children>
                                         <MFXToggleButton fx:id="toGraph" layoutX="14.0" layoutY="10.0" length="20.0" onMouseClicked="#showGraph" radius="7.0" stylesheets="@css/MFXToggleButton.css" text="Graph" />
-                                        <MFXDatePicker alignment="CENTER" layoutX="268.0" layoutY="10.0" prefHeight="38.0" prefWidth="174.0" promptText="Choose Date..." style="-fx-border-radius: 0px; -fx-background-radius: 0px; -fx-text-fill: #444444;" stylesheets="@css/MFXDatePicker.css">
+                                        <MFXDatePicker alignment="CENTER" layoutX="268.0" layoutY="10.0" prefHeight="38.0" prefWidth="174.0" promptText="Choose Date..." style="-fx-border-radius: 0px; -fx-background-color: #f6f6f6; -fx-background-radius: 0px; -fx-text-fill: #444444;" stylesheets="@css/MFXDatePicker.css">
                                             <font>
                                                 <Font size="10.0" />
                                             </font>
                                         </MFXDatePicker>
                                     </children>
                                 </Pane>
-                                <TableView layoutY="14.0" prefHeight="411.0" prefWidth="460.0" stylesheets="@css/tableStyle.css">
-                                    <columns>
-                                        <TableColumn prefWidth="118.0" style="-fx-background-color: #f3f3f6;" text="Last Name" />
-                                        <TableColumn prefWidth="97.0" style="-fx-background-color: #f3f3f6;" text="First Name" />
-                                        <TableColumn prefWidth="65.0" style="-fx-background-color: #f3f3f6;" text="ID" />
-                                        <TableColumn prefWidth="88.0" style="-fx-background-color: #f3f3f6;" text="Dept." />
-                                        <TableColumn prefWidth="88.0" style="-fx-background-color: #f3f3f6;" text="Course " />
-                                    </columns>
-                                </TableView>
                         <Pane />
                                   <StackPane fx:id="LogsStudentStackpane" layoutX="472.0" layoutY="75.0" prefHeight="350.0" prefWidth="457.0">
                                       <children>
-                                          <TableView prefHeight="350.0" prefWidth="359.0" stylesheets="@css/tableStyle.css">
+                                          <TableView prefHeight="350.0" prefWidth="359.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/tableStyle.css">
                                               <columns>
-                                                  <TableColumn prefWidth="121.0" style="-fx-background-color: #f3f3f6;" text="Lab Name" />
-                                                  <TableColumn prefWidth="93.0" style="-fx-background-color: #f3f3f6;" text="Lab ID" />
-                                                  <TableColumn prefWidth="125.0" style="-fx-background-color: #f3f3f6;" text="Time In" />
-                                                  <TableColumn prefWidth="116.0" style="-fx-background-color: #f3f3f6;" text="Time Out" />
+                                                  <TableColumn prefWidth="121.0" text="Lab Name" />
+                                                  <TableColumn prefWidth="93.0" text="Lab ID" />
+                                                  <TableColumn prefWidth="125.0" text="Time In" />
+                                                  <TableColumn prefWidth="116.0" text="Time Out" />
                                               </columns>
                                           </TableView>
                                       </children>
                                   </StackPane>
+                                <TableView fx:id="student_table" layoutY="14.0" prefHeight="411.0" prefWidth="460.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/tableStyle.css">
+                                    <columns>
+                                        <TableColumn fx:id="student_lname" prefWidth="118.0" text="Last Name" />
+                                        <TableColumn fx:id="student_fname" prefWidth="97.0" text="First Name" />
+                                        <TableColumn fx:id="student_ID" prefWidth="65.0" text="ID" />
+                                        <TableColumn fx:id="student_dept" prefWidth="88.0" text="Dept." />
+                                        <TableColumn fx:id="student_course" prefWidth="88.0" text="Course " />
+                                    </columns>
+                                </TableView>
                             </children>
                         </Pane>
                     </children>
                 </StackPane>
             </center>
             <top>
-                <Pane prefHeight="111.0" prefWidth="831.0" style="-fx-border-color: lightgray; -fx-border-width: 1px;" BorderPane.alignment="CENTER">
+                <Pane prefHeight="111.0" prefWidth="831.0" style="-fx-border-color: lightgray; -fx-background-color: #f6f6f6; -fx-border-width: 1px;" BorderPane.alignment="CENTER">
                     <children>
-                        <Pane layoutX="14.0" layoutY="20.0" prefHeight="71.0" prefWidth="184.0" style="-fx-background-color: white;">
+                        <Pane layoutX="14.0" layoutY="20.0" prefHeight="71.0" prefWidth="184.0" style="-fx-background-color: #f6f6f6; -fx-border-color: lightgray;">
                             <children>
-                                <Text fx:id="StudentTotal" fill="#515151" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-bold" text="234" textAlignment="CENTER" wrappingWidth="184.13671875">
+                                <Text fx:id="StudentTotal" fill="#515151" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-bold" textAlignment="CENTER" wrappingWidth="184.13671875">
                                     <font>
                                         <Font size="23.0" />
                                     </font>
+                           <effect>
+                              <Glow level="0.34" />
+                           </effect>
                                 </Text>
                                 <MFXButton fx:id="ShowStudentLogs" layoutY="45.0" onAction="#showStudentLogs" prefHeight="26.0" prefWidth="184.0" style="-fx-background-color: lightgray; -fx-background-radius: 0px;" text="Students" textAlignment="CENTER" />
                             </children>
                         </Pane>
-                        <Pane layoutX="216.0" layoutY="20.0" prefHeight="71.0" prefWidth="184.0" style="-fx-background-color: white;">
+                        <Pane layoutX="216.0" layoutY="20.0" prefHeight="71.0" prefWidth="184.0" style="-fx-background-color: #f6f6f6; -fx-border-color: lightgray;">
                             <children>
                                 <Text fx:id="LabTotal" fill="#515151" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-bold" textAlignment="CENTER" wrappingWidth="184.13671875">
                                     <font>
                                         <Font size="23.0" />
                                     </font>
+                           <effect>
+                              <Glow level="0.34" />
+                           </effect>
                                 </Text>
                                 <MFXButton fx:id="ShowLabLogs" layoutY="45.0" onAction="#showLabLogs" prefHeight="26.0" prefWidth="184.0" style="-fx-background-color: lightgray; -fx-background-radius: 0px;" text="Labs" textAlignment="CENTER" />
                             </children>
                         </Pane>
-                        <MFXButton layoutX="837.0" layoutY="14.0" prefHeight="28.0" prefWidth="68.0" style="-fx-background-color: lightgray; -fx-background-radius: 0px;" text="Search" />
-                        <MFXTextField borderGap="5.0" floatMode="DISABLED" graphicTextGap="5.0" layoutX="645.0" layoutY="14.0" prefHeight="28.0" prefWidth="182.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px;" stylesheets="@css/MFXTextField.css" />
+                        <MFXButton layoutX="837.0" layoutY="14.0" prefHeight="28.0" prefWidth="68.0" style="-fx-background-color: lightgray; -fx-background-radius: 4px;" text="Search" />
+                        <MFXTextField borderGap="5.0" floatMode="DISABLED" graphicTextGap="5.0" layoutX="645.0" layoutY="14.0" prefHeight="28.0" prefWidth="182.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css" />
                     </children>
                     <BorderPane.margin>
                         <Insets />

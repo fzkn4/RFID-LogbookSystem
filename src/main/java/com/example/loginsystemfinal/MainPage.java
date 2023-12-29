@@ -1,6 +1,7 @@
 package com.example.loginsystemfinal;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,10 +9,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -22,6 +28,11 @@ import java.util.ResourceBundle;
 
 
 public class MainPage implements Initializable {
+    Student student = new Student();
+    public static Stage addFailedStage = new Stage();
+
+    public static Stage scanWindow = new Stage();
+    public static Stage addSuccess = new Stage();
     @FXML
     private Text admin_name;
     @FXML
@@ -48,6 +59,29 @@ public class MainPage implements Initializable {
     private BorderPane borderPane;
     @FXML
     private Text time;
+
+    @FXML
+    private TableColumn<?, ?> Course;
+    @FXML
+    private TableColumn<?, ?> Date_Reg;
+    @FXML
+    private TableColumn<?, ?> Department;
+    @FXML
+    private TableColumn<?, ?> Fname;
+    @FXML
+    private TableColumn<?, ?> Lname;
+    @FXML
+    private TableColumn<?, ?> Phone;
+    @FXML
+    private TableColumn<?, ?> Sex;
+    @FXML
+    private TableColumn<?, ?> Year;
+    @FXML
+    private TableColumn<?, ?> rfid;
+
+    @FXML
+    private TableView<Student> studentTable;
+    private ObservableList<Student> studentData;
 
     @FXML
     void quit(ActionEvent event) {
@@ -153,6 +187,47 @@ public class MainPage implements Initializable {
         //records
         rootRecords = FXMLLoader.load(getClass().getResource("Records.fxml"));
         recordsScene = recordbtn.getScene();
+
+        //initializing resources for addfailed, addsuccess and scantoassign popup window
+        try {
+            scanWindow.initOwner(Validation.stage);
+            FXMLLoader fxmlLoader1 = new FXMLLoader(loginPage.class.getResource("scanToAssign.fxml"));
+            Scene scene1 = new Scene(fxmlLoader1.load());
+            scanWindow.setScene(scene1);
+            scanWindow.initStyle(StageStyle.TRANSPARENT);
+            scene1.setFill(Color.TRANSPARENT);
+            scanWindow.initModality(Modality.WINDOW_MODAL);
+
+            addSuccess = new Stage(StageStyle.TRANSPARENT);
+            FXMLLoader fxmlLoader2 = new FXMLLoader(loginPage.class.getResource("addedSuccessfully.fxml"));
+            Scene scene2 = new Scene(fxmlLoader2.load());
+            addSuccess.setScene(scene2);
+            scene2.setFill(Color.TRANSPARENT);
+
+
+            addFailedStage = new Stage(StageStyle.TRANSPARENT);
+            FXMLLoader fxmlLoader3 = new FXMLLoader(loginPage.class.getResource("addFailed.fxml"));
+            Scene scene3 = new Scene(fxmlLoader3.load());
+            addFailedStage.setScene(scene3);
+            scene3.setFill(Color.TRANSPARENT);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void updateLabTable(){
+        rfid.setCellValueFactory(new PropertyValueFactory<>("rfid"));
+        Fname.setCellValueFactory(new PropertyValueFactory<>("fname"));
+        Lname.setCellValueFactory(new PropertyValueFactory<>("lname"));
+        Course.setCellValueFactory(new PropertyValueFactory<>("course"));
+        Year.setCellValueFactory(new PropertyValueFactory<>("year"));
+        Department.setCellValueFactory(new PropertyValueFactory<>("dept"));
+        Phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        Sex.setCellValueFactory(new PropertyValueFactory<>("sex"));
+        Date_Reg.setCellValueFactory(new PropertyValueFactory<>("date_registered"));
+
+        studentData = student.getStudentInfo();
+        studentTable.setItems(studentData);
     }
 
     @Override
@@ -167,6 +242,8 @@ public class MainPage implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        updateLabTable();
+        studentTable.setSelectionModel(null);
     }
 }
 

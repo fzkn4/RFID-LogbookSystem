@@ -12,31 +12,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<MFXScrollPane prefHeight="560.0" prefWidth="870.0" thumbColor="#2a313a" thumbHoverColor="#2a313a" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.Records">
+<MFXScrollPane prefHeight="560.0" prefWidth="956.0" thumbColor="#2a313a" thumbHoverColor="#2a313a" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.Records">
     <content>
-        <BorderPane fx:id="borderPane" prefHeight="559.0" prefWidth="949.0">
-            <center>
-                <TableView prefHeight="493.0" prefWidth="900.0" BorderPane.alignment="CENTER">
-                    <columns>
-                        <TableColumn prefWidth="153.0" style="-fx-background-color: lightgray; -fx-font-size: 11px;" text="First Name" />
-                        <TableColumn minWidth="0.0" prefWidth="153.0" style="-fx-background-color: lightgray; -fx-font-size: 11px;" text="Last Name" />
-                        <TableColumn prefWidth="88.0" style="-fx-background-color: lightgray; -fx-font-size: 11px;" text="Course" />
-                        <TableColumn prefWidth="43.0" style="-fx-background-color: lightgray; -fx-font-size: 11px;" text="Year" />
-                        <TableColumn prefWidth="97.0" style="-fx-background-color: lightgray; -fx-font-size: 11px;" text="Department" />
-                        <TableColumn minWidth="1.0" prefWidth="113.0" style="-fx-background-color: lightgray; -fx-font-size: 11px;" text="RFID No." />
-                        <TableColumn prefWidth="136.0" style="-fx-background-color: lightgray; -fx-font-size: 11px;" text="Phone No." />
-                        <TableColumn prefWidth="52.0" resizable="false" style="-fx-background-color: lightgray; -fx-font-size: 11px;" text="Sex" />
-                        <TableColumn prefWidth="102.0" resizable="false" style="-fx-background-color: lightgray; -fx-font-size: 11px;" text="Date Registered" />
-                    </columns>
-                    <BorderPane.margin>
-                        <Insets bottom="10.0" left="5.0" right="5.0" />
-                    </BorderPane.margin>
-                    <stylesheets>
-                        <URL value="@css/styles.css" />
-                        <URL value="@css/tableStyle.css" />
-                    </stylesheets>
-                </TableView>
-            </center>
+        <BorderPane fx:id="borderPane" prefHeight="559.0" prefWidth="942.0">
             <top>
                 <Pane prefHeight="56.0" prefWidth="848.0" BorderPane.alignment="CENTER">
                     <children>
@@ -49,6 +27,24 @@
                     </children>
                 </Pane>
             </top>
+         <left>
+                <TableView fx:id="studentTable" prefHeight="493.0" prefWidth="931.0" stylesheets="@css/studentTable.css" BorderPane.alignment="CENTER">
+                    <columns>
+                        <TableColumn fx:id="rfid" prefWidth="113.0" style="-fx-font-size: 11px;" text="RFID No." />
+                        <TableColumn fx:id="Fname" minWidth="0.0" prefWidth="153.0" style="-fx-font-size: 11px;" text="First Name" />
+                        <TableColumn fx:id="Lname" prefWidth="153.0" style="-fx-font-size: 11px;" text="Last Name" />
+                        <TableColumn fx:id="Course" prefWidth="88.0" style="-fx-font-size: 11px;" text="Course" />
+                        <TableColumn fx:id="Year" prefWidth="43.0" style="-fx-font-size: 11px;" text="Year " />
+                        <TableColumn fx:id="Department" minWidth="1.0" prefWidth="97.0" style="-fx-font-size: 11px;" text="Department" />
+                        <TableColumn fx:id="Phone" prefWidth="136.0" style="-fx-font-size: 11px;" text="Phone No." />
+                        <TableColumn fx:id="Sex" prefWidth="52.0" resizable="false" style="-fx-font-size: 11px;" text="Sex" />
+                        <TableColumn fx:id="Date_Reg" prefWidth="102.0" resizable="false" style="-fx-font-size: 11px;" text="Date Registered" />
+                    </columns>
+                    <BorderPane.margin>
+                        <Insets bottom="10.0" left="5.0" right="5.0" />
+                    </BorderPane.margin>
+                </TableView>
+         </left>
         </BorderPane>
     </content>
    <stylesheets>

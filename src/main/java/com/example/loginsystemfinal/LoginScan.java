@@ -35,11 +35,17 @@ public class LoginScan implements Initializable {
     public static boolean exec = true;
     @FXML
     void cancel(ActionEvent event) {
-        loginPageController.Mainstage.close();
+        close();
     }
 
     @FXML
     void gotoValidationFailed(KeyEvent event) throws IOException {
+    }
+
+    private void close(){
+        exec = false;
+        Functions.disconectReader = true;
+        loginPageController.Mainstage.close();
     }
     private void validation() throws IOException {
         if (validateLogin()){
@@ -97,7 +103,6 @@ public class LoginScan implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         PauseTransition delay = new PauseTransition(Duration.seconds(1));
         delay.setOnFinished( event -> {
             try {
@@ -112,6 +117,10 @@ public class LoginScan implements Initializable {
             }
         });
         delay.play();
+        Functions.disconectReader = false;
 
+        //resetting values
+        uid = "";
+        exec = true;
     }
 }
