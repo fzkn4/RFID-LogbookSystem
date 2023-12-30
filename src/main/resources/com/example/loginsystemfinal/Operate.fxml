@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
-<?import javafx.scene.control.Button?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.scene.effect.GaussianBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,71 +14,24 @@
 <AnchorPane fx:id="operatePane" onKeyPressed="#keyPressed" prefHeight="600.0" prefWidth="825.0" stylesheets="@css/Fonts.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.Operate">
    <children>
       <BorderPane prefHeight="600.0" prefWidth="825.0">
-         <top>
-            <Pane prefHeight="37.0" prefWidth="825.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Text fx:id="labName" fill="#515151" layoutX="337.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-bold" textAlignment="CENTER" wrappingWidth="184.13671875">
-                     <font>
-                        <Font name="Roboto Bold" size="23.0" />
-                     </font>
-                  </Text>
-                  <MFXButton fx:id="back" buttonType="RAISED" depthLevel="LEVEL1" layoutX="27.0" layoutY="12.0" onAction="#gotoLogin" prefHeight="31.0" prefWidth="81.0" stylesheets="@css/MFXButton.css" text="[ESC] Back" />
-                  <Text fx:id="date" fill="#515151" layoutX="610.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" textAlignment="RIGHT" wrappingWidth="173.3072509765625">
-                     <font>
-                        <Font name="Roboto Bold" size="15.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="time" layoutX="676.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" textAlignment="RIGHT" wrappingWidth="106.34375">
-                     <font>
-                        <Font name="Roboto Light" size="10.0" />
-                     </font>
-                  </Text>
-               </children>
-            </Pane>
-         </top>
          <center>
-            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e1e1e1;" BorderPane.alignment="CENTER">
                <children>
-                  <Pane layoutX="26.0" layoutY="23.0" prefHeight="508.0" prefWidth="389.0" style="-fx-border-color: lightgray;" stylesheets="@css/styles.css">
+                  <Pane layoutX="26.0" layoutY="54.0" prefHeight="516.0" prefWidth="389.0" style="-fx-border-color: lightgray; -fx-background-radius: 6px; -fx-background-color: #f6f6f6; -fx-border-radius: 6px;" stylesheets="@css/styles.css">
                      <children>
-                        <ImageView fitHeight="192.0" fitWidth="170.0" layoutX="115.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="192.0" fitWidth="170.0" layoutX="111.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@img/afro.png" />
                            </image>
                         </ImageView>
-                        <Text fx:id="text" layoutX="37.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Name">
-                           <font>
-                              <Font name="Roboto Light" size="11.0" />
-                           </font>
-                        </Text>
-                        <Button layoutX="37.0" layoutY="260.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="326.0" style="-fx-background-radius: 0px; -fx-background-color: lightgray; -fx-border-width: 0px;" />
-                        <Text fx:id="text" layoutX="37.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Course &amp; Year">
-                           <font>
-                              <Font name="Roboto Light" size="11.0" />
-                           </font>
-                        </Text>
-                        <Button layoutX="37.0" layoutY="325.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="326.0" style="-fx-background-radius: 0px; -fx-background-color: lightgray; -fx-border-width: 0px;" />
-                        <Text fx:id="text" layoutX="37.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="RFID Number">
-                           <font>
-                              <Font name="Roboto Light" size="11.0" />
-                           </font>
-                        </Text>
-                        <Button layoutX="37.0" layoutY="390.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="326.0" style="-fx-background-radius: 0px; -fx-background-color: lightgray; -fx-border-width: 0px;" />
-                        <Text fx:id="text" layoutX="37.0" layoutY="449.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Time In">
-                           <font>
-                              <Font name="Roboto Light" size="11.0" />
-                           </font>
-                        </Text>
-                        <Button layoutX="37.0" layoutY="453.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="153.0" style="-fx-background-radius: 0px; -fx-background-color: lightgray; -fx-border-width: 0px;" />
-                        <Text fx:id="text" layoutX="211.0" layoutY="449.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Time Out">
-                           <font>
-                              <Font name="Roboto Light" size="11.0" />
-                           </font>
-                        </Text>
-                        <Button layoutX="211.0" layoutY="453.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="153.0" style="-fx-background-radius: 0px; -fx-background-color: lightgray; -fx-border-width: 0px;" />
+                        <MFXTextField fx:id="name" editable="false" floatMode="ABOVE" floatingText="Name" layoutX="37.0" layoutY="220.0" prefHeight="47.0" prefWidth="317.0" style="-fx-alignment: center;" stylesheets="@css/text-info-display.css" />
+                        <MFXTextField fx:id="courseYear" editable="false" floatMode="ABOVE" floatingText="Course &amp; Year" layoutX="36.0" layoutY="292.0" prefHeight="47.0" prefWidth="317.0" style="-fx-alignment: center;" stylesheets="@css/text-info-display.css" />
+                        <MFXTextField fx:id="rfid" editable="false" floatMode="ABOVE" floatingText="RFID Number" layoutX="36.0" layoutY="363.0" prefHeight="47.0" prefWidth="317.0" style="-fx-alignment: center;" stylesheets="@css/text-info-display.css" />
+                        <MFXTextField fx:id="timeIn" editable="false" floatMode="ABOVE" floatingText="Time in" layoutX="38.0" layoutY="440.0" prefHeight="47.0" prefWidth="146.0" style="-fx-alignment: center;" stylesheets="@css/text-info-display.css" />
+                        <MFXTextField fx:id="timeOut" editable="false" floatMode="ABOVE" floatingText="Time out" layoutX="208.0" layoutY="440.0" prefHeight="47.0" prefWidth="146.0" style="-fx-alignment: center;" stylesheets="@css/text-info-display.css" />
                      </children>
                   </Pane>
-                  <ImageView fitHeight="508.0" fitWidth="346.0" layoutX="443.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="512.0" fitWidth="363.0" layoutX="443.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/bird.jpg" />
                      </image>
@@ -90,5 +43,25 @@
             </Pane>
          </center>
       </BorderPane>
+      <Pane prefHeight="37.0" prefWidth="825.0" style="-fx-background-color: #e1e1e1;">
+         <children>
+            <MFXButton fx:id="back" buttonType="RAISED" depthLevel="LEVEL1" layoutX="27.0" layoutY="12.0" onAction="#gotoLogin" prefHeight="31.0" prefWidth="81.0" style="-fx-border-color: lightgray; -fx-border-radius: 4px; -fx-background-radius: 4px;" stylesheets="@css/MFXButton.css" text="[ESC] Back" />
+            <Text fx:id="labName" fill="#515151" layoutX="337.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-bold" textAlignment="CENTER" wrappingWidth="184.13671875">
+               <font>
+                  <Font name="Roboto Bold" size="23.0" />
+               </font>
+            </Text>
+            <Text fx:id="date" fill="#515151" layoutX="610.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" textAlignment="RIGHT" wrappingWidth="173.3072509765625">
+               <font>
+                  <Font name="Roboto Bold" size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="time" layoutX="676.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" textAlignment="RIGHT" wrappingWidth="106.34375">
+               <font>
+                  <Font name="Roboto Light" size="10.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
