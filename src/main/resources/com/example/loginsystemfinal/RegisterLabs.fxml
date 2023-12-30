@@ -10,27 +10,27 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="499.0" prefWidth="870.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.RegisterLabs">
+<AnchorPane prefHeight="499.0" prefWidth="957.0" style="-fx-background-color: #e1e1e1;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.RegisterLabs">
     <children>
-        <Pane prefHeight="499.0" prefWidth="870.0" stylesheets="@css/styles.css">
+        <Pane prefHeight="499.0" prefWidth="870.0" style="-fx-background-color: #e1e1e1;" stylesheets="@css/styles.css">
             <children>
-                <Pane layoutX="48.0" layoutY="16.0" prefHeight="434.0" prefWidth="292.0" style="-fx-border-width: 1px; -fx-border-color: lightgray; -fx-background-color: #f3f3f6;">
+                <Pane layoutX="48.0" layoutY="16.0" prefHeight="434.0" prefWidth="292.0" style="-fx-border-width: 1px; -fx-border-radius: 6px; -fx-background-radius: 6px; -fx-border-color: lightgray; -fx-background-color: #f3f3f6;">
                     <children>
-                        <MFXTextField fx:id="labName" alignment="CENTER" floatingText="Lab Name " graphicTextGap="3.0" layoutX="33.0" layoutY="217.0" prefHeight="41.0" prefWidth="226.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5; -fx-text-fill: #2a313a;" stylesheets="@css/MFXTextField.css">
+                        <MFXTextField fx:id="labName" alignment="CENTER" floatingText="Lab Name " graphicTextGap="3.0" layoutX="33.0" layoutY="217.0" prefHeight="41.0" prefWidth="226.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
                             <font>
                                 <Font size="10.0" />
                             </font>
                         </MFXTextField>
-                  <MFXTextField fx:id="labID" alignment="CENTER" editable="false" floatingText="Lab ID" graphicTextGap="3.0" layoutX="33.0" layoutY="291.0" prefHeight="41.0" prefWidth="226.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5; -fx-text-fill: #2a313a;" stylesheets="@css/MFXTextField.css">
+                  <MFXTextField fx:id="labID" alignment="CENTER" editable="false" floatingText="Lab ID" graphicTextGap="3.0" layoutX="33.0" layoutY="291.0" prefHeight="41.0" prefWidth="226.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
                      <font>
                         <Font size="10.0" />
                      </font>
                   </MFXTextField>
-                        <MFXButton fx:id="add" buttonType="RAISED" layoutX="151.0" layoutY="365.0" onAction="#addLab" prefHeight="33.0" prefWidth="81.0" style="-fx-border-radius: 4px; -fx-border-color: #2a313a; -fx-background-color: white; -fx-border-width: 0.5px;" stylesheets="@css/MFXButton.css" text="Submit">
+                        <MFXButton fx:id="add" buttonType="RAISED" layoutX="151.0" layoutY="365.0" onAction="#addLab" prefHeight="33.0" prefWidth="81.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXButton.css" text="Submit">
                             <font>
                                 <Font name="Roboto Light" size="12.0" />
                             </font></MFXButton>
-                        <MFXButton buttonType="RAISED" layoutX="59.0" layoutY="365.0" onAction="#clear" prefHeight="33.0" prefWidth="81.0" style="-fx-border-radius: 4px; -fx-border-color: #2a313a; -fx-background-color: white; -fx-border-width: 0.5px;" stylesheets="@css/MFXButton.css" text="Cancel">
+                        <MFXButton buttonType="RAISED" layoutX="59.0" layoutY="365.0" onAction="#clear" prefHeight="33.0" prefWidth="81.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXButton.css" text="Cancel">
                             <font>
                                 <Font name="Roboto Light" size="12.0" />
                             </font>

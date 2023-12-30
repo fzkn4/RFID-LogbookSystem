@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="499.0" prefWidth="870.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.RegisterStudent">
+<AnchorPane prefHeight="499.0" prefWidth="870.0" style="-fx-background-color: #e1e1e1;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.RegisterStudent">
    <children>
-       <Pane prefHeight="485.0" prefWidth="818.0" stylesheets="@css/styles.css">
+       <Pane prefHeight="485.0" prefWidth="818.0" style="-fx-background-color: #e1e1e1;" stylesheets="@css/styles.css">
            <children>
                <ImageView fitHeight="484.0" fitWidth="315.0" layoutX="533.0" layoutY="2.0" opacity="0.66" pickOnBounds="true" preserveRatio="true">
                    <image>
@@ -21,13 +21,13 @@
                        <GaussianBlur radius="4.07" />
                    </effect>
                </ImageView>
-               <Pane layoutX="38.0" layoutY="3.0" prefHeight="475.0" prefWidth="467.0" style="-fx-border-width: 1px; -fx-border-color: lightgray; -fx-background-color: #f3f3f6;">
+               <Pane layoutX="38.0" layoutY="3.0" prefHeight="475.0" prefWidth="467.0" style="-fx-border-width: 1px; -fx-border-color: lightgray; -fx-background-color: #f6f6f6;">
                    <children>
-                       <MFXButton buttonType="RAISED" layoutX="365.0" layoutY="428.0" prefHeight="33.0" prefWidth="81.0" style="-fx-border-radius: 4px; -fx-border-color: #2a313a; -fx-background-color: white; -fx-border-width: 0.5px;" stylesheets="@css/MFXButton.css" text="Submit">
+                       <MFXButton buttonType="RAISED" layoutX="365.0" layoutY="428.0" prefHeight="33.0" prefWidth="81.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXButton.css" text="Submit">
                            <font>
                                <Font name="Roboto Light" size="12.0" />
                            </font></MFXButton>
-                       <MFXButton depthLevel="LEVEL1" layoutX="365.0" layoutY="189.0" prefHeight="33.0" prefWidth="81.0" style="-fx-border-radius: 4px; -fx-border-width: 0.5px; -fx-border-color: #2a313a; -fx-background-color: white;" stylesheets="@css/MFXButton.css" text="import">
+                       <MFXButton buttonType="RAISED" depthLevel="LEVEL1" layoutX="365.0" layoutY="189.0" prefHeight="33.0" prefWidth="81.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXButton.css" text="import">
                            <font>
                                <Font name="Roboto Light" size="12.0" />
                            </font>
@@ -37,47 +37,47 @@
                                <Image url="@img/afro.png" />
                            </image>
                        </ImageView>
-                       <MFXTextField floatingText="First Name" graphicTextGap="3.0" layoutX="38.0" layoutY="37.0" prefHeight="41.0" prefWidth="226.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5; -fx-text-fill: #2a313a;" stylesheets="@css/MFXTextField.css">
+                       <MFXTextField floatingText="First Name" graphicTextGap="3.0" layoutX="38.0" layoutY="37.0" prefHeight="41.0" prefWidth="226.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
                            <font>
                                <Font size="10.0" />
                            </font>
                        </MFXTextField>
-                       <MFXTextField floatingText="Last Name" graphicTextGap="3.0" layoutX="37.0" layoutY="93.0" prefHeight="32.0" prefWidth="227.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5;" stylesheets="@css/MFXTextField.css">
+                       <MFXTextField floatingText="Last Name" graphicTextGap="3.0" layoutX="37.0" layoutY="93.0" prefHeight="32.0" prefWidth="227.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
                            <font>
                                <Font size="10.0" />
                            </font>
                        </MFXTextField>
-                       <MFXTextField floatingText="Course " graphicTextGap="3.0" layoutX="37.0" layoutY="155.0" prefHeight="38.0" prefWidth="106.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5;" stylesheets="@css/MFXTextField.css">
+                       <MFXTextField floatingText="Course " graphicTextGap="3.0" layoutX="37.0" layoutY="155.0" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
                            <font>
                                <Font size="10.0" />
                            </font>
                        </MFXTextField>
-                       <MFXTextField floatingText="Year" graphicTextGap="3.0" layoutX="159.0" layoutY="155.0" prefHeight="38.0" prefWidth="106.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5;" stylesheets="@css/MFXTextField.css">
+                       <MFXTextField floatingText="Year" graphicTextGap="3.0" layoutX="159.0" layoutY="155.0" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
                            <font>
                                <Font size="10.0" />
                            </font>
                        </MFXTextField>
-                       <MFXTextField floatingText="RFID Number" graphicTextGap="3.0" layoutX="40.0" layoutY="222.0" prefHeight="38.0" prefWidth="224.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5;" stylesheets="@css/MFXTextField.css">
+                       <MFXTextField floatingText="RFID Number" graphicTextGap="3.0" layoutX="40.0" layoutY="222.0" prefHeight="38.0" prefWidth="224.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
                            <font>
                                <Font size="10.0" />
                            </font>
                        </MFXTextField>
-                       <MFXTextField floatingText="Phone Number" graphicTextGap="3.0" layoutX="38.0" layoutY="291.0" prefHeight="41.0" prefWidth="227.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5;" stylesheets="@css/MFXTextField.css">
+                       <MFXTextField floatingText="Phone Number" graphicTextGap="3.0" layoutX="38.0" layoutY="291.0" prefHeight="41.0" prefWidth="227.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
                            <font>
                                <Font size="10.0" />
                            </font>
                        </MFXTextField>
-                       <MFXTextField floatingText="Sex" graphicTextGap="3.0" layoutX="38.0" layoutY="358.0" prefHeight="38.0" prefWidth="106.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5;" stylesheets="@css/MFXTextField.css">
+                       <MFXTextField floatingText="Sex" graphicTextGap="3.0" layoutX="38.0" layoutY="358.0" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
                            <font>
                                <Font size="10.0" />
                            </font>
                        </MFXTextField>
-                       <MFXTextField floatingText="Department" graphicTextGap="3.0" layoutX="158.0" layoutY="358.0" prefHeight="38.0" prefWidth="106.0" style="-fx-border-color: #2a313a; -fx-border-width: 0.5;" stylesheets="@css/MFXTextField.css">
+                       <MFXTextField floatingText="Department" graphicTextGap="3.0" layoutX="158.0" layoutY="358.0" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
                            <font>
                                <Font size="10.0" />
                            </font>
                        </MFXTextField>
-                       <MFXButton buttonType="RAISED" layoutX="273.0" layoutY="428.0" prefHeight="33.0" prefWidth="81.0" style="-fx-border-radius: 4px; -fx-border-color: #2a313a; -fx-background-color: white; -fx-border-width: 0.5px;" stylesheets="@css/MFXButton.css" text="Cancel">
+                       <MFXButton buttonType="RAISED" layoutX="273.0" layoutY="428.0" prefHeight="33.0" prefWidth="81.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXButton.css" text="Cancel">
                            <font>
                                <Font name="Roboto Light" size="12.0" />
                            </font>

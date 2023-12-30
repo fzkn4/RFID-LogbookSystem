@@ -58,7 +58,7 @@
 }
 
 .mfx-text-field:floating .floating-text {
-	-fx-background-color: white;
+	-fx-background-color: #f6f6f6;
 }
 
 .mfx-text-field:focus-within .floating-text {
