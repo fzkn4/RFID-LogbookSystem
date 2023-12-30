@@ -1,8 +1,11 @@
 package com.example.loginsystemfinal;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
+import io.github.palexdev.materialfx.controls.MFXTextField;
 import io.github.palexdev.materialfx.controls.MFXToggleButton;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +24,19 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Logs implements Initializable {
+    public Logs() {
+    }
+
+    Parent root1;
+    Scene scene1;
+    Parent root2;
+    Scene scene2;
+    @FXML
+    public MFXTextField searchInput;
+    public static boolean active = true;
+
+    @FXML
+    private Text student_id_display;
     private ObservableList<Student> studentData;
 
     Student student = new Student();
@@ -61,12 +77,22 @@ public class Logs implements Initializable {
     @FXML
     private MFXToggleButton toGraph;
 
+    public Text getStudent_id_display() {
+        return student_id_display;
+    }
+
+    public Text getStudent_name_display() {
+        return student_name_display;
+    }
+
+    @FXML
+    private Text student_name_display;
+
     @FXML
     void showLabLogs(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("LabLogs.fxml"));
-        Scene scene = ShowLabLogs.getScene();
+        searchInput.clear();
         //adding to stack pane
-        LogsStackpane.getChildren().add(root);
+        LogsStackpane.getChildren().add(root1);
 
         //removing previous scene
         Functions.remove(LogsStackpane);
@@ -74,15 +100,60 @@ public class Logs implements Initializable {
 
     @FXML
     void showStudentLogs(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("StudentLogs.fxml"));
-        Scene scene = ShowStudentLogs.getScene();
+        searchInput.clear();
         //adding to stack pane
-        LogsStackpane.getChildren().add(root);
+        LogsStackpane.getChildren().add(root2);
 
         //removing previous scene
         Functions.remove(LogsStackpane);
     }
 
+    public MFXTextField getSearchInput() {
+        return searchInput;
+    }
+
+    //searching operation using filteredlist
+    private void Find(){
+        FilteredList<Student> filteredData = new FilteredList<>(studentData, p -> true);
+        //Set the filter Predicate whenever the filter changes.
+        searchInput.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(myObject -> {
+                // If filter text is empty, display all records of the students.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                // Compare first name, last name, student id, course field in your object with filter.
+                String lowerCaseFilter = newValue.toLowerCase();
+                if (String.valueOf(myObject.getRfid()).toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                    // Filter matches RFID Number.
+                } else if (String.valueOf(myObject.getFname()).toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches first name.
+                }else if(String.valueOf(myObject.getLname()).toLowerCase().contains(lowerCaseFilter)){
+                    return true; //Filter mathces last name.
+                }else if (String.valueOf(myObject.getCourse()).toLowerCase().contains(lowerCaseFilter)){
+                    return true; //Filter matches course.
+                }else if (String.valueOf(myObject.getYear()).toLowerCase().contains(lowerCaseFilter)){
+                    return true; //Filter matches student year.
+                }else if (String.valueOf(myObject.getDept()).toLowerCase().contains(lowerCaseFilter)){
+                    return true; //Filter matches department.
+                }else if (String.valueOf(myObject.getPhone()).toLowerCase().contains(lowerCaseFilter)){
+                    return true; //Filter matches student's phone number.
+                }else if (String.valueOf(myObject.getSex()).toLowerCase().contains(lowerCaseFilter)){
+                    return true; //Filter matches student sex.
+                }else if (String.valueOf(myObject.getDate_registered()).toLowerCase().contains(lowerCaseFilter)){
+                    return true; //Filter matches registered date.
+                }
+                return false; // Does not match.
+            });
+        });
+        // Wrap the FilteredList in a SortedList.
+        SortedList sortedData = new SortedList<>(filteredData);
+        //Bind the SortedList comparator to the TableView comparator.
+        sortedData.comparatorProperty().bind(student_table.comparatorProperty());
+        //Add sorted (and filtered) data to the table.
+        student_table.setItems(sortedData);
+    }
 
 
     @FXML
@@ -106,8 +177,12 @@ public class Logs implements Initializable {
         }
     }
 
-    private void load_resources(){
+    private void load_resources() throws IOException {
+         root1 = FXMLLoader.load(getClass().getResource("LabLogs.fxml"));
+         scene1 = ShowLabLogs.getScene();
 
+         root2 = FXMLLoader.load(getClass().getResource("StudentLogs.fxml"));
+         scene2 = ShowStudentLogs.getScene();
     }
     private void updateTableStudent(){
         student_fname.setCellValueFactory(new PropertyValueFactory<>("fname"));
@@ -125,5 +200,21 @@ public class Logs implements Initializable {
         LabTotal.setText( String.valueOf(lab.getTotalLabs()));
         StudentTotal.setText(String.valueOf(student.getTotalStudents()));
         updateTableStudent();
+
+        //selection table row
+        student_table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                    student_name_display.setText(newSelection.getFname() + " " + newSelection.getLname());
+                    student_id_display.setText(newSelection.getRfid());
+            }
+        });
+        //dynamic search initialization
+        Find();
+        //loading resources on start
+        try {
+            load_resources();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -90,7 +90,17 @@
                             </children>
                         </Pane>
                         <MFXButton layoutX="837.0" layoutY="14.0" prefHeight="28.0" prefWidth="68.0" style="-fx-background-color: lightgray; -fx-background-radius: 4px;" text="Search" />
-                        <MFXTextField borderGap="5.0" floatMode="DISABLED" graphicTextGap="5.0" layoutX="645.0" layoutY="14.0" prefHeight="28.0" prefWidth="182.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css" />
+                        <MFXTextField fx:id="searchInput" borderGap="5.0" floatMode="DISABLED" graphicTextGap="5.0" layoutX="645.0" layoutY="14.0" prefHeight="28.0" prefWidth="182.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css" />
+                  <Text fx:id="student_name_display" fill="#515151" layoutX="417.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="487.13671875">
+                     <font>
+                        <Font name="Roboto" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="student_id_display" fill="#515151" layoutX="417.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="487.13671875">
+                     <font>
+                        <Font name="Roboto Light" size="16.0" />
+                     </font>
+                  </Text>
                     </children>
                     <BorderPane.margin>
                         <Insets />

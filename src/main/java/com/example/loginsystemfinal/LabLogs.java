@@ -73,6 +73,7 @@ public class LabLogs implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        lab_table.getSelectionModel().clearSelection();
         updateLabTable();
         lab_table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
