@@ -24,7 +24,7 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.function.Function;
 
-public class LoginScan implements Initializable {
+public class LoginScan implements Initializable{
     @FXML
     private MFXButton Cancel;
 
@@ -36,10 +36,6 @@ public class LoginScan implements Initializable {
     @FXML
     void cancel(ActionEvent event) {
         close();
-    }
-
-    @FXML
-    void gotoValidationFailed(KeyEvent event) throws IOException {
     }
 
     private void close(){
@@ -121,6 +117,5 @@ public class LoginScan implements Initializable {
 
         //resetting values
         uid = "";
-        exec = true;
     }
 }

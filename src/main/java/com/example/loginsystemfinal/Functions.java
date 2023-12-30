@@ -99,7 +99,7 @@ public class Functions {
                     break;
                 }
 
-                if (terminal.isCardPresent()) {
+                if (terminal.isCardPresent()){
                     // Card found, get details
                     Card card = terminal.connect("*");
                     System.out.println("Card found, retrieving UID!");

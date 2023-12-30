@@ -103,7 +103,7 @@
                <children>
                       <Text fill="#2a313a" layoutX="345.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTRATION FORM">
                           <font>
-                              <Font name="Roboto Bold" size="21.0" />
+                              <Font name="Roboto" size="21.0" />
                           </font>
                       </Text>
                   <MFXComboBox fx:id="options" alignment="CENTER" floatMode="DISABLED" layoutX="37.0" layoutY="18.0" onAction="#selectedOption" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXComboBox.css" text="Student" />

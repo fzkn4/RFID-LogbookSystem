@@ -98,11 +98,11 @@
                             <top>
                                 <Pane prefHeight="56.0" prefWidth="848.0" BorderPane.alignment="CENTER">
                                     <children>
-                                        <MFXButton layoutX="867.0" layoutY="14.0" prefHeight="28.0" prefWidth="68.0" rippleColor="#7c7878" style="-fx-background-color: #f6f6f6; -fx-background-radius: 0px; -fx-border-radius: 0px;" stylesheets="@css/MFXButton.css" text="Search" />
-                                        <MFXTextField floatMode="DISABLED" layoutX="682.0" layoutY="14.0" prefHeight="25.0" prefWidth="177.0" style="-fx-border-radius: 0px; -fx-background-color: #f6f6f6; -fx-background-radius: 0px;" stylesheets="@css/MFXTextField.css" />
+                                        <MFXButton layoutX="867.0" layoutY="14.0" prefHeight="28.0" prefWidth="68.0" rippleColor="#7c7878" style="-fx-background-color: #f6f6f6; -fx-border-color: lightgray; -fx-background-radius: 0px; -fx-border-radius: 0px;" stylesheets="@css/MFXButton.css" text="Search" />
+                                        <MFXTextField fx:id="searchInput" floatMode="DISABLED" layoutX="682.0" layoutY="14.0" prefHeight="25.0" prefWidth="177.0" style="-fx-border-radius: 0px; -fx-background-color: #f6f6f6; -fx-background-radius: 0px;" stylesheets="@css/MFXTextField.css" />
                                         <Text fill="#2a313a" layoutX="353.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTERED STUDENTS">
                                  <font>
-                                    <Font name="Roboto Bold" size="21.0" />
+                                    <Font name="Roboto" size="21.0" />
                                  </font></Text>
                                     </children>
                                 </Pane>
