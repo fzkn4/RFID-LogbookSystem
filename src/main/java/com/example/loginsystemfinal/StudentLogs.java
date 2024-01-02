@@ -1,6 +1,8 @@
 package com.example.loginsystemfinal;
 
 import io.github.palexdev.materialfx.controls.MFXToggleButton;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -40,7 +42,7 @@ public class StudentLogs implements Initializable {
     private TableColumn<?, ?> student_lname;
 
     @FXML
-    private TableView<Student> student_table;
+    public TableView<Student> student_table;
 
     @FXML
     private StackPane studentLogsStackpane;
@@ -65,9 +67,9 @@ public class StudentLogs implements Initializable {
             studentLogsStackpane.getChildren().add(root);
             //calling remove stack
             Functions.remove(studentLogsStackpane);
-
         }
     }
+
     private void updateTableStudent(){
         student_fname.setCellValueFactory(new PropertyValueFactory<>("fname"));
         student_lname.setCellValueFactory(new PropertyValueFactory<>("lname"));
@@ -79,6 +81,41 @@ public class StudentLogs implements Initializable {
         student_table.setItems(studentData);
     }
 
+//    private void Find(){
+//        Student student = new Student();
+//        FilteredList<Student> filteredData = new FilteredList<>(student.getStudentInfo(), p -> true);
+//        //Set the filter Predicate whenever the filter changes.
+//        Logs.searchInput.textProperty().addListener((observable, oldValue, newValue) -> {
+//            filteredData.setPredicate(myObject -> {
+//                // If filter text is empty, display all records of the students.
+//                if (newValue == null || newValue.isEmpty()) {
+//                    return true;
+//                }
+//                // Compare first name, last name, student id, course field in your object with filter.
+//                String lowerCaseFilter = newValue.toLowerCase();
+//                if (String.valueOf(myObject.getRfid()).toLowerCase().contains(lowerCaseFilter)) {
+//                    return true;
+//                    // Filter matches RFID Number.
+//                } else if (String.valueOf(myObject.getFname()).toLowerCase().contains(lowerCaseFilter)) {
+//                    return true; // Filter matches first name.
+//                }else if(String.valueOf(myObject.getLname()).toLowerCase().contains(lowerCaseFilter)){
+//                    return true; //Filter mathces last name.
+//                }else if (String.valueOf(myObject.getCourse()).toLowerCase().contains(lowerCaseFilter)){
+//                    return true; //Filter matches course.
+//                }else if (String.valueOf(myObject.getDept()).toLowerCase().contains(lowerCaseFilter)) {
+//                    return true; //Filter matches department.
+//                }
+//                return false; // Does not match.
+//            });
+//        });
+//        // Wrap the FilteredList in a SortedList.
+//        SortedList<Student> sortedData = new SortedList<>(filteredData);
+//        //Bind the SortedList comparator to the TableView comparator.
+//        sortedData.comparatorProperty().bind(student_table.comparatorProperty());
+//        //Add sorted (and filtered) data to the table.
+//        student_table.setItems(sortedData);
+//    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         student_table.getSelectionModel().clearSelection();
@@ -86,9 +123,16 @@ public class StudentLogs implements Initializable {
         //selection table row
         student_table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
-                logsObj.getStudent_name_display().setText(newSelection.getFname() + " " + newSelection.getLname());
-                logsObj.getStudent_id_display().setText(newSelection.getRfid());
+                Logs.student_name_display.setVisible(true);
+                Logs.student_name_display.setText(newSelection.getFname());
             }
         });
+        //removes selection when not focused
+        student_table.focusedProperty().addListener((obs, oldVal, newVal) -> {
+            if (!newVal) {
+                student_table.getSelectionModel().clearSelection();
+            }
+        });
+//        Find();
     }
 }

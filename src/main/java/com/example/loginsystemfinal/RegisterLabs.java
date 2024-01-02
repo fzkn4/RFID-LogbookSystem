@@ -53,7 +53,7 @@ public class RegisterLabs implements Initializable {
                 setLabID();
 
                 //successful window shows
-                MainPage.addSuccess.show();
+                MainPage.addSuccess.showAndWait();
                 //centering window
                 Functions func = new Functions();
                 func.setWindowCenter(MainPage.addSuccess);
@@ -64,7 +64,7 @@ public class RegisterLabs implements Initializable {
 
                 AddFailed.displayFailed = "Something went wrong.";
                 //add failed window shows
-                MainPage.addFailedStage.show();
+                MainPage.addFailedStage.showAndWait();
                 //centering window
                 Functions func = new Functions();
                 func.setWindowCenter(MainPage.addFailedStage);

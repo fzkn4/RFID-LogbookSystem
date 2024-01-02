@@ -67,86 +67,11 @@ public class Functions {
         return ()-> System.exit(0);
     }
 
-
-
-
-    /* function for reading nfc tags and returning the corresponding values in it from a database. */
-    /*
-    * reference to this function: https://gist.github.com/mwllgr/f42ceb7051739eec85f360aa7f2c859f
-    * huge thanks to: https://gist.github.com/mwllgr
-    *
-    */
-    public static String getUID() throws IOException {
-        try {
-            // Connect to PC/SC interface (pcscd has to run!)
-            System.out.println("Connecting to PC/SC interface...");
-            TerminalFactory factory = TerminalFactory.getInstance("PC/SC", null);
-
-            // Get all terminals (card readers)
-            List<CardTerminal> terminals = factory.terminals().list();
-            // Connect to first terminal (card reader)
-            CardTerminal terminal = terminals.get(0);
-            System.out.println("Reader found: " + terminal.getName());
-
-            // Endless loop to wait for cards
-            while (true) {
-                terminal.waitForCardPresent(10);
-
-                //disconnecting connection
-                if (disconectReader){
-                    terminal.waitForCardAbsent(1000);
-                    System.out.println("Disconnecting...");
-                    break;
-                }
-
-                if (terminal.isCardPresent()){
-                    // Card found, get details
-                    Card card = terminal.connect("*");
-                    System.out.println("Card found, retrieving UID!");
-
-                    // Send UID request
-                    CardChannel channel = card.getBasicChannel();
-                    ResponseAPDU response = channel.transmit(new CommandAPDU(new byte[] {
-                            (byte) 0xFF, (byte) 0xCA, (byte) 0x00, (byte) 0x00, (byte) 0x00
-                    }));
-
-                    if (response.getSW1() == 0x63 && response.getSW2() == 0x00) {
-                        System.err.println("Error");
-                        break;
-                    }
-
-                    // passing uid to another variable
-                    uid = bin2hex(response.getData());
-                    card.disconnect(false);
-                    break;
-                }
-            }
-        } catch (Exception e) {
-            //created boolean value to prevent overriding login failed window with the error message.
-            LoginScan.exec = false;
-            //displays error message if scanner is not present.
-            System.out.println("Error: " + e.toString());
-            scannerNotPresentStage = new Stage();
-            Parent root = FXMLLoader.load(Functions.class.getResource("ScannerNotPresent.fxml"));
-            Scene scene = new Scene(root);
-            scannerNotPresentStage.setScene(scene);
-            scannerNotPresentStage.initStyle(StageStyle.UNDECORATED);
-            scannerNotPresentStage.show();
-            Functions.setWindowCenter(scannerNotPresentStage);
-        }
-        return uid;
-    }
-
-    static String bin2hex(byte[] data) {
-        return String.format("%0" + (data.length * 2) + "X", new BigInteger(1, data));
-    }
-
-
-    //closing scannerNotPresent stage on duration
-    public static void closeOnDuration(){
-    PauseTransition delay = new PauseTransition(Duration.seconds(2.3));
+    //closing stage on duration
+    public static void closeOnDuration(Stage stage){
+    PauseTransition delay = new PauseTransition(Duration.seconds(2));
     delay.setOnFinished( event -> {
-        scannerNotPresentStage.close();
+        stage.hide();
     });
     delay.play();
     }

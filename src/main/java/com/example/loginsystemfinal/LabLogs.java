@@ -75,9 +75,16 @@ public class LabLogs implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         lab_table.getSelectionModel().clearSelection();
         updateLabTable();
+        //selection table row
         lab_table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 labnameDisplay.setText(newSelection.getLab_name());
+            }
+        });
+        //removes selection when not focused
+        lab_table.focusedProperty().addListener((obs, oldVal, newVal) -> {
+            if (!newVal) {
+                lab_table.getSelectionModel().clearSelection();
             }
         });
     }

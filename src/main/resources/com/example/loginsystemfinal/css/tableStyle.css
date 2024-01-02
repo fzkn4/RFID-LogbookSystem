@@ -31,18 +31,18 @@
 }
 
 .table-row-cell:selected {
-    -fx-background-color:  #2a313a;
+    -fx-background-color: #2a313a;
     -fx-fill: white;
 }
 .table-row-cell:hover {
-    -fx-background-color:  #2a313a;
+    -fx-background-color: #2a313a;
     -fx-text-background-color: white;
 }
 
 /* The main scrollbar **track** CSS class  */
 .table-view .scroll-bar:horizontal .track,
 .table-view .scroll-bar:vertical .track{
-    -fx-background-color:  lightgray;
+    -fx-background-color:   #2a313a;
     -fx-border-color: white;
     -fx-background-radius: 4px;
     -fx-border-width: 3px;
@@ -53,7 +53,7 @@
 /* The main scrollbar **thumb** CSS class which we drag every time (movable) */
 .table-view .scroll-bar:horizontal .thumb,
 .table-view .scroll-bar:vertical .thumb {
-    -fx-background-color: #2a313a;
+    -fx-background-color:  #2a313a;
     -fx-background-insets: 1, 0, 0;
     -fx-background-radius: 4px;
 }

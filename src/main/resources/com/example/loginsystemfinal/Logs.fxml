@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
-<?import io.github.palexdev.materialfx.controls.MFXDatePicker?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
-<?import io.github.palexdev.materialfx.controls.MFXToggleButton?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -23,38 +19,7 @@
                     <children>
                         <Pane prefHeight="200.0" prefWidth="200.0">
                             <children>
-                                <Pane layoutX="472.0" layoutY="12.0" prefHeight="56.0" prefWidth="456.0" style="-fx-background-color: #f6f6f6; -fx-border-color: lightgray;">
-                                    <children>
-                                        <MFXToggleButton fx:id="toGraph" layoutX="14.0" layoutY="10.0" length="20.0" onMouseClicked="#showGraph" radius="7.0" stylesheets="@css/MFXToggleButton.css" text="Graph" />
-                                        <MFXDatePicker alignment="CENTER" layoutX="268.0" layoutY="10.0" prefHeight="38.0" prefWidth="174.0" promptText="Choose Date..." style="-fx-border-radius: 0px; -fx-background-color: #f6f6f6; -fx-background-radius: 0px; -fx-text-fill: #444444;" stylesheets="@css/MFXDatePicker.css">
-                                            <font>
-                                                <Font size="10.0" />
-                                            </font>
-                                        </MFXDatePicker>
-                                    </children>
-                                </Pane>
-                        <Pane />
-                                  <StackPane fx:id="LogsStudentStackpane" layoutX="472.0" layoutY="75.0" prefHeight="350.0" prefWidth="457.0">
-                                      <children>
-                                          <TableView prefHeight="350.0" prefWidth="359.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/tableStyle.css">
-                                              <columns>
-                                                  <TableColumn prefWidth="121.0" text="Lab Name" />
-                                                  <TableColumn prefWidth="93.0" text="Lab ID" />
-                                                  <TableColumn prefWidth="125.0" text="Time In" />
-                                                  <TableColumn prefWidth="116.0" text="Time Out" />
-                                              </columns>
-                                          </TableView>
-                                      </children>
-                                  </StackPane>
-                                <TableView fx:id="student_table" layoutY="14.0" prefHeight="411.0" prefWidth="460.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/tableStyle.css">
-                                    <columns>
-                                        <TableColumn fx:id="student_lname" prefWidth="118.0" text="Last Name" />
-                                        <TableColumn fx:id="student_fname" prefWidth="97.0" text="First Name" />
-                                        <TableColumn fx:id="student_ID" prefWidth="65.0" text="ID" />
-                                        <TableColumn fx:id="student_dept" prefWidth="88.0" text="Dept." />
-                                        <TableColumn fx:id="student_course" prefWidth="88.0" text="Course " />
-                                    </columns>
-                                </TableView>
+                                  <StackPane fx:id="LogsStudentStackpane" layoutX="472.0" layoutY="75.0" prefHeight="350.0" prefWidth="457.0" />
                             </children>
                         </Pane>
                     </children>
