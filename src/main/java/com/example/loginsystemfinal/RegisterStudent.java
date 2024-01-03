@@ -182,10 +182,12 @@ public class RegisterStudent implements Initializable {
                 map.put(index, true);
                 //if all textfields are already filled up, submit button enables.
                 if (map.containsValue(false)) {
-                    System.out.println("must not contain false");
+                    submit.setDisable(true);
                 } else {
                     submit.setDisable(false);
                 }
+            }else if (textField.getText().length() == 0){
+                map.put(index, false);
             }
         });
     }
