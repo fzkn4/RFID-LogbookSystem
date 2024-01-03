@@ -16,13 +16,17 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 
 public class Register implements Initializable {
+    Scene studentScene;
+    public static Stage registerStudentStage = new Stage();
 
     @FXML
     private MFXComboBox<String> options;
@@ -45,8 +49,10 @@ public class Register implements Initializable {
     @FXML
     void selectedOption(ActionEvent event) throws IOException {
         if (options.getValue().equals("Students")){
-            Parent root = FXMLLoader.load(getClass().getResource("RegisterStudent.fxml"));
-            Scene scene = options.getScene();
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("RegisterStudent.fxml")));
+             studentScene = options.getScene();
+            registerStudentStage = (Stage) studentScene.getWindow();
+
 
             //adding to stack pane
             registerStackpane.getChildren().add(root);
@@ -54,7 +60,7 @@ public class Register implements Initializable {
             Functions.remove(registerStackpane);
 
         }else if(options.getValue().equals("Labs")){
-            Parent root = FXMLLoader.load(getClass().getResource("RegisterLabs.fxml"));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("RegisterLabs.fxml")));
             Scene scene = options.getScene();
 
             //adding to stack pane
@@ -64,8 +70,8 @@ public class Register implements Initializable {
 
 
         }else if(options.getValue().equals("Admins")){
-            Parent root = FXMLLoader.load(getClass().getResource("RegisterAdmins.fxml"));
-            Scene scene = options.getScene();
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("RegisterAdmins.fxml")));
+             Scene scene = options.getScene();
 
             //adding to stack pane
             registerStackpane.getChildren().add(root);

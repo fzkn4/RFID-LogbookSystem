@@ -195,30 +195,30 @@ public class MainPage implements Initializable {
         recordsScene = recordbtn.getScene();
 
         //initializing resources for addfailed, addsuccess and scantoassign popup window
-        try {
-            scanWindow.initOwner(Validation.stage);
-            FXMLLoader fxmlLoader1 = new FXMLLoader(loginPage.class.getResource("scanToAssign.fxml"));
-            Scene scene1 = new Scene(fxmlLoader1.load());
-            scanWindow.setScene(scene1);
-            scanWindow.initStyle(StageStyle.TRANSPARENT);
-            scene1.setFill(Color.TRANSPARENT);
-            scanWindow.initModality(Modality.WINDOW_MODAL);
-
-            addSuccess = new Stage(StageStyle.TRANSPARENT);
-            FXMLLoader fxmlLoader2 = new FXMLLoader(loginPage.class.getResource("addedSuccessfully.fxml"));
-            Scene scene2 = new Scene(fxmlLoader2.load());
-            addSuccess.setScene(scene2);
-            scene2.setFill(Color.TRANSPARENT);
-
-
-            addFailedStage = new Stage(StageStyle.TRANSPARENT);
-            FXMLLoader fxmlLoader3 = new FXMLLoader(loginPage.class.getResource("addFailed.fxml"));
-            Scene scene3 = new Scene(fxmlLoader3.load());
-            addFailedStage.setScene(scene3);
-            scene3.setFill(Color.TRANSPARENT);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            scanWindow.initOwner(Validation.stage);
+//            FXMLLoader fxmlLoader1 = new FXMLLoader(loginPage.class.getResource("scanToAssign.fxml"));
+//            Scene scene1 = new Scene(fxmlLoader1.load());
+//            scanWindow.setScene(scene1);
+//            scanWindow.initStyle(StageStyle.TRANSPARENT);
+//            scene1.setFill(Color.TRANSPARENT);
+//            scanWindow.initModality(Modality.WINDOW_MODAL);
+//
+//            addSuccess = new Stage(StageStyle.TRANSPARENT);
+//            FXMLLoader fxmlLoader2 = new FXMLLoader(loginPage.class.getResource("addedSuccessfully.fxml"));
+//            Scene scene2 = new Scene(fxmlLoader2.load());
+//            addSuccess.setScene(scene2);
+//            scene2.setFill(Color.TRANSPARENT);
+//
+//
+//            addFailedStage = new Stage(StageStyle.TRANSPARENT);
+//            FXMLLoader fxmlLoader3 = new FXMLLoader(loginPage.class.getResource("addFailed.fxml"));
+//            Scene scene3 = new Scene(fxmlLoader3.load());
+//            addFailedStage.setScene(scene3);
+//            scene3.setFill(Color.TRANSPARENT);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     private void updateLabTable(){
@@ -253,7 +253,7 @@ public class MainPage implements Initializable {
                 } else if (String.valueOf(myObject.getFname()).toLowerCase().contains(lowerCaseFilter)) {
                     return true; // Filter matches first name.
                 }else if(String.valueOf(myObject.getLname()).toLowerCase().contains(lowerCaseFilter)){
-                    return true; //Filter mathces last name.
+                    return true; //Filter matches last name.
                 }else if (String.valueOf(myObject.getCourse()).toLowerCase().contains(lowerCaseFilter)){
                     return true; //Filter matches course.
                 }else if (String.valueOf(myObject.getYear()).toLowerCase().contains(lowerCaseFilter)){
