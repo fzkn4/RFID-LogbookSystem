@@ -31,6 +31,8 @@ import java.util.ResourceBundle;
 
 
 public class MainPage implements Initializable {
+    public MainPage() {
+    }
 
     @FXML
     private MFXTextField searchInput;
@@ -164,6 +166,9 @@ public class MainPage implements Initializable {
     private void records() throws IOException {
         selected(registerbtn, logsbtn, recordbtn);
         //adding to stack pane
+        //records
+        rootRecords = FXMLLoader.load(getClass().getResource("Records.fxml"));
+        recordsScene = recordbtn.getScene();
         parentContainer.getChildren().add(rootRecords);
         //calling remove stack
         Functions.remove(parentContainer);
@@ -190,38 +195,9 @@ public class MainPage implements Initializable {
         //register
         rootRegister = FXMLLoader.load(getClass().getResource("Register.fxml"));
         registerScene = recordbtn.getScene();
-        //records
-        rootRecords = FXMLLoader.load(getClass().getResource("Records.fxml"));
-        recordsScene = recordbtn.getScene();
-
-        //initializing resources for addfailed, addsuccess and scantoassign popup window
-//        try {
-//            scanWindow.initOwner(Validation.stage);
-//            FXMLLoader fxmlLoader1 = new FXMLLoader(loginPage.class.getResource("scanToAssign.fxml"));
-//            Scene scene1 = new Scene(fxmlLoader1.load());
-//            scanWindow.setScene(scene1);
-//            scanWindow.initStyle(StageStyle.TRANSPARENT);
-//            scene1.setFill(Color.TRANSPARENT);
-//            scanWindow.initModality(Modality.WINDOW_MODAL);
-//
-//            addSuccess = new Stage(StageStyle.TRANSPARENT);
-//            FXMLLoader fxmlLoader2 = new FXMLLoader(loginPage.class.getResource("addedSuccessfully.fxml"));
-//            Scene scene2 = new Scene(fxmlLoader2.load());
-//            addSuccess.setScene(scene2);
-//            scene2.setFill(Color.TRANSPARENT);
-//
-//
-//            addFailedStage = new Stage(StageStyle.TRANSPARENT);
-//            FXMLLoader fxmlLoader3 = new FXMLLoader(loginPage.class.getResource("addFailed.fxml"));
-//            Scene scene3 = new Scene(fxmlLoader3.load());
-//            addFailedStage.setScene(scene3);
-//            scene3.setFill(Color.TRANSPARENT);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
     }
 
-    private void updateLabTable(){
+    public void updateLabTable(){
         rfid.setCellValueFactory(new PropertyValueFactory<>("rfid"));
         Fname.setCellValueFactory(new PropertyValueFactory<>("fname"));
         Lname.setCellValueFactory(new PropertyValueFactory<>("lname"));

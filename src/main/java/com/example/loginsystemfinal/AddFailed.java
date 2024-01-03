@@ -14,17 +14,8 @@ public class AddFailed implements Initializable {
     @FXML
     private Text displayF;
 
-    private void closeOnDuration(){
-        PauseTransition delay = new PauseTransition(Duration.seconds(3));
-        delay.setOnFinished( event -> {
-            displayF.setText(displayFailed);
-            MainPage.addFailedStage.hide();
-        });
-        delay.play();
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        closeOnDuration();
+        displayF.setText(displayFailed);
     }
 }

@@ -84,7 +84,10 @@ public class Records implements Initializable {
         studentTable.setItems(sortedData);
     }
 
-    private void updateLabTable(){
+    public Records() {
+    }
+
+    public void updateLabTable(){
         rfid.setCellValueFactory(new PropertyValueFactory<>("rfid"));
         Fname.setCellValueFactory(new PropertyValueFactory<>("fname"));
         Lname.setCellValueFactory(new PropertyValueFactory<>("lname"));

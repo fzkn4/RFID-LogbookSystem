@@ -24,6 +24,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.*;
 
 public class RegisterStudent implements Initializable {
@@ -80,11 +81,11 @@ public class RegisterStudent implements Initializable {
     }
 
     @FXML
-    void add(ActionEvent event) {
+    void add(ActionEvent event) throws IOException {
         addStudent();
         student_uid = "";
     }
-    private void addStudent(){
+    private void addStudent() throws IOException {
         //getting local date
         Date udate = new java.util.Date();
         long l = udate.getTime();
@@ -108,13 +109,54 @@ public class RegisterStudent implements Initializable {
                 ps.execute();
                 clear();
 
-                System.out.println("Successfully Added.");
+                addSuccess = new Stage(StageStyle.TRANSPARENT);
+                FXMLLoader fxmlLoader2 = new FXMLLoader(loginPage.class.getResource("addedSuccessfully.fxml"));
+                Scene scene2 = new Scene(fxmlLoader2.load());
+                addSuccess.setScene(scene2);
+                scene2.setFill(Color.TRANSPARENT);
+                //successful window shows
+                addSuccess.show();
+                //centering window
+                Functions func = new Functions();
+                func.setWindowCenter(addSuccess);
+                Functions.closeOnDuration(addSuccess);
 
             } catch (SQLException e) {
+                //reference: https://stackoverflow.com/questions/1988570/how-to-catch-a-specific-exception-in-jdbc
+                if(e.getSQLState().startsWith("23")) {
+                    AddFailed.displayFailed = "RFID already taken, please choose another one.";
+                }else{
+                    AddFailed.displayFailed = "Failed to process data.";
+                }
                 e.printStackTrace();
                 clear();
 
-                System.out.println("Failed to add.");
+
+                //add faild window shows
+                addFailedStage = new Stage(StageStyle.TRANSPARENT);
+                FXMLLoader fxmlLoader3 = new FXMLLoader(loginPage.class.getResource("addFailed.fxml"));
+                Scene scene3 = new Scene(fxmlLoader3.load());
+                addFailedStage.setScene(scene3);
+                scene3.setFill(Color.TRANSPARENT);
+                addFailedStage.show();
+                //centering window
+                Functions func = new Functions();
+                func.setWindowCenter(addFailedStage);
+                Functions.closeOnDuration(addFailedStage);
+            }catch (Exception e){
+                e.printStackTrace();
+
+                AddFailed.displayFailed = "Something went wrong.";
+                //add faild window shows
+                addFailedStage = new Stage(StageStyle.TRANSPARENT);
+                FXMLLoader fxmlLoader3 = new FXMLLoader(loginPage.class.getResource("addFailed.fxml"));
+                Scene scene3 = new Scene(fxmlLoader3.load());
+                addFailedStage.setScene(scene3);
+                scene3.setFill(Color.TRANSPARENT);
+                addFailedStage.show();
+                //centering window
+                Functions func = new Functions();
+                func.setWindowCenter(addFailedStage);
             }
         }
     }
@@ -149,28 +191,6 @@ public class RegisterStudent implements Initializable {
     @FXML
     void clear(ActionEvent event) {
         clear();
-    }
-
-
-    private void load_resources(){
-        //initializing resources for addfailed, addsuccess and scantoassign popup window
-        try {
-
-            addSuccess = new Stage(StageStyle.TRANSPARENT);
-            FXMLLoader fxmlLoader2 = new FXMLLoader(loginPage.class.getResource("addedSuccessfully.fxml"));
-            Scene scene2 = new Scene(fxmlLoader2.load());
-            addSuccess.setScene(scene2);
-            scene2.setFill(Color.TRANSPARENT);
-
-
-            addFailedStage = new Stage(StageStyle.TRANSPARENT);
-            FXMLLoader fxmlLoader3 = new FXMLLoader(loginPage.class.getResource("addFailed.fxml"));
-            Scene scene3 = new Scene(fxmlLoader3.load());
-            addFailedStage.setScene(scene3);
-            scene3.setFill(Color.TRANSPARENT);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     //function that constantly check if textfield is empty.
@@ -211,7 +231,6 @@ public class RegisterStudent implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         submit.setDisable(true);
-        load_resources();
         checkFields();
     }
 }

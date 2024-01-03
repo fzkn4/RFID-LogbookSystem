@@ -9,8 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Student {
-    private DBConnect connect = new DBConnect();
-    private Connection connection = connect.getConnection();
     private String rfid;
     private String fname;
     private String lname;
@@ -110,6 +108,8 @@ public class Student {
 
     //returns total number of students
     public int getTotalStudents(){
+         DBConnect connect = new DBConnect();
+         Connection connection = connect.getConnection();
         int total = 0;
         String query = "SELECT count(*) AS totalStudents FROM students";
         try {
@@ -127,6 +127,8 @@ public class Student {
     public ObservableList<Student> getStudentInfo() {
         ObservableList<Student> infoList = FXCollections.observableArrayList();
 
+         DBConnect connect = new DBConnect();
+         Connection connection = connect.getConnection();
         if (connection != null) {
             String query = "SELECT student_RFID, first_name, last_name, course, student_year, department, phone, sex, date_registered  FROM students";
 

@@ -69,7 +69,7 @@ public class Functions {
 
     //closing stage on duration
     public static void closeOnDuration(Stage stage){
-    PauseTransition delay = new PauseTransition(Duration.seconds(2));
+    PauseTransition delay = new PauseTransition(Duration.seconds(3));
     delay.setOnFinished( event -> {
         stage.hide();
     });
