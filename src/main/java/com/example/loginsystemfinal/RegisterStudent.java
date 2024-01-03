@@ -90,7 +90,7 @@ public class RegisterStudent implements Initializable {
         long l = udate.getTime();
         java.sql.Date sdate = new java.sql.Date(l);
 
-        String insertQuery = "INSERT INTO admins(student_RFID, first_name, last_name, course, student_year, department, phone, sex, date_registered) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String insertQuery = "INSERT INTO students(student_RFID, first_name, last_name, course, student_year, department, phone, sex, date_registered) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
         if (student_RFID.getText().length() == 0 || student_fname.getText().length() == 0 || student_lname.getText().length() == 0 || student_course.getText().length() == 0 || student_dept.getText().length() == 0 || student_sex.getText().length() == 0 || student_phone.getText().length() == 0 || student_year.getText().length() == 0) {
             System.out.println("fill this up.");
         } else{
@@ -99,9 +99,9 @@ public class RegisterStudent implements Initializable {
                 ps.setString(1, student_RFID.getText());
                 ps.setString(2, capitalize(student_fname.getText()));
                 ps.setString(3, capitalize(student_lname.getText()));
-                ps.setString(4, capitalize(student_course.getText()));
+                ps.setString(4, student_course.getText().toUpperCase());
                 ps.setInt(5, Integer.parseInt(student_year.getText()));
-                ps.setString(6, capitalize(student_dept.getText()));
+                ps.setString(6, student_dept.getText().toUpperCase());
                 ps.setString(7, student_phone.getText());
                 ps.setString(8, student_sex.getText().toUpperCase());
                 ps.setDate(9, sdate);
