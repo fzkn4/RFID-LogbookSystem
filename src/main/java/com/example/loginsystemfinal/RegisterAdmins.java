@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -21,11 +22,15 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class RegisterAdmins implements Initializable {
-    Stage addFailedStage;
+    Map<Integer, Boolean> map = new HashMap<Integer, Boolean>();
+    private Stage addSuccess = new Stage();
+    private Stage addFailedStage = new Stage();
     String uid = "";
 
     private final DBConnect connects = new DBConnect();
@@ -48,55 +53,90 @@ public class RegisterAdmins implements Initializable {
 
     @FXML
     private MFXButton submit;
-    Stage scanWindow = new Stage();
+    @FXML
+    private MFXTextField admin_rfid;
+    public static String admin_uid = "";
+    static Stage scanWindow = new Stage();
+
+    @FXML
+    void scan(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader1 = new FXMLLoader(loginPage.class.getResource("scanToAssignAdmin.fxml"));
+        Scene scene1 = new Scene(fxmlLoader1.load());
+        scanWindow.setScene(scene1);
+        scanWindow.showAndWait();
+        Functions.setWindowCenter(scanWindow);
+        admin_rfid.setText(admin_uid);
+
+    }
+
     @FXML
     void addAdmin(ActionEvent event) throws IOException {
         String insertQuery = "INSERT INTO admins(First_Name, Last_Name, ID_Number, position, sex) VALUES(?, ?, ?, ?, ?)";
         if (Fname.getText().length() == 0 || Lname.getText().length() == 0 || pos.getText().length() == 0 || Sex.getText().length() == 0) {
             System.out.println("fill this up.");
         } else {
-            MainPage.scanWindow.show();
-            Functions.setWindowCenter(MainPage.scanWindow);
-            if (checkUID()){
-                AddFailed.displayFailed = "UID already exist. Please try another one.";
+            try {
+                PreparedStatement ps = con.prepareStatement(insertQuery);
+                ps.setString(1, capitalize(Fname.getText()));
+                ps.setString(2, capitalize(Lname.getText()));
+                ps.setString(3, admin_rfid.getText());
+                ps.setString(4, capitalize(pos.getText()));
+                ps.setString(5, capitalize(Sex.getText()));
+                ps.execute();
                 clear();
-                //add faild window shows
-                MainPage.addFailedStage.show();
+
+                addSuccess = new Stage(StageStyle.TRANSPARENT);
+                FXMLLoader fxmlLoader2 = new FXMLLoader(loginPage.class.getResource("addedSuccessfully.fxml"));
+                Scene scene2 = new Scene(fxmlLoader2.load());
+                addSuccess.setScene(scene2);
+                scene2.setFill(Color.TRANSPARENT);
+                //successful window shows
+                addSuccess.show();
                 //centering window
                 Functions func = new Functions();
-                func.setWindowCenter(MainPage.addFailedStage);
-            }
-            else{
-                try {
-                    PreparedStatement ps = con.prepareStatement(insertQuery);
-                    ps.setString(1, capitalize(Fname.getText()));
-                    ps.setString(2, capitalize(Lname.getText()));
-                    ps.setString(3, uid);
-                    ps.setString(4, capitalize(pos.getText()));
-                    ps.setString(5, capitalize(Sex.getText()));
-                    ps.execute();
-                    clear();
+                func.setWindowCenter(addSuccess);
+                Functions.closeOnDuration(addSuccess);
 
-                    //successful window shows
-                    MainPage.addSuccess.show();
-                    //centering window
-                    Functions func = new Functions();
-                    func.setWindowCenter(MainPage.addSuccess);
+            } catch (SQLException e) {
+                //reference: https://stackoverflow.com/questions/1988570/how-to-catch-a-specific-exception-in-jdbc
+                if(e.getSQLState().startsWith("23")) {
+                    AddFailed.displayFailed = "RFID already taken, please choose another one.";
+                }else{
+                    AddFailed.displayFailed = "Failed to process data.";
+                }
+                e.printStackTrace();
+                clear();
 
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                    clear();
 
-                    AddFailed.displayFailed = "Something went wrong.";
-                    //add faild window shows
-                    MainPage.addFailedStage.show();
-                    //centering window
-                    Functions func = new Functions();
-                    func.setWindowCenter(MainPage.addFailedStage);
+                //add faild window shows
+                addFailedStage = new Stage(StageStyle.TRANSPARENT);
+                FXMLLoader fxmlLoader3 = new FXMLLoader(loginPage.class.getResource("addFailed.fxml"));
+                Scene scene3 = new Scene(fxmlLoader3.load());
+                addFailedStage.setScene(scene3);
+                scene3.setFill(Color.TRANSPARENT);
+                addFailedStage.show();
+                //centering window
+                Functions func = new Functions();
+                func.setWindowCenter(addFailedStage);
+                Functions.closeOnDuration(addFailedStage);
+            }catch (Exception e){
+                e.printStackTrace();
+
+                AddFailed.displayFailed = "Something went wrong.";
+                //add faild window shows
+                addFailedStage = new Stage(StageStyle.TRANSPARENT);
+                FXMLLoader fxmlLoader3 = new FXMLLoader(loginPage.class.getResource("addFailed.fxml"));
+                Scene scene3 = new Scene(fxmlLoader3.load());
+                addFailedStage.setScene(scene3);
+                scene3.setFill(Color.TRANSPARENT);
+                addFailedStage.show();
+                //centering window
+                Functions func = new Functions();
+                func.setWindowCenter(addFailedStage);
             }
         }
     }
-    }
+
 
     private String capitalize(String str)
     {
@@ -119,25 +159,12 @@ public class RegisterAdmins implements Initializable {
         Lname.clear();
         pos.clear();
         Sex.clear();
+        admin_rfid.clear();
     }
 
     @FXML
     void cancel(ActionEvent event) {
-
-    }
-    private boolean checkUID() throws IOException {
-        Admins obj = new Admins();
-        FilteredList<Admins> filteredData = new FilteredList<>(obj.getAdminInfo());
-            filteredData.setPredicate(myObject -> {
-                try {
-                    return getUID().equals(myObject.getAdmin_ID());
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            });
-            scanWindow.close();
-            uid = getUID();
-        return (filteredData.size() > 0);
+        clear();
     }
 
     private String getUID() throws IOException {
@@ -194,7 +221,43 @@ public class RegisterAdmins implements Initializable {
     private String bin2hex(byte[] data) {
         return String.format("%0" + (data.length * 2) + "X", new BigInteger(1, data));
     }
+
+
+    //function that constantly check if textfield is empty.
+    //purpose of the integer index in this function is the key in hashmap.
+    private void textFieldChecker(TextField textField, int index){
+        map.put(index, false);
+        textField.textProperty().addListener((obs, oldText, newText) -> {
+            if (!textField.getText().isEmpty() || textField.getText().length() != 0) {
+                map.put(index, true);
+                helper();
+            }else if (textField.getText().isEmpty() || textField.getText().length() == 0){
+                map.put(index, false);
+                helper();
+            }
+        });
+    }
+
+    private void helper(){
+        //if all textfields are already filled up, submit button enables.
+        if (map.containsValue(false)) {
+            submit.setDisable(true);
+        } else {
+            submit.setDisable(false);
+        }
+    }
+
+    private void checkFields(){
+        textFieldChecker(admin_rfid, 1);
+        textFieldChecker(Fname, 2);
+        textFieldChecker(Lname, 3);
+        textFieldChecker(pos, 4);
+        textFieldChecker(Sex, 5);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        submit.setDisable(true);
+        checkFields();
     }
 }

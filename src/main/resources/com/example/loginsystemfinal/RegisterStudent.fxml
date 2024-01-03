@@ -16,15 +16,6 @@
            <children>
                <Pane layoutX="38.0" layoutY="3.0" prefHeight="475.0" prefWidth="467.0" style="-fx-border-width: 1px; -fx-border-color: lightgray; -fx-background-color: #f6f6f6;">
                    <children>
-                       <MFXButton fx:id="submit" buttonType="RAISED" disable="true" layoutX="365.0" layoutY="428.0" onAction="#add" prefHeight="33.0" prefWidth="81.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXButton.css" text="Submit">
-                           <font>
-                               <Font name="Roboto Light" size="12.0" />
-                           </font></MFXButton>
-                       <MFXButton buttonType="RAISED" depthLevel="LEVEL1" layoutX="365.0" layoutY="189.0" prefHeight="33.0" prefWidth="81.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXButton.css" text="import">
-                           <font>
-                               <Font name="Roboto Light" size="12.0" />
-                           </font>
-                       </MFXButton>
                        <ImageView fx:id="profileImage" fitHeight="136.0" fitWidth="278.0" layoutX="300.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" styleClass="image-border">
                            <image>
                                <Image url="@img/afro.png" />
@@ -50,6 +41,7 @@
                                <Font size="10.0" />
                            </font>
                        </MFXTextField>
+                  <MFXButton layoutX="165.0" layoutY="222.0" onAction="#scan" prefHeight="41.0" prefWidth="100.0" style="-fx-border-color: lightgray; -fx-border-radius: 6px; -fx-background-color: #f6f6f6;" text="Scan" />
                        <MFXTextField fx:id="student_RFID" editable="false" floatingText="RFID Number" graphicTextGap="3.0" layoutX="40.0" layoutY="222.0" prefHeight="41.0" prefWidth="123.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
                            <font>
                                <Font size="10.0" />
@@ -70,12 +62,20 @@
                                <Font size="10.0" />
                            </font>
                        </MFXTextField>
+                       <MFXButton buttonType="RAISED" depthLevel="LEVEL1" layoutX="365.0" layoutY="189.0" prefHeight="33.0" prefWidth="81.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXButton.css" text="import">
+                           <font>
+                               <Font name="Roboto Light" size="12.0" />
+                           </font>
+                       </MFXButton>
+                       <MFXButton fx:id="submit" buttonType="RAISED" disable="true" layoutX="365.0" layoutY="428.0" onAction="#add" prefHeight="33.0" prefWidth="81.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXButton.css" text="Submit">
+                           <font>
+                               <Font name="Roboto Light" size="12.0" />
+                           </font></MFXButton>
                        <MFXButton buttonType="RAISED" layoutX="273.0" layoutY="428.0" onAction="#clear" prefHeight="33.0" prefWidth="81.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXButton.css" text="Cancel">
                            <font>
                                <Font name="Roboto Light" size="12.0" />
                            </font>
                        </MFXButton>
-                  <MFXButton layoutX="165.0" layoutY="222.0" onAction="#scan" prefHeight="41.0" prefWidth="100.0" style="-fx-border-color: lightgray; -fx-border-radius: 6px; -fx-background-color: #f6f6f6;" text="Scan" />
                   <Text fx:id="duplicateID" fill="#dd2222" layoutX="38.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This RFID number is already taken." textAlignment="CENTER" visible="false" wrappingWidth="226.0">
                      <font>
                         <Font name="Roboto Light Italic" size="10.0" />
@@ -85,7 +85,7 @@
                </Pane>
            </children>
        </Pane>
-         <ImageView fitHeight="484.0" fitWidth="315.0" layoutX="579.0" layoutY="7.0" opacity="0.66" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="484.0" fitWidth="315.0" layoutX="579.0" layoutY="5.0" opacity="0.66" pickOnBounds="true" preserveRatio="true">
              <image>
                  <Image url="@img/bird.jpg" />
              </image>
