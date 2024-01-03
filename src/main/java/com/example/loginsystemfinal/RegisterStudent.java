@@ -178,18 +178,23 @@ public class RegisterStudent implements Initializable {
     private void textFieldChecker(TextField textField, int index){
         map.put(index, false);
         textField.textProperty().addListener((obs, oldText, newText) -> {
-            if (textField.getText().length() != 0) {
+            if (!textField.getText().isEmpty() || textField.getText().length() != 0) {
                 map.put(index, true);
-                //if all textfields are already filled up, submit button enables.
-                if (map.containsValue(false)) {
-                    submit.setDisable(true);
-                } else {
-                    submit.setDisable(false);
-                }
-            }else if (textField.getText().length() == 0){
+                helper();
+            }else if (textField.getText().isEmpty() || textField.getText().length() == 0){
                 map.put(index, false);
+                helper();
             }
         });
+    }
+
+    private void helper(){
+        //if all textfields are already filled up, submit button enables.
+        if (map.containsValue(false)) {
+            submit.setDisable(true);
+        } else {
+            submit.setDisable(false);
+        }
     }
 
     private void checkFields(){
