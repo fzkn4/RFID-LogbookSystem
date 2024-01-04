@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane focusTraversable="true" onKeyPressed="#onKeyPressed" prefHeight="555.0" prefWidth="957.0" style="-fx-background-color: #e1e1e1;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.Register">
+<AnchorPane focusTraversable="true" onKeyPressed="#onKeyPressed" prefHeight="555.0" prefWidth="957.0" style="-fx-background-color: #e1e1e1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.Register">
     <children>
         <BorderPane prefHeight="555.0" prefWidth="900.0" stylesheets="@css/styles.css">
             <center>
@@ -31,7 +31,7 @@
                               </ImageView>
                               <Pane layoutX="38.0" layoutY="2.0" prefHeight="475.0" prefWidth="467.0" style="-fx-border-width: 1px; -fx-border-radius: 6px; -fx-background-radius: 6px; -fx-border-color: lightgray; -fx-background-color: #f6f6f6;">
                                   <children>
-                                      <MFXButton buttonType="RAISED" layoutX="365.0" layoutY="428.0" prefHeight="33.0" prefWidth="81.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXButton.css" text="Submit">
+                                      <MFXButton fx:id="submit" buttonType="RAISED" disable="true" layoutX="365.0" layoutY="428.0" onAction="#add" prefHeight="33.0" prefWidth="81.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXButton.css" text="Submit">
                                  <font>
                                     <Font name="Roboto Light" size="12.0" />
                                  </font>
@@ -46,51 +46,52 @@
                                             <Image url="@img/afro.png" />
                                         </image>
                                     </ImageView>
-                                    <MFXTextField floatingText="First Name" graphicTextGap="3.0" layoutX="38.0" layoutY="37.0" prefHeight="41.0" prefWidth="226.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
+                                    <MFXTextField fx:id="student_fname" floatingText="First Name" graphicTextGap="3.0" layoutX="38.0" layoutY="37.0" prefHeight="41.0" prefWidth="226.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
                                  <font>
                                     <Font size="10.0" />
                                  </font>
                               </MFXTextField>
-                                    <MFXTextField floatingText="Last Name" graphicTextGap="3.0" layoutX="37.0" layoutY="93.0" prefHeight="32.0" prefWidth="227.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
+                                    <MFXTextField fx:id="student_lname" floatingText="Last Name" graphicTextGap="3.0" layoutX="37.0" layoutY="93.0" prefHeight="32.0" prefWidth="227.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
                                  <font>
                                     <Font size="10.0" />
                                  </font>
                               </MFXTextField>
-                                    <MFXTextField floatingText="Course " graphicTextGap="3.0" layoutX="37.0" layoutY="155.0" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
+                                    <MFXTextField fx:id="student_course" floatingText="Course " graphicTextGap="3.0" layoutX="37.0" layoutY="155.0" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
                                  <font>
                                     <Font size="10.0" />
                                  </font>
                               </MFXTextField>
-                                    <MFXTextField floatingText="Year" graphicTextGap="3.0" layoutX="159.0" layoutY="155.0" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
+                                    <MFXTextField fx:id="student_year" floatingText="Year" graphicTextGap="3.0" layoutX="159.0" layoutY="155.0" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
                                  <font>
                                     <Font size="10.0" />
                                  </font>
                               </MFXTextField>
-                                    <MFXTextField floatingText="ID Number" graphicTextGap="3.0" layoutX="40.0" layoutY="222.0" prefHeight="38.0" prefWidth="224.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
+                                    <MFXTextField fx:id="student_RFID" editable="false" floatingText="RFID Number" graphicTextGap="3.0" layoutX="40.0" layoutY="222.0" prefHeight="41.0" prefWidth="123.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
                                  <font>
                                     <Font size="10.0" />
                                  </font>
                               </MFXTextField>
-                                    <MFXTextField floatingText="Phone Number" graphicTextGap="3.0" layoutX="38.0" layoutY="291.0" prefHeight="41.0" prefWidth="227.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
+                                    <MFXTextField fx:id="student_phone" floatingText="Phone Number" graphicTextGap="3.0" layoutX="38.0" layoutY="291.0" prefHeight="41.0" prefWidth="227.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
                                  <font>
                                     <Font size="10.0" />
                                  </font>
                               </MFXTextField>
-                                    <MFXTextField floatingText="Sex" graphicTextGap="3.0" layoutX="38.0" layoutY="358.0" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
+                                    <MFXTextField fx:id="student_sex" floatingText="Sex" graphicTextGap="3.0" layoutX="38.0" layoutY="358.0" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
                                  <font>
                                     <Font size="10.0" />
                                  </font>
                               </MFXTextField>
-                                    <MFXTextField floatingText="Department" graphicTextGap="3.0" layoutX="158.0" layoutY="358.0" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
+                                    <MFXTextField fx:id="student_dept" floatingText="Department" graphicTextGap="3.0" layoutX="158.0" layoutY="358.0" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css">
                                  <font>
                                     <Font size="10.0" />
                                  </font>
                               </MFXTextField>
-                              <MFXButton buttonType="RAISED" layoutX="273.0" layoutY="428.0" prefHeight="33.0" prefWidth="81.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXButton.css" text="Cancel">
+                              <MFXButton buttonType="RAISED" layoutX="273.0" layoutY="428.0" onAction="#cancel" prefHeight="33.0" prefWidth="81.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXButton.css" text="Cancel">
                                  <font>
                                     <Font name="Roboto Light" size="12.0" />
                                  </font>
                               </MFXButton>
+                              <MFXButton layoutX="164.0" layoutY="222.0" onAction="#scan" prefHeight="41.0" prefWidth="100.0" style="-fx-border-color: lightgray; -fx-background-color: #f6f6f6; -fx-border-radius: 6px;" text="Scan" />
                                   </children>
                               </Pane>
                           </children>

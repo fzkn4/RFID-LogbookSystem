@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="499.0" prefWidth="870.0" style="-fx-background-color: #e1e1e1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.RegisterStudent">
    <children>
@@ -76,11 +75,6 @@
                                <Font name="Roboto Light" size="12.0" />
                            </font>
                        </MFXButton>
-                  <Text fx:id="duplicateID" fill="#dd2222" layoutX="38.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This RFID number is already taken." textAlignment="CENTER" visible="false" wrappingWidth="226.0">
-                     <font>
-                        <Font name="Roboto Light Italic" size="10.0" />
-                     </font>
-                  </Text>
                    </children>
                </Pane>
            </children>

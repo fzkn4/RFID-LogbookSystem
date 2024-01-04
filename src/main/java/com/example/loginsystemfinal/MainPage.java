@@ -38,8 +38,6 @@ public class MainPage implements Initializable {
     private MFXTextField searchInput;
     Student student = new Student();
     public static Stage addFailedStage = new Stage();
-
-    public static Stage scanWindow = new Stage();
     public static Stage addSuccess = new Stage();
     @FXML
     private Text admin_name;
@@ -102,7 +100,6 @@ public class MainPage implements Initializable {
 
     //root and scenes
     private Parent rootLogs;
-    private Parent rootRegister;
     private Parent rootRecords;
     private Scene logScene;
     private Scene registerScene;
@@ -175,6 +172,9 @@ public class MainPage implements Initializable {
     }
     private void registers() throws IOException {
         selected(logsbtn, recordbtn, registerbtn);
+        //register
+        Parent rootRegister = FXMLLoader.load(getClass().getResource("Register.fxml"));
+        Scene registerScene = recordbtn.getScene();
         //adding to stack pane
         parentContainer.getChildren().add(rootRegister);
         //calling remove stack
@@ -192,9 +192,7 @@ public class MainPage implements Initializable {
         //logs
         rootLogs = FXMLLoader.load(getClass().getResource("Logs.fxml"));
         logScene = recordbtn.getScene();
-        //register
-        rootRegister = FXMLLoader.load(getClass().getResource("Register.fxml"));
-        registerScene = recordbtn.getScene();
+
     }
 
     public void updateLabTable(){
