@@ -103,6 +103,7 @@ public class MainPage implements Initializable {
     private Parent rootRecords;
     private Scene logScene;
     private Scene registerScene;
+    private Parent rootRegister;
     private Scene recordsScene;
 
 
@@ -172,9 +173,6 @@ public class MainPage implements Initializable {
     }
     private void registers() throws IOException {
         selected(logsbtn, recordbtn, registerbtn);
-        //register
-        Parent rootRegister = FXMLLoader.load(getClass().getResource("Register.fxml"));
-        Scene registerScene = recordbtn.getScene();
         //adding to stack pane
         parentContainer.getChildren().add(rootRegister);
         //calling remove stack
@@ -182,6 +180,9 @@ public class MainPage implements Initializable {
     }
     private void logs() throws IOException {
         selected(registerbtn, recordbtn, logsbtn);
+        //logs
+        rootLogs = FXMLLoader.load(getClass().getResource("Logs.fxml"));
+        logScene = recordbtn.getScene();
         //adding to stack pane
         parentContainer.getChildren().add(rootLogs);
         //calling remove stack
@@ -189,9 +190,9 @@ public class MainPage implements Initializable {
     }
 
     private void load_resources() throws IOException {
-        //logs
-        rootLogs = FXMLLoader.load(getClass().getResource("Logs.fxml"));
-        logScene = recordbtn.getScene();
+        //register
+        rootRegister = FXMLLoader.load(getClass().getResource("Register.fxml"));
+        Scene registerScene = recordbtn.getScene();
 
     }
 

@@ -157,6 +157,7 @@ public class RegisterStudent implements Initializable {
                 //centering window
                 Functions func = new Functions();
                 func.setWindowCenter(addFailedStage);
+                Functions.closeOnDuration(addFailedStage);
             }
         }
     }

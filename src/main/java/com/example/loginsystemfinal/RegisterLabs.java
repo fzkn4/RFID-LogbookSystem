@@ -5,9 +5,13 @@ import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,6 +37,11 @@ public class RegisterLabs implements Initializable {
     @FXML
     private MFXTextField labName;
 
+    private Stage addFailedStage = new Stage();
+
+    public static Stage scanWindow = new Stage();
+    private Stage addSuccess = new Stage();
+
     @FXML
     void addLab(ActionEvent event) throws IOException {
         add();
@@ -52,22 +61,34 @@ public class RegisterLabs implements Initializable {
                 Clear();
                 setLabID();
 
+                addSuccess = new Stage(StageStyle.TRANSPARENT);
+                FXMLLoader fxmlLoader2 = new FXMLLoader(loginPage.class.getResource("addedSuccessfully.fxml"));
+                Scene scene2 = new Scene(fxmlLoader2.load());
+                addSuccess.setScene(scene2);
+                scene2.setFill(Color.TRANSPARENT);
                 //successful window shows
-                MainPage.addSuccess.showAndWait();
+                addSuccess.show();
                 //centering window
                 Functions func = new Functions();
-                func.setWindowCenter(MainPage.addSuccess);
+                func.setWindowCenter(addSuccess);
+                Functions.closeOnDuration(addSuccess);
 
             } catch (SQLException e) {
                 e.printStackTrace();
                 Clear();
 
                 AddFailed.displayFailed = "Something went wrong.";
-                //add failed window shows
-                MainPage.addFailedStage.showAndWait();
+                //add faild window shows
+                addFailedStage = new Stage(StageStyle.TRANSPARENT);
+                FXMLLoader fxmlLoader3 = new FXMLLoader(loginPage.class.getResource("addFailed.fxml"));
+                Scene scene3 = new Scene(fxmlLoader3.load());
+                addFailedStage.setScene(scene3);
+                scene3.setFill(Color.TRANSPARENT);
+                addFailedStage.show();
                 //centering window
                 Functions func = new Functions();
-                func.setWindowCenter(MainPage.addFailedStage);
+                func.setWindowCenter(addFailedStage);
+                Functions.closeOnDuration(addFailedStage);
             }
         }
     }

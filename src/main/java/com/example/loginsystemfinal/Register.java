@@ -155,8 +155,9 @@ public class Register implements Initializable {
                 scene3.setFill(Color.TRANSPARENT);
                 addFailedStage.show();
                 //centering window
-                Functions func = new Functions();
-                func.setWindowCenter(addFailedStage);
+                Functions.setWindowCenter(addFailedStage);
+                Functions.closeOnDuration(addFailedStage);
+                clear();
             }
         }
     }
