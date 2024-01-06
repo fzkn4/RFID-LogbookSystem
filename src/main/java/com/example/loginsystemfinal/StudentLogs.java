@@ -2,8 +2,6 @@ package com.example.loginsystemfinal;
 
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import io.github.palexdev.materialfx.controls.MFXToggleButton;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -23,12 +21,32 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class StudentLogs implements Initializable {
+    logs_student_data obj = new logs_student_data();
+    private ObservableList<logs_student_data> student_logs_data;
+
+    //student logs table
+    @FXML
+    private TableView<logs_student_data> student_logs_table;
+    @FXML
+    private TableColumn<?, ?> lab_id;
+
+    @FXML
+    private TableColumn<?, ?> lab_name;
+    @FXML
+    private TableColumn<?, ?> time_in;
+
+    @FXML
+    private TableColumn<?, ?> time_out;
+
+
     @FXML
     private MFXTextField search;
     Logs logsObj = new Logs();
     private ObservableList<Student> studentData;
 
     Student student = new Student();
+
+    //student records table
     @FXML
     private TableColumn<?, ?> student_ID;
 
@@ -83,6 +101,15 @@ public class StudentLogs implements Initializable {
         studentData = student.getStudentInfo();
         student_table.setItems(studentData);
     }
+    private void updateStudentLogsTable(){
+        lab_name.setCellValueFactory(new PropertyValueFactory<>("labName"));
+        lab_id.setCellValueFactory(new PropertyValueFactory<>("labID"));
+        time_in.setCellValueFactory(new PropertyValueFactory<>("time_in"));
+        time_out.setCellValueFactory(new PropertyValueFactory<>("time_out"));
+
+        student_logs_data = obj.getStudentLogsInfo();
+        student_logs_table.setItems(student_logs_data);
+    }
 
     private void Find(){
         Student student = new Student();
@@ -123,6 +150,7 @@ public class StudentLogs implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         student_table.getSelectionModel().clearSelection();
         updateTableStudent();
+        updateStudentLogsTable();
         //selection table row
         student_table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {

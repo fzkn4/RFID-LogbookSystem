@@ -19,12 +19,12 @@
                             <MFXToggleButton fx:id="toGraph" layoutX="14.0" layoutY="10.0" length="20.0" onMouseClicked="#showGraph" radius="7.0" stylesheets="@css/MFXToggleButton.css" text="Graph" />
                             <StackPane fx:id="studentLogsStackpane" layoutY="63.0" prefHeight="350.0" prefWidth="457.0">
                      <children>
-                                <TableView prefHeight="350.0" prefWidth="359.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/tableStyle.css">
+                                <TableView fx:id="student_logs_table" prefHeight="350.0" prefWidth="359.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/tableStyle.css">
                                     <columns>
-                                        <TableColumn prefWidth="121.0" text="Lab Name" />
-                                        <TableColumn prefWidth="71.0" text="Lab ID" />
-                              <TableColumn prefWidth="132.0" text="Time In" />
-                              <TableColumn prefWidth="131.0" text="Time Out" />
+                                        <TableColumn fx:id="lab_name" prefWidth="121.0" text="Lab Name" />
+                                        <TableColumn fx:id="lab_id" prefWidth="71.0" text="Lab ID" />
+                              <TableColumn fx:id="time_in" prefWidth="132.0" text="Time In" />
+                              <TableColumn fx:id="time_out" prefWidth="131.0" text="Time Out" />
                                     </columns>
                                 </TableView>
                      </children>
