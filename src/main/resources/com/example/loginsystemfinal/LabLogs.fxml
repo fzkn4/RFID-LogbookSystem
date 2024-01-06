@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXDatePicker?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import io.github.palexdev.materialfx.controls.MFXToggleButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="431.0" prefWidth="935.0" style="-fx-background-color: #e1e1e1;" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.LabLogs">
+<AnchorPane prefHeight="431.0" prefWidth="935.0" style="-fx-background-color: #e1e1e1;" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.LabLogs">
     <children>
           <StackPane prefHeight="431.0" prefWidth="273.0">
               <children>
@@ -31,12 +32,17 @@
                         </Text>
                               </children>
                           </Pane>
-                          <TableView fx:id="lab_table" layoutY="14.0" prefHeight="415.0" prefWidth="272.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/tableStyle.css">
-                              <columns>
-                                  <TableColumn fx:id="lab_ID_col" prefWidth="131.0" text="Lab ID" />
-                                  <TableColumn fx:id="lab_name_col" prefWidth="139.0" text="Lab Name" />
-                              </columns>
-                          </TableView>
+                  <Pane layoutX="1.0" layoutY="12.0" prefHeight="411.0" prefWidth="272.0" style="-fx-background-color: #f6f6f6; -fx-border-color: lightgray;">
+                     <children>
+                                <TableView fx:id="lab_table" layoutY="63.0" prefHeight="350.0" prefWidth="272.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/tableStyle.css">
+                                    <columns>
+                                        <TableColumn fx:id="lab_ID_col" prefWidth="131.0" text="Lab ID" />
+                                        <TableColumn fx:id="lab_name_col" prefWidth="139.0" text="Lab Name" />
+                                    </columns>
+                                </TableView>
+                        <MFXTextField fx:id="search" alignment="CENTER" floatMode="DISABLED" layoutX="49.0" layoutY="14.0" prefHeight="37.0" prefWidth="174.0" promptText="Search something..." style="-fx-background-color: #f6f6f6; -fx-alignment: center;" stylesheets="@css/MFXTextField.css" />
+                     </children>
+                  </Pane>
                       </children>
                   </Pane>
               </children>
@@ -45,14 +51,14 @@
          <children>
                       <StackPane fx:id="labSummaryStack" prefHeight="350.0" prefWidth="640.0">
                <children>
-                   <TableView prefHeight="350.0" prefWidth="643.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/tableStyle.css">
+                   <TableView fx:id="lab_logs_table" prefHeight="350.0" prefWidth="643.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/tableStyle.css">
                        <columns>
-                           <TableColumn prefWidth="107.0" text="Last Name" />
-                        <TableColumn prefWidth="115.0" text="First Name" />
-                        <TableColumn text="ID" />
-                        <TableColumn prefWidth="62.0" text="Dept." />
-                        <TableColumn prefWidth="142.0" text="Time In" />
-                        <TableColumn prefWidth="129.0" text="Time Out" />
+                           <TableColumn fx:id="studentLname" prefWidth="107.0" text="Last Name" />
+                        <TableColumn fx:id="studentFname" prefWidth="115.0" text="First Name" />
+                        <TableColumn fx:id="studentID" prefWidth="83.0" text="ID" />
+                        <TableColumn fx:id="studentDept" prefWidth="62.0" text="Dept." />
+                        <TableColumn fx:id="timeIn" prefWidth="138.0" text="Time In" />
+                        <TableColumn fx:id="timeOut" prefWidth="139.0" text="Time Out" />
                        </columns>
                    </TableView>
                </children></StackPane>
