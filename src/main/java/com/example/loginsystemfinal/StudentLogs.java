@@ -1,5 +1,6 @@
 package com.example.loginsystemfinal;
 
+import io.github.palexdev.materialfx.controls.MFXTextField;
 import io.github.palexdev.materialfx.controls.MFXToggleButton;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -22,6 +23,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class StudentLogs implements Initializable {
+    @FXML
+    private MFXTextField search;
     Logs logsObj = new Logs();
     private ObservableList<Student> studentData;
 
@@ -81,40 +84,40 @@ public class StudentLogs implements Initializable {
         student_table.setItems(studentData);
     }
 
-//    private void Find(){
-//        Student student = new Student();
-//        FilteredList<Student> filteredData = new FilteredList<>(student.getStudentInfo(), p -> true);
-//        //Set the filter Predicate whenever the filter changes.
-//        Logs.searchInput.textProperty().addListener((observable, oldValue, newValue) -> {
-//            filteredData.setPredicate(myObject -> {
-//                // If filter text is empty, display all records of the students.
-//                if (newValue == null || newValue.isEmpty()) {
-//                    return true;
-//                }
-//                // Compare first name, last name, student id, course field in your object with filter.
-//                String lowerCaseFilter = newValue.toLowerCase();
-//                if (String.valueOf(myObject.getRfid()).toLowerCase().contains(lowerCaseFilter)) {
-//                    return true;
-//                    // Filter matches RFID Number.
-//                } else if (String.valueOf(myObject.getFname()).toLowerCase().contains(lowerCaseFilter)) {
-//                    return true; // Filter matches first name.
-//                }else if(String.valueOf(myObject.getLname()).toLowerCase().contains(lowerCaseFilter)){
-//                    return true; //Filter mathces last name.
-//                }else if (String.valueOf(myObject.getCourse()).toLowerCase().contains(lowerCaseFilter)){
-//                    return true; //Filter matches course.
-//                }else if (String.valueOf(myObject.getDept()).toLowerCase().contains(lowerCaseFilter)) {
-//                    return true; //Filter matches department.
-//                }
-//                return false; // Does not match.
-//            });
-//        });
-//        // Wrap the FilteredList in a SortedList.
-//        SortedList<Student> sortedData = new SortedList<>(filteredData);
-//        //Bind the SortedList comparator to the TableView comparator.
-//        sortedData.comparatorProperty().bind(student_table.comparatorProperty());
-//        //Add sorted (and filtered) data to the table.
-//        student_table.setItems(sortedData);
-//    }
+    private void Find(){
+        Student student = new Student();
+        FilteredList<Student> filteredData = new FilteredList<>(student.getStudentInfo(), p -> true);
+        //Set the filter Predicate whenever the filter changes.
+        search.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(myObject -> {
+                // If filter text is empty, display all records of the students.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                // Compare first name, last name, student id, course field in your object with filter.
+                String lowerCaseFilter = newValue.toLowerCase();
+                if (String.valueOf(myObject.getRfid()).toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                    // Filter matches RFID Number.
+                } else if (String.valueOf(myObject.getFname()).toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches first name.
+                }else if(String.valueOf(myObject.getLname()).toLowerCase().contains(lowerCaseFilter)){
+                    return true; //Filter mathces last name.
+                }else if (String.valueOf(myObject.getCourse()).toLowerCase().contains(lowerCaseFilter)){
+                    return true; //Filter matches course.
+                }else if (String.valueOf(myObject.getDept()).toLowerCase().contains(lowerCaseFilter)) {
+                    return true; //Filter matches department.
+                }
+                return false; // Does not match.
+            });
+        });
+        // Wrap the FilteredList in a SortedList.
+        SortedList<Student> sortedData = new SortedList<>(filteredData);
+        //Bind the SortedList comparator to the TableView comparator.
+        sortedData.comparatorProperty().bind(student_table.comparatorProperty());
+        //Add sorted (and filtered) data to the table.
+        student_table.setItems(sortedData);
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -123,7 +126,6 @@ public class StudentLogs implements Initializable {
         //selection table row
         student_table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
-                Logs.student_name_display.setVisible(true);
                 Logs.student_name_display.setText(newSelection.getFname());
             }
         });
@@ -133,6 +135,6 @@ public class StudentLogs implements Initializable {
                 student_table.getSelectionModel().clearSelection();
             }
         });
-//        Find();
+        Find();
     }
 }

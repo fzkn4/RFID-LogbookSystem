@@ -4,6 +4,7 @@ import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.effect.GaussianBlur;
@@ -17,10 +18,12 @@ import javafx.stage.StageStyle;
 
 import java.awt.geom.Rectangle2D;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class loginPageController {
-    public static Stage labInputStage;
-    public static Stage Mainstage;
+public class loginPageController implements Initializable {
+    public static Stage labInputStage = new Stage();
+    public static Stage Mainstage = new Stage();
 
     @FXML
     private MFXButton operate;
@@ -72,21 +75,29 @@ public class loginPageController {
         Mainstage.show();
 
         //centering window
-        Functions func = new Functions();
-        func.setWindowCenter(Mainstage);
+        Functions.setWindowCenter(Mainstage);
     }
 
     private void operate() throws IOException {
-        Stage stage = new Stage();
+        labInputStage.show();
+        close();
+        //centering window
+        Functions.setWindowCenter(labInputStage);
+    }
+    private void loadLabInput() throws IOException {
+        labInputStage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(loginPage.class.getResource("LabInput.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setScene(scene);
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.show();
-        close();
-        labInputStage = stage;
-        //centering window
-        Functions func = new Functions();
-        func.setWindowCenter(stage);
+        labInputStage.setScene(scene);
+        labInputStage.initStyle(StageStyle.UNDECORATED);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            loadLabInput();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

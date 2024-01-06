@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
-<?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="560.0" prefWidth="961.0" style="-fx-background-color: #e1e1e1;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.Logs">
+<AnchorPane prefHeight="560.0" prefWidth="961.0" style="-fx-background-color: #e1e1e1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.Logs">
     <children>
         <BorderPane layoutX="15.0" layoutY="5.0" prefHeight="542.0" prefWidth="928.0" stylesheets="@css/styles.css">
             <center>
@@ -28,7 +27,7 @@
             <top>
                 <Pane prefHeight="111.0" prefWidth="831.0" style="-fx-border-color: lightgray; -fx-background-color: #f6f6f6; -fx-border-width: 1px;" BorderPane.alignment="CENTER">
                     <children>
-                        <Pane layoutX="14.0" layoutY="20.0" prefHeight="71.0" prefWidth="184.0" style="-fx-background-color: #f6f6f6; -fx-border-color: lightgray;">
+                        <Pane layoutX="271.0" layoutY="20.0" prefHeight="71.0" prefWidth="184.0" style="-fx-background-color: #f6f6f6; -fx-border-color: lightgray;">
                             <children>
                                 <Text fx:id="StudentTotal" fill="#515151" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-bold" textAlignment="CENTER" wrappingWidth="184.13671875">
                                     <font>
@@ -41,7 +40,7 @@
                                 <MFXButton fx:id="ShowStudentLogs" layoutY="45.0" onAction="#showStudentLogs" prefHeight="26.0" prefWidth="184.0" style="-fx-background-color: lightgray; -fx-background-radius: 0px;" text="Students" textAlignment="CENTER" />
                             </children>
                         </Pane>
-                        <Pane layoutX="216.0" layoutY="20.0" prefHeight="71.0" prefWidth="184.0" style="-fx-background-color: #f6f6f6; -fx-border-color: lightgray;">
+                        <Pane layoutX="473.0" layoutY="20.0" prefHeight="71.0" prefWidth="184.0" style="-fx-background-color: #f6f6f6; -fx-border-color: lightgray;">
                             <children>
                                 <Text fx:id="LabTotal" fill="#515151" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-bold" textAlignment="CENTER" wrappingWidth="184.13671875">
                                     <font>
@@ -54,18 +53,6 @@
                                 <MFXButton fx:id="ShowLabLogs" layoutY="45.0" onAction="#showLabLogs" prefHeight="26.0" prefWidth="184.0" style="-fx-background-color: lightgray; -fx-background-radius: 0px;" text="Labs" textAlignment="CENTER" />
                             </children>
                         </Pane>
-                        <MFXButton layoutX="837.0" layoutY="14.0" prefHeight="28.0" prefWidth="68.0" style="-fx-background-color: lightgray; -fx-background-radius: 4px;" text="Search" />
-                        <MFXTextField fx:id="searchInput" borderGap="5.0" floatMode="DISABLED" graphicTextGap="5.0" layoutX="645.0" layoutY="14.0" prefHeight="28.0" prefWidth="182.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/MFXTextField.css" />
-                  <Text fx:id="student_name_display" fill="#515151" layoutX="417.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="487.13671875">
-                     <font>
-                        <Font name="Roboto" size="24.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="student_id_display" fill="#515151" layoutX="417.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="487.13671875">
-                     <font>
-                        <Font name="Roboto Light" size="16.0" />
-                     </font>
-                  </Text>
                     </children>
                     <BorderPane.margin>
                         <Insets />

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXDatePicker?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import io.github.palexdev.materialfx.controls.MFXToggleButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="431.0" prefWidth="935.0" style="-fx-background-color: #e1e1e1;" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.StudentLogs">
+<AnchorPane prefHeight="431.0" prefWidth="935.0" style="-fx-background-color: #e1e1e1;" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystemfinal.StudentLogs">
     <children>
             <Pane prefHeight="200.0" prefWidth="200.0">
                 <children>
@@ -35,7 +36,11 @@
                             </MFXDatePicker>
                         </children>
                     </Pane>
-            <TableView fx:id="student_table" layoutY="14.0" prefHeight="411.0" prefWidth="460.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/tableStyle.css">
+                </children>
+            </Pane>
+      <Pane layoutY="11.0" prefHeight="413.0" prefWidth="460.0" style="-fx-background-color: #f6f6f6; -fx-border-color: lightgray;">
+         <children>
+            <TableView fx:id="student_table" layoutY="63.0" prefHeight="350.0" prefWidth="460.0" style="-fx-background-color: #f6f6f6;" stylesheets="@css/tableStyle.css">
                <columns>
                   <TableColumn fx:id="student_lname" prefWidth="118.0" text="Last Name" />
                   <TableColumn fx:id="student_fname" prefWidth="97.0" text="First Name" />
@@ -44,7 +49,8 @@
                   <TableColumn fx:id="student_course" prefWidth="88.0" text="Course " />
                </columns>
             </TableView>
-                </children>
-            </Pane>
+            <MFXTextField fx:id="search" alignment="CENTER" floatMode="DISABLED" floatingText="Search" layoutX="97.0" layoutY="14.0" prefHeight="38.0" prefWidth="267.0" promptText="Search something..." style="-fx-background-color: #f6f6f6; -fx-alignment: center;" stylesheets="@css/MFXTextField.css" />
+         </children>
+      </Pane>
     </children>
 </AnchorPane>
