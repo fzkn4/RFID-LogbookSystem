@@ -47,7 +47,7 @@ public class sample {
                     card.disconnect(false);
                     System.out.println(uid);
                     break;
-                }else if(disconnect){
+                }else if(!disconnect){
                     System.out.println("disconnecting...");
                     Thread.sleep(1000);
                     break;

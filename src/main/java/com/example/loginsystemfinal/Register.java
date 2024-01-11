@@ -254,30 +254,41 @@ public class Register implements Initializable {
              studentScene = options.getScene();
             registerStudentStage = (Stage) studentScene.getWindow();
 
-
             //adding to stack pane
-            registerStackpane.getChildren().add(root);
-            //calling remove stack
-            Functions.remove(registerStackpane);
+            try{
+                //adding to stack pane
+                registerStackpane.getChildren().add(root);
+                //calling remove stack
+                Functions.remove(registerStackpane);
+            }catch (IllegalArgumentException e){
+            }
 
         }else if(options.getValue().equals("Labs")){
             Parent root = FXMLLoader.load(getClass().getResource("RegisterLabs.fxml"));
             Scene scene = options.getScene();
 
             //adding to stack pane
-            registerStackpane.getChildren().add(root);
-            //calling remove stack
-            Functions.remove(registerStackpane);
-
+            try{
+                //adding to stack pane
+                registerStackpane.getChildren().add(root);
+                //calling remove stack
+                Functions.remove(registerStackpane);
+            }catch (IllegalArgumentException e){
+            }
 
         }else if(options.getValue().equals("Admins")){
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("RegisterAdmins.fxml")));
              Scene scene = options.getScene();
 
             //adding to stack pane
-            registerStackpane.getChildren().add(root);
-            //calling remove stack
-            Functions.remove(registerStackpane);
+            try{
+                //adding to stack pane
+                registerStackpane.getChildren().add(root);
+                //calling remove stack
+                Functions.remove(registerStackpane);
+            }catch (IllegalArgumentException e){
+            }
+
         }
     }
 

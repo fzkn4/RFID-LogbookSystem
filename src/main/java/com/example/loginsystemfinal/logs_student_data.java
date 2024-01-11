@@ -8,12 +8,23 @@ import java.sql.*;
 public class logs_student_data {
     DBConnect connect = new DBConnect();
     Connection connection = connect.getConnection();
+    private String studentID;
+
+    public String getStudentID() {
+        return studentID;
+    }
+
+    public void setStudentID(String studentID) {
+        this.studentID = studentID;
+    }
+
     private int labID;
     private String labName;
     private java.sql.Timestamp time_in;
     private java.sql.Timestamp time_out;
 
-    public logs_student_data(String labName, int labID, Timestamp time_in, Timestamp time_out) {
+    public logs_student_data(String studentID , String labName, int labID, Timestamp time_in, Timestamp time_out) {
+        this.studentID = studentID;
         this.labID = labID;
         this.labName = labName;
         this.time_in = time_in;
@@ -62,18 +73,19 @@ public class logs_student_data {
         connection = connect.getConnection();
 
         if (connection != null) {
-            String query = "SELECT labName, labID, log_timeIn, log_timeOut FROM labs INNER JOIN logs ON labs.labID = logs.log_labID";
+            String query = "SELECT log_studentID, labName, labID, log_timeIn, log_timeOut FROM labs INNER JOIN logs ON labs.labID=logs.log_labID";
 
             try {
                 PreparedStatement statement = connection.prepareStatement(query);
                 ResultSet resultSet = statement.executeQuery();
                 while (resultSet.next()) {
+                    String student_id = resultSet.getString("log_studentID");
                     String lab_name = resultSet.getString("labName");
                     int lab_id = resultSet.getInt("labID");
                     java.sql.Timestamp logTimeIn = resultSet.getTimestamp("log_timeIn");
                     java.sql.Timestamp logTimeOut = resultSet.getTimestamp("log_timeOut");
 
-                    infoList.add(new logs_student_data(lab_name,  lab_id, logTimeIn, logTimeOut));
+                    infoList.add(new logs_student_data(student_id, lab_name,  lab_id, logTimeIn, logTimeOut));
                 }
                 resultSet.close();
                 statement.close();

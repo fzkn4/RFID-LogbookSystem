@@ -42,7 +42,6 @@ public class Functions {
                 Stack.getChildren().remove(0);
     }
 
-
     //this function displays time.
     public static void clock(Text displaydate, Text displayTime){
         final Timeline timeline = new Timeline(new KeyFrame(seconds(1),
@@ -59,7 +58,6 @@ public class Functions {
         timeline.play();
     }
 
-
     // this function creates combination key with runnable.
     // ref: c
     public static KeyCombination closeKey = new KeyCodeCombination(KeyCode.X, KeyCombination.CONTROL_DOWN);
@@ -75,7 +73,6 @@ public class Functions {
     });
     delay.play();
     }
-
 
     //function for centering window
     public static void setWindowCenter(Stage stage){

@@ -57,13 +57,24 @@ public class logs_lab_data {
         this.time_out = time_out;
     }
 
-    public logs_lab_data(String student_lastName, String student_firstName, String student_ID, String student_department, Timestamp time_in, Timestamp time_out) {
+    public logs_lab_data(int labID, String student_lastName, String student_firstName, String student_ID, String student_department, Timestamp time_in, Timestamp time_out) {
+        this.lab_id = labID;
         this.student_lastName = student_lastName;
         this.student_firstName = student_firstName;
         this.student_ID = student_ID;
         this.student_department = student_department;
         this.time_in = time_in;
         this.time_out = time_out;
+    }
+
+    private int lab_id;
+
+    public int getLab_id() {
+        return lab_id;
+    }
+
+    public void setLab_id(int lab_id) {
+        this.lab_id = lab_id;
     }
 
     private String student_lastName;
@@ -83,12 +94,13 @@ public class logs_lab_data {
         connection = connect.getConnection();
 
         if (connection != null) {
-            String query = "SELECT last_name, first_name, student_RFID, department, log_timeIn, log_timeOut FROM students INNER JOIN logs ON students.student_RFID = logs.log_studentID;";
+            String query = "SELECT log_labID, last_name, first_name, student_RFID, department, log_timeIn, log_timeOut FROM students INNER JOIN logs ON students.student_RFID = logs.log_studentID;";
 
             try {
                 PreparedStatement statement = connection.prepareStatement(query);
                 ResultSet resultSet = statement.executeQuery();
                 while (resultSet.next()) {
+                    int labID = resultSet.getInt("log_labID");
                     String lastName = resultSet.getString("last_name");
                     String firstName = resultSet.getString("first_name");
                     String studentRFID = resultSet.getString("student_RFID");
@@ -96,7 +108,8 @@ public class logs_lab_data {
                     java.sql.Timestamp logTimeIn = resultSet.getTimestamp("log_timeIn");
                     java.sql.Timestamp logTimeOut = resultSet.getTimestamp("log_timeOut");
 
-                    infoList.add(new logs_lab_data(lastName,  firstName, studentRFID, dept, logTimeIn, logTimeOut));
+                    infoList.add(new logs_lab_data(labID, lastName,  firstName, studentRFID, dept, logTimeIn, logTimeOut));
+
                 }
                 resultSet.close();
                 statement.close();

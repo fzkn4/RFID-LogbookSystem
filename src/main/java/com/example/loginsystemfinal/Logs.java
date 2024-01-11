@@ -68,18 +68,22 @@ public class Logs implements Initializable {
     void showLabLogs(ActionEvent event){
         searchInput.clear();
         //adding to stack pane
-        LogsStackpane.getChildren().add(root1);
-
-        //removing previous scene
-        Functions.remove(LogsStackpane);
+        try{
+            LogsStackpane.getChildren().add(root1);
+            //removing previous scene
+            Functions.remove(LogsStackpane);
+        }catch (IllegalArgumentException e){
+        }
     }
     private void studentLogs(){
         searchInput.clear();
         //adding to stack pane
-        LogsStackpane.getChildren().add(root2);
-
-        //removing previous scene
-        Functions.remove(LogsStackpane);
+        try{
+            LogsStackpane.getChildren().add(root2);
+            //removing previous scene
+            Functions.remove(LogsStackpane);
+        }catch (IllegalArgumentException e){
+        }
     }
 
     @FXML

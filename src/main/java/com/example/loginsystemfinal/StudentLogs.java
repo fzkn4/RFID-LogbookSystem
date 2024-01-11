@@ -146,6 +146,30 @@ public class StudentLogs implements Initializable {
         student_table.setItems(sortedData);
     }
 
+    public void selectedRow(TableView<logs_student_data> table, String student_id){
+        logs_student_data student = new logs_student_data();
+        FilteredList<logs_student_data> filteredData = new FilteredList<>(student.getStudentLogsInfo(), p -> true);
+        //Set the filter Predicate whenever the filter changes.
+        filteredData.setPredicate(myObject -> {
+            // If filter text is empty, display all records of the students.
+            if (student_id.length() == 0) {
+                return true;
+            }
+            // Compare id in your object with filter.
+            //return true if it matches otherwise, return false.
+            if ((myObject.getStudentID()).equals(student_id)) {
+                return true;
+            }
+            return false;
+        });
+        // Wrap the FilteredList in a SortedList.
+        SortedList<logs_student_data> sortedData = new SortedList<>(filteredData);
+        //Bind the SortedList comparator to the TableView comparator.
+        sortedData.comparatorProperty().bind(table.comparatorProperty());
+        //Add sorted (and filtered) data to the table.
+        table.setItems(sortedData);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         student_table.getSelectionModel().clearSelection();
@@ -154,7 +178,7 @@ public class StudentLogs implements Initializable {
         //selection table row
         student_table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
-                Logs.student_name_display.setText(newSelection.getFname());
+                selectedRow(student_logs_table, newSelection.getRfid());
             }
         });
         //removes selection when not focused

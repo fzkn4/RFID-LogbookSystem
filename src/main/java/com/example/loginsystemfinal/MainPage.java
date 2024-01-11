@@ -165,28 +165,42 @@ public class MainPage implements Initializable {
         selected(registerbtn, logsbtn, recordbtn);
         //adding to stack pane
         //records
-        rootRecords = FXMLLoader.load(getClass().getResource("Records.fxml"));
-        recordsScene = recordbtn.getScene();
-        parentContainer.getChildren().add(rootRecords);
-        //calling remove stack
-        Functions.remove(parentContainer);
+        //adding to stack pane
+        try{
+            rootRecords = FXMLLoader.load(getClass().getResource("Records.fxml"));
+            recordsScene = recordbtn.getScene();
+            parentContainer.getChildren().add(rootRecords);
+            //calling remove stack
+            Functions.remove(parentContainer);
+        }catch (IllegalArgumentException e){
+        }
+
     }
     private void registers() throws IOException {
         selected(logsbtn, recordbtn, registerbtn);
         //adding to stack pane
-        parentContainer.getChildren().add(rootRegister);
-        //calling remove stack
-        Functions.remove(parentContainer);
+        try{
+            //adding to stack pane
+            parentContainer.getChildren().add(rootRegister);
+            //calling remove stack
+            Functions.remove(parentContainer);
+        }catch (IllegalArgumentException e){
+        }
+
     }
     private void logs() throws IOException {
         selected(registerbtn, recordbtn, logsbtn);
         //logs
-        rootLogs = FXMLLoader.load(getClass().getResource("Logs.fxml"));
-        logScene = recordbtn.getScene();
         //adding to stack pane
-        parentContainer.getChildren().add(rootLogs);
-        //calling remove stack
-        Functions.remove(parentContainer);
+        try{
+            rootLogs = FXMLLoader.load(getClass().getResource("Logs.fxml"));
+            logScene = recordbtn.getScene();
+            //adding to stack pane
+            parentContainer.getChildren().add(rootLogs);
+            //calling remove stack
+            Functions.remove(parentContainer);
+        }catch (IllegalArgumentException e) {
+        }
     }
 
     private void load_resources() throws IOException {

@@ -23,6 +23,22 @@ import java.util.ResourceBundle;
 
 
 public class LabLogs implements Initializable {
+    public ObservableList<logs_lab_data> getFiltered() {
+        return filtered;
+    }
+
+    public void setFiltered(ObservableList<logs_lab_data> filtered) {
+        this.filtered = filtered;
+    }
+
+    private ObservableList<logs_lab_data> filtered;
+    private Parent tableLabLogsRoot;
+    private Scene scene2;
+    public static int lab_id = 0;
+    public LabLogs() {
+    }
+
+    LabLogsTable labLogsTableObj = new LabLogsTable();
     logs_lab_data obj = new logs_lab_data();
     private ObservableList<logs_lab_data> labLogsData;
 
@@ -51,7 +67,7 @@ public class LabLogs implements Initializable {
     @FXML
     private MFXTextField search;
     @FXML
-    private Text labnameDisplay;
+    public Text labnameDisplay;
     Labs lab = new Labs();
 
     private ObservableList<Labs> labData;
@@ -63,6 +79,10 @@ public class LabLogs implements Initializable {
 
     @FXML
     private TableView<Labs> lab_table;
+
+    public TableView<Labs> getLab_table() {
+        return lab_table;
+    }
 
     @FXML
     private MFXToggleButton toGraph;
@@ -83,13 +103,17 @@ public class LabLogs implements Initializable {
             Functions.remove(labSummaryStack);
 
         }else{
-            Parent root = FXMLLoader.load(getClass().getResource("LabLogsTable.fxml"));
-            Scene scene = toGraph.getScene();
-            root2 = scene;
+
+            tableLabLogsRoot = FXMLLoader.load(getClass().getResource("LabLogsTable.fxml"));
+            scene2 = toGraph.getScene();
+            root2 = scene2;
             //adding to stack pane
-            labSummaryStack.getChildren().add(root);
+            labSummaryStack.getChildren().add(tableLabLogsRoot);
             Functions.remove(labSummaryStack);
         }
+    }
+    private void load_resources() throws IOException {
+
     }
 
     private void Find(){
@@ -139,6 +163,31 @@ public class LabLogs implements Initializable {
         labLogsData = obj.getLabsLogsInfo();
         lab_logs_table.setItems(labLogsData);
     }
+    public void selectedRow(TableView<logs_lab_data> table, int labID){
+        logs_lab_data lab = new logs_lab_data();
+        FilteredList<logs_lab_data> filteredData = new FilteredList<>(lab.getLabsLogsInfo(), p -> true);
+        //Set the filter Predicate whenever the filter changes.
+        filteredData.setPredicate(myObject -> {
+            // If filter text is empty, display all records of the students.
+            if (labID < 1) {
+                return true;
+            }
+            // Compare id in your object with filter.
+            //return true if it matches otherwise, return false.
+            if ((myObject.getLab_id()) == labID) {
+                return true;
+            }
+            return false;
+        });
+        // Wrap the FilteredList in a SortedList.
+        SortedList<logs_lab_data> sortedData = new SortedList<>(filteredData);
+        //Bind the SortedList comparator to the TableView comparator.
+        sortedData.comparatorProperty().bind(table.comparatorProperty());
+        //Add sorted (and filtered) data to the table.
+        table.setItems(sortedData);
+        LabLogsTable obj = new LabLogsTable();
+        obj.selectedRow(sortedData);
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -149,14 +198,23 @@ public class LabLogs implements Initializable {
         lab_table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 labnameDisplay.setText(newSelection.getLab_name());
+                selectedRow(lab_logs_table, newSelection.getLab_id());
+                labLogsTableObj.setLab_id(newSelection.getLab_id());
+            }else{
+                labLogsTableObj.setLab_id(0);
             }
         });
-        //removes selection when not focused
-        lab_table.focusedProperty().addListener((obs, oldVal, newVal) -> {
-            if (!newVal) {
-                lab_table.getSelectionModel().clearSelection();
-            }
-        });
+//        //removes selection when not focused
+//        lab_table.focusedProperty().addListener((obs, oldVal, newVal) -> {
+//            if (!newVal) {
+//                lab_table.getSelectionModel().clearSelection();
+//            }
+//        });
         Find();
+        try {
+            load_resources();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
